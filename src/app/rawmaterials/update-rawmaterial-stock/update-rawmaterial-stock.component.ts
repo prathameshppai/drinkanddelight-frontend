@@ -1,0 +1,15 @@
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-update-rawmaterial-stock',
+  templateUrl: './update-rawmaterial-stock.component.html',
+  styleUrls: ['./update-rawmaterial-stock.component.css']
+})
+export class UpdateRawmaterialStockComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+}
