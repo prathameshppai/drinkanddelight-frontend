@@ -9,6 +9,8 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
   declarations: [LoginComponent, ChangePasswordComponent],
   imports: [
     CommonModule
-  ]
+  ],
+  exports: [LoginComponent, ChangePasswordComponent],
+  
 })
 export class AuthenticationModule { }

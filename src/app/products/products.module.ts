@@ -13,6 +13,7 @@ import { SetExitDateComponent } from './set-exit-date/set-exit-date.component';
   declarations: [DisplayProductOrdersComponent, PlaceProductOrderComponent, TrackProductOrderComponent, UpdateProductOrderComponent, UpdateProductStockComponent, SetExitDateComponent],
   imports: [
     CommonModule
-  ]
+  ],
+  exports: [DisplayProductOrdersComponent, PlaceProductOrderComponent, TrackProductOrderComponent, UpdateProductOrderComponent, UpdateProductStockComponent, SetExitDateComponent]
 })
 export class ProductsModule { }

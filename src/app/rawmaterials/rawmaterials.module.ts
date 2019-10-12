@@ -13,6 +13,7 @@ import { SetProcessDateComponent } from './set-process-date/set-process-date.com
   declarations: [DisplayRawmaterialOrdersComponent, PlaceRawmaterialOrdersComponent, TrackRawmaterialOrderComponent, UpdateRawmaterialOrderComponent, UpdateRawmaterialStockComponent, SetProcessDateComponent],
   imports: [
     CommonModule
-  ]
+  ],
+  exports: [DisplayRawmaterialOrdersComponent, PlaceRawmaterialOrdersComponent, TrackRawmaterialOrderComponent, UpdateRawmaterialOrderComponent, UpdateRawmaterialStockComponent, SetProcessDateComponent]
 })
 export class RawmaterialsModule { }
