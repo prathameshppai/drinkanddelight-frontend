@@ -7,9 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UpdateProductStockComponent implements OnInit {
 
+  orderId: number = 0;
+  manufacturingDate: Date = null;
+  expiryDate: Date = null;
+  qaStatus: string; 
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  log(x) {
+    console.log(x);
   }
 
 }

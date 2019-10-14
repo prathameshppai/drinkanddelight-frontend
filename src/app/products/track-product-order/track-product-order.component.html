@@ -1,1 +1,28 @@
-<p>track-product-order works!</p>
+<div class=container>
+    <div>
+        <h2>Track Product Order</h2>
+        <p>Enter the order ID to be tracked.</p>
+    </div>
+    <hr>
+    <br>
+    <form>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-lg-2">
+                    <label for="orderID">Enter Order ID</label>
+                </div>
+
+                <div class="col-lg-3">
+                    <input required pattern='[0-9]+' type="text" #trackorderID='ngModel' class='form-control' [(ngModel)]='orderId' name='orderID' id="orderID" (change) = "log(trackorderID)">
+                    
+                    <div class="alert alert-danger" *ngIf="trackorderID.touched && !trackorderID.valid"> Order ID is required
+                    <div *ngIf="trackorderID.errors.pattern"> Enter numeric order ID</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary">Track Order</button>
+    </form>
+</div>
+

@@ -7,9 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UpdateRawmaterialStockComponent implements OnInit {
 
+  orderId: number = 0;
+  manufacturingDate: Date = null;
+  expiryDate: Date = null;
+  qaStauts: string;
+
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  log(x) {
+    console.log(x);
   }
 
 }

@@ -6,13 +6,15 @@ import { TrackProductOrderComponent } from './track-product-order/track-product-
 import { UpdateProductOrderComponent } from './update-product-order/update-product-order.component';
 import { UpdateProductStockComponent } from './update-product-stock/update-product-stock.component';
 import { SetExitDateComponent } from './set-exit-date/set-exit-date.component';
+import { FormsModule } from '@angular/forms';
 
 
 
 @NgModule({
   declarations: [DisplayProductOrdersComponent, PlaceProductOrderComponent, TrackProductOrderComponent, UpdateProductOrderComponent, UpdateProductStockComponent, SetExitDateComponent],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
   ],
   exports: [DisplayProductOrdersComponent, PlaceProductOrderComponent, TrackProductOrderComponent, UpdateProductOrderComponent, UpdateProductStockComponent, SetExitDateComponent]
 })
