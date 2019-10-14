@@ -16,4 +16,14 @@ export class PlaceProductOrderComponent implements OnInit {
   ngOnInit() {
   }
 
+    // '[0-9]+[.]{1}'
+    // '/^(?=.+)(?:[1-9]\d*|0)?(?:\.\d+)?$/'
+
+  quantityVar: number = 0.0;
+  pricePerUnitVar: number = 0.0;
+  
+  log(x) {
+    console.log(x);
+  }
+
 }
