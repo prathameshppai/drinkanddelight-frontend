@@ -41,7 +41,8 @@
                     <b>Quantity</b>
                 </label>
                 <br>
-                <input type="text" placeholder="Enter quantity" name="Quantity" class="text-box-size form-rounded" required>
+                <input type="text" placeholder="Enter quantity" name="Quantity" class="text-box-size" pattern="/^(?=.+)(?:[1-9]\d*|0)?(?:\.\d+)?$/" ng-model="value"/>
+                <!-- <input type="text" placeholder="Enter quantity" name="Quantity" class="text-box-size form-rounded" required> -->
             </div>
 
             <div class="col-sm-2">
@@ -87,3 +88,5 @@
 
     </div>
 </form>
+
+<!-- ^(?:[1-9]\d*|0)?(?:\.\d+)?$ -->
