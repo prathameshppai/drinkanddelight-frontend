@@ -1,1 +1,85 @@
-<p>update-product-stock works!</p>
+<div class="container">
+    <div>
+       <h2>Update Product Stock</h2>
+       <p>Update details of product</p>
+    </div>
+    <hr>
+    <br>
+    <form>
+      <div class="form-group">
+              <div class="row">
+                      <div class="col-lg-2">
+                          <label for="orderID">Enter Order ID</label>
+                      </div>
+          
+                      <div class="col-lg-3">
+                          <input required pattern='[0-9]+' type="text" #orderID='ngModel' class='form-control' id="orderID"
+                                  [(ngModel)]='orderId' name='orderID' (change) = "log(orderID)">
+                          <!-- <div class = "alert alert-danger" *ngIf = 'orderIDcheck'>Enter numeric order id</div> -->
+                          <div class="alert alert-danger" *ngIf="orderID.touched && !orderID.valid"> Order ID is required
+                          <div *ngIf="orderID.errors.pattern"> Enter numeric order ID</div>
+                          </div>
+                      </div>
+              </div>
+      </div>
+      
+  
+      <div class="form-group">
+              <div class="row">
+                      <div class="col-lg-2">
+                          <label for="manufacturingdate">Manufacturing Date</label>
+                      </div>
+          
+                      <div class="col-lg-3">
+                          <input required type="date"  class='form-control' id="manufacturingdate" #updateManufacturingDate='ngModel'
+                          [(ngModel)]='manufacturingDate' name='manufacturingDate' (change) = "log(updateManufacturingDateDate)">
+                                   
+                              <!-- <div class = "alert alert-danger" *ngIf = 'orderIDcheck'>Enter numeric order id</div> -->
+                          <div class="alert alert-danger" *ngIf="updateManufacturingDate.touched && !updateManufacturingDate.valid"> enter manufacturing date </div>
+                          
+                      </div>
+              </div>
+      </div>
+      
+  
+      <div class="form-group">
+              <div class="row">
+                      <div class="col-lg-2">
+                          <label for="expirydate">Expiry Date</label>
+                      </div>
+          
+                      <div class="col-lg-3">
+                          <input required type="date"  class='form-control' id="expirydate" #updateExpiryDate='ngModel'
+                          [(ngModel)]='expiryDate' name='expiryDate' (change) = "log(updateExpiryDate)">
+                                   
+                              <!-- <div class = "alert alert-danger" *ngIf = 'orderIDcheck'>Enter numeric order id</div> -->
+                          <div class="alert alert-danger" *ngIf="updateExpiryDate.touched && !updateExpiryDate.valid"> enter expiry date </div>
+                          
+                      </div>
+              </div>
+      </div>
+     
+         
+      <div class="form-group">
+              <div class="row">
+                      <div class="col-lg-2">
+                          <label for="QAStatus">Quality Status</label>
+                      </div>
+                      <div class="col-lg-3">
+                          <select class="form-control" name="QAStatus" required [(ngModel)] = 'qaStatus'>
+                          <option>Passed</option>
+                          <option>Failed</option>
+                          </select>
+                      </div>
+              </div>
+  
+      </div>
+  
+      <br>      
+      <button type="submit" class="btn btn-primary">Update Stock</button>
+  
+    </form>
+  
+  </div>
+
+ 

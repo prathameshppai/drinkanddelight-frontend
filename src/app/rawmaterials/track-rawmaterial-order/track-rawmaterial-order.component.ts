@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TrackRawmaterialOrderComponent implements OnInit {
 
+  orderId: number = 0;
+  
   constructor() { }
 
   ngOnInit() {
+  }
+
+ 
+
+  log(x) {
+    console.log(x);
   }
 
 }

@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TrackProductOrderComponent implements OnInit {
 
+  orderId: number = 0;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  log(x) {
+    console.log(x);
   }
 
 }

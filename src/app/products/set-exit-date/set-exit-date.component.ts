@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SetExitDateComponent implements OnInit {
 
+  orderId: number = 0;
+  exitDate: Date = null;
   constructor() { }
 
   ngOnInit() {
+  }
+
+  log(x) {
+    console.log(x);
   }
 
 }

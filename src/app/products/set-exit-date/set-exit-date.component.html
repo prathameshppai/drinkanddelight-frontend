@@ -1,1 +1,52 @@
-<p>set-exit-date works!</p>
+<div class="container">
+    <div>
+        <h2>Update exit Date of Product</h2>
+        <p>Enter the exit date for order ID</p>
+    </div>
+    <hr>
+        <br>
+    <form>
+            <div class="form-group">
+                    <div class="row">
+                        <div class="col-lg-2">
+                            <label for="orderID">Enter Order ID</label>
+                        </div>
+            
+                        <div class="col-lg-3">
+                            <input required pattern='[0-9]+' type="text" #orderID='ngModel' class='form-control' id="orderID"
+                                    [(ngModel)]='orderId' name='orderID' (change) = "log(orderID)">
+                            <!-- <div class = "alert alert-danger" *ngIf = 'orderIDcheck'>Enter numeric order id</div> -->
+                            <div class="alert alert-danger" *ngIf="orderID.touched && !orderID.valid"> Order ID is required
+                            <div *ngIf="orderID.errors.pattern"> Enter numeric order ID</div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+    
+            <div class="form-group">
+                    <div class="row">
+                        <div class="col-lg-2">
+                            <label for="exitdate">Exit Date</label>
+                        </div>
+            
+                        <div class="col-lg-3">
+                            <input required type="date"  class='form-control' id="exitdate" #updateExitDate='ngModel'
+                            [(ngModel)]='exitDate' name='exitDate' (change) = "log(updateExitDate)">
+                                     
+                                <!-- <div class = "alert alert-danger" *ngIf = 'orderIDcheck'>Enter numeric order id</div> -->
+                            <div class="alert alert-danger" *ngIf="updateExitDate.touched && !updateExitDate.valid"> enter exit date </div>
+                            
+                        </div>
+                    </div>
+                
+            </div>
+    <br>
+            <button type="submit" class="btn btn-primary">Update</button>
+    
+    
+    
+    
+    </form>
+    
+</div>
+

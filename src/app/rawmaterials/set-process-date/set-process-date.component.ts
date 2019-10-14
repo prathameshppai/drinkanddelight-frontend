@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SetProcessDateComponent implements OnInit {
 
+  orderId: number = 0;
+   processDate: Date = null;
+  
+  
   constructor() { }
 
   ngOnInit() {
+  }
+  log(x) {
+    console.log(x);
   }
 
 }
