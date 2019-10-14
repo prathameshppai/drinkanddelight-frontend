@@ -1,1 +1,89 @@
+
 <p>place-product-order works!</p>
+
+<form action="PlaceProductOrderServlet" method="post">
+    <div class="container wrapper" class="form-check" class="was-validated">
+
+        <hr>
+        <div class="row">
+            <div class="col-sm-3">
+                <label for="ProductName">
+                    <b>Product Name</b>
+                </label>
+                <select class="form-control" name="ProductName" required>
+                    <option *ngFor="let productOrder of productOrders">{{ productOrder }}</option>
+                </select>
+            </div>
+
+            <div class="col-sm-2">
+                <label for="DISTID">
+                    <b>Distributor ID</b>
+                </label>
+                <select class="form-control" name="DISTID" required>
+                    <option *ngFor="let distributorId of distributorIds">{{ distributorId }}</option>
+                </select>
+            </div>
+
+            <div class="col-sm-2">
+                <label for="warehouseId">
+                    <b>Warehouse ID</b>
+                </label>
+                <select class="form-control" name="warehouseId" required>
+                    <option *ngFor="let warehouseId of warehouseIds">{{ warehouseId }}</option>
+                </select>
+            </div>
+
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-sm-3">
+                <label for="Quantity">
+                    <b>Quantity</b>
+                </label>
+                <br>
+                <input type="text" placeholder="Enter quantity" name="Quantity" class="text-box-size form-rounded" required>
+            </div>
+
+            <div class="col-sm-2">
+                <label for="QuantityUnit">
+                    <b>Quantity Unit</b>
+                </label>
+                <select class="form-control" name="QuantityUnit" required>
+                    <option>kg</option>
+                    <option>quintals</option>
+                </select>
+            </div>
+
+            <div class="col-sm-3">
+                    <label for="price_per_unit">
+                        <b>Price per Unit</b>
+                    </label>
+                    <br>
+                    <input type="text" placeholder="Enter amount in Rs" name="price_per_unit" class="text-box-size form-rounded" required>
+                </div>
+        </div>
+        <br>
+
+        <div class="row">
+            <div class="col-sm-3">
+                <label for="expectedDateofDelivery">
+                    <b>Expected Date of Delivery</b>
+                </label>
+                <input type="date" name="expectedDateofDelivery" class="text-box-size form-rounded">
+            </div>
+
+            
+        </div>
+        <br>
+
+        <div class="row">
+                <div class="col-sm-3">
+                </div>
+                <div class="col-sm-3">
+                    <button type="submit" class="registerbtn">Place Order</button>            
+                </div>
+            </div>
+        <br>
+
+    </div>
+</form>
