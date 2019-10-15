@@ -1,0 +1,29 @@
+.image
+{
+border-radius: 50%;
+width: 60%;
+height: 60%;
+}
+.header-left {
+    float: left;
+}
+.header-right {
+    float: right;
+}
+.font{
+font-size: 150%;
+font-weight: bold;
+font-family: 'Lucida console', monospace;
+color: #ffffcc;
+}
+.mr-auto {
+    margin-right: 0 !important;
+}
+.navbar-toggleable-md .navbar-collapse {         
+    -webkit-justify-content: flex-end;
+    justify-content: flex-end;  
+} 
+.header-font{
+    font-family: cursive;
+    color: #ffffcc;
+}
