@@ -7,18 +7,48 @@ import { UpdateRawmaterialOrderComponent } from './update-rawmaterial-order/upda
 import { UpdateRawmaterialStockComponent } from './update-rawmaterial-stock/update-rawmaterial-stock.component';
 import { SetProcessDateComponent } from './set-process-date/set-process-date.component';
 import { FormsModule } from '@angular/forms';
-import { PlaceRawmaterialOrdersService} from './place-rawmaterial-orders/place-rawmaterial-orders.service'
+// import { PlaceRawmaterialOrdersService} from './place-rawmaterial-orders/place-rawmaterial-orders.service'
 import { HttpClientModule} from '@angular/common/http';
+import { Routes, RouterModule } from '@angular/router';
+
+const secondaryRoutes: Routes = [
+  { path: 'place-rawmaterial-order', component: PlaceRawmaterialOrdersComponent},
+  { path: 'display-rawmaterial-orders', component: DisplayRawmaterialOrdersComponent},
+  { path: 'set-process-date', component: SetProcessDateComponent},
+  { path: 'track-rawmaterial-order', component: TrackRawmaterialOrderComponent},
+  { path: 'update-rawmaterial-order', component: UpdateRawmaterialOrderComponent},
+  { path: 'update-rawmaterial-stock', component: UpdateRawmaterialStockComponent}
+];
+
 
 @NgModule({
-  declarations: [DisplayRawmaterialOrdersComponent, PlaceRawmaterialOrdersComponent, TrackRawmaterialOrderComponent, UpdateRawmaterialOrderComponent, UpdateRawmaterialStockComponent, SetProcessDateComponent, PlaceRawmaterialOrdersService],
+  declarations: [
+    DisplayRawmaterialOrdersComponent, 
+    PlaceRawmaterialOrdersComponent, 
+    TrackRawmaterialOrderComponent, 
+    UpdateRawmaterialOrderComponent, 
+    UpdateRawmaterialStockComponent, 
+    SetProcessDateComponent],
+
   imports: [
+    RouterModule.forChild(secondaryRoutes),
     CommonModule,
     FormsModule,
     HttpClientModule
   ],
-  exports: [DisplayRawmaterialOrdersComponent, PlaceRawmaterialOrdersComponent, TrackRawmaterialOrderComponent, UpdateRawmaterialOrderComponent, UpdateRawmaterialStockComponent, SetProcessDateComponent, PlaceRawmaterialOrdersService],
+
+  exports: [
+    DisplayRawmaterialOrdersComponent, 
+    PlaceRawmaterialOrdersComponent, 
+    TrackRawmaterialOrderComponent, 
+    UpdateRawmaterialOrderComponent, 
+    UpdateRawmaterialStockComponent, 
+    SetProcessDateComponent],
+
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
-  providers: [ PlaceRawmaterialOrdersService ],
+  
+  providers: [ 
+    // PlaceRawmaterialOrdersService
+   ],
 })
 export class RawmaterialsModule { } 

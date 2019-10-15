@@ -5,17 +5,28 @@ import { PlaceProductOrderComponent } from './place-product-order/place-product-
 import { TrackProductOrderComponent } from './track-product-order/track-product-order.component';
 import { UpdateProductOrderComponent } from './update-product-order/update-product-order.component';
 import { UpdateProductStockComponent } from './update-product-stock/update-product-stock.component';
+import { AddDistributorAddressComponent } from './add-distributor-address/add-distributor-address.component';
 import { SetExitDateComponent } from './set-exit-date/set-exit-date.component';
 import { FormsModule } from '@angular/forms';
+import { Routes, RouterModule } from '@angular/router';
 
-
+const secondaryRoutes: Routes = [
+  { path: 'place-product-order', component: PlaceProductOrderComponent},
+  { path: 'display-product-orders', component: DisplayProductOrdersComponent},
+  { path: 'set-exit-date', component: SetExitDateComponent},
+  { path: 'track-product-order', component: TrackProductOrderComponent},
+  { path: 'update-product-order', component: UpdateProductOrderComponent},
+  { path: 'update-product-stock', component: UpdateProductStockComponent},
+  { path: 'add-distributor-address', component: AddDistributorAddressComponent}
+];
 
 @NgModule({
-  declarations: [DisplayProductOrdersComponent, PlaceProductOrderComponent, TrackProductOrderComponent, UpdateProductOrderComponent, UpdateProductStockComponent, SetExitDateComponent],
+  declarations: [DisplayProductOrdersComponent, PlaceProductOrderComponent, TrackProductOrderComponent, UpdateProductOrderComponent, UpdateProductStockComponent, SetExitDateComponent, AddDistributorAddressComponent, AddDistributorAddressComponent],
   imports: [
+    RouterModule.forChild(secondaryRoutes),
     CommonModule,
     FormsModule
   ],
-  exports: [DisplayProductOrdersComponent, PlaceProductOrderComponent, TrackProductOrderComponent, UpdateProductOrderComponent, UpdateProductStockComponent, SetExitDateComponent]
+  exports: [DisplayProductOrdersComponent, PlaceProductOrderComponent, TrackProductOrderComponent, UpdateProductOrderComponent, UpdateProductStockComponent, SetExitDateComponent, AddDistributorAddressComponent]
 })
 export class ProductsModule { }
