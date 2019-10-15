@@ -27,3 +27,7 @@ color: #ffffcc;
     font-family: cursive;
     color: #ffffcc;
 }
+.btn-secondary-spacing 
+{
+margin-right: 5px;
+}
