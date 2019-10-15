@@ -14,4 +14,11 @@ export class PlaceRawmaterialOrdersComponent implements OnInit {
   ngOnInit() {
   }
 
+  quantityVar: number = 0.0;
+  pricePerUnitVar: number = 0.0;
+  
+  log(x) {
+    console.log(x);
+  }
+
 }

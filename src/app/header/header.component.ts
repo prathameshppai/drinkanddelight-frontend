@@ -11,6 +11,5 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
   }
-  // [0-9]+[.]{1}
 
 }

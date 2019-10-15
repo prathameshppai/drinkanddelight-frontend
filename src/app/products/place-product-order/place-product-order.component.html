@@ -1,5 +1,5 @@
-
-<p>place-product-order works!</p>
+<p>
+    place-product-order works!</p>
 
 <form action="PlaceProductOrderServlet" method="post">
     <div class="container wrapper" class="form-check" class="was-validated">
@@ -41,7 +41,11 @@
                     <b>Quantity</b>
                 </label>
                 <br>
-                <input type="text" placeholder="Enter quantity" name="Quantity" class="text-box-size form-rounded" required>
+                <input required pattern='[0-9]+' type="text" #quantity='ngModel' class='form-control' id="quantity" 
+                [(ngModel)]='quantityVar' name='quantity' (change)="log(quantity)">
+                <div class="alert alert-danger" *ngIf="quantity.touched && !quantity.valid"> This field is required
+                    <div *ngIf="quantity.errors.pattern"> Enter value in decimal only </div>
+                </div>
             </div>
 
             <div class="col-sm-2">
@@ -55,12 +59,17 @@
             </div>
 
             <div class="col-sm-3">
-                    <label for="price_per_unit">
-                        <b>Price per Unit</b>
-                    </label>
-                    <br>
-                    <input type="text" placeholder="Enter amount in Rs" name="price_per_unit" class="text-box-size form-rounded" required>
+                <label for="price_per_unit">
+                    <b>Price per Unit</b>
+                </label>
+                <br>
+                <input required pattern='[0-9]+' type="text" #pricePerUnit='ngModel' class='form-control' id="pricePerUnit" 
+                [(ngModel)]='pricePerUnitVar' name='pricePerUnit' (change)="log(pricePerUnit)">
+                <div class="alert alert-danger" *ngIf="pricePerUnit.touched && !pricePerUnit.valid"> This field is required
+                    <div *ngIf="pricePerUnit.errors.pattern"> Enter value in decimal only </div>
                 </div>
+                <!-- <input type="text" placeholder="Enter amount in Rs" name="price_per_unit" class="text-box-size form-rounded" required> -->
+            </div>
         </div>
         <br>
 
@@ -72,18 +81,20 @@
                 <input type="date" name="expectedDateofDelivery" class="text-box-size form-rounded">
             </div>
 
-            
+
         </div>
         <br>
 
         <div class="row">
-                <div class="col-sm-3">
-                </div>
-                <div class="col-sm-3">
-                    <button type="submit" class="registerbtn">Place Order</button>            
-                </div>
+            <div class="col-sm-3">
             </div>
+            <div class="col-sm-3">
+                <button type="submit" class="registerbtn">Place Order</button>
+            </div>
+        </div>
         <br>
 
     </div>
 </form>
+
+<!-- ^(?:[1-9]\d*|0)?(?:\.\d+)?$ -->
