@@ -24,7 +24,16 @@ export class TrackProductOrderComponent implements OnInit {
     //   }
     // );
 
-    this.trackProductOrder.getTrackedMessage();
+    this.trackProductOrder.getTrackedMessage()
+    .subscribe(
+      data => {
+        console.log("Response : "+JSON.stringify(data));
+        this.message = data["message"];
+      },
+      error => {
+        console.log("Error :"+JSON.stringify(error));
+      }
+    );
 
   }
 
