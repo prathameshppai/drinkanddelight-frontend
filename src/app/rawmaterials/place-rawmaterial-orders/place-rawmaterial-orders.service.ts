@@ -23,16 +23,16 @@ export class PlaceRawmaterialOrdersService {
       })
     };
     
-    this.httpClient
-      .post("http://localhost:9090/drinkanddelight/PlaceRMOrder.html",{"":"anish@gmail.com","pswd":"12345"})
-      .subscribe(
-        data => {
-          console.log("Response : "+JSON.stringify(data));
-        },
-        error => {
-          console.log("Error :"+JSON.stringify(error));
-        }
-      );
+    // this.httpClient
+    //   .post("http://localhost:9090/drinkanddelight/PlaceRMOrder.html",{"":"anish@gmail.com","pswd":"12345"})
+    //   .subscribe(
+    //     data => {
+    //       console.log("Response : "+JSON.stringify(data));
+    //     },
+    //     error => {
+    //       console.log("Error :"+JSON.stringify(error));
+    //     }
+    //   );
     
   }
   
