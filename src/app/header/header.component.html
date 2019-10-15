@@ -1,13 +1,11 @@
 <nav class="navbar navbar-expand-sm navbar-toggleable-md bg-dark navbar-dark">
     <!-- Brand/logo -->
-    <!-- <div class="header-left"> -->
     <a class="navbar-brand header-left" href="#">
           
         <img src="../../assets/logo.png" class="img-circle image" alt="logo">
     </a>
-    <!-- </div> -->
 <ul class="nav navbar-nav">
-    <li class="nav-item header-font"><h1>Drink and Delight</h1><h4>Deliciously Refreshing</h4></li>
+    <li class="nav-item header-font"><h1><b>Drink and Delight</b></h1><h4>Deliciously Refreshing</h4></li>
 </ul>
     
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -15,56 +13,64 @@
     </button>
 
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
-            <!-- <a class="navbar-brand" href="#">
-          
-                    <img src="../../assets/logo.png" class="img-circle image" alt="logo">
-                </a>  -->
-            <!-- <div class="header-right"> -->
-                <!-- <div class="container text-right"> -->
         <ul class="nav navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="#"><h6 class="font">HOME</h6></a>
-          </li>
-
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown"><h6 class="font">RAW MATERIAL</h6></a>
-            <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">place an order</a>
-                <a class="dropdown-item" href="#">display all orders</a>
-                <a class="dropdown-item" href="#">update an order</a>
-                <a class="dropdown-item" href="#">update stock</a>
-                <a class="dropdown-item" href="#">set process date</a>
-                <a class="dropdown-item" href="#">track raw material order</a>
+                <div class="btn-group">
+                        <button class="btn btn-secondary btn-md btn-secondary-spacing font" id="navbardrop" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        HOME
+                        </button>
+            <!-- <a class="nav-link"><p class="font">HOME</p></a> -->
             </div>
           </li>
 
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown"><h6 class="font">PRODUCT</h6></a>
+                <div class="btn-group">
+                        <button class="btn btn-secondary btn-md dropdown-toggle btn-secondary-spacing font" id="navbardrop" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          RAW MATERIAL
+                        </button>
+            <!-- <a class="nav-link dropdown-toggle font" href="#" id="navbardrop" data-toggle="dropdown">Raw Material
+                </a> -->
             <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">place an order</a>
-                <a class="dropdown-item" href="#">display all orders</a>
-                <a class="dropdown-item" href="#">update an order</a>
-                <a class="dropdown-item" href="#">update stock</a>
-                <a class="dropdown-item" href="#">set exit date</a>
-                <a class="dropdown-item" href="#">track product order</a>
+                <a class="dropdown-item" routerLink ="place-rawmaterial-order">Place an Order</a>
+                <a class="dropdown-item" routerLink ="display-rawmaterial-orders">Display all Orders</a>
+                <a class="dropdown-item" routerLink ="update-rawmaterial-order">Update an Order</a>
+                <a class="dropdown-item" routerLink ="update-rawmaterial-stock">Update Stock</a>
+                <a class="dropdown-item" routerLink ="set-process-date">Set Process date</a>
+                <a class="dropdown-item" routerLink ="track-rawmaterial-order">Track Raw material Order</a>
+            </div>
+            </div>
+          </li>
+
+          <li class="nav-item dropdown">
+                <div class="btn-group">
+                        <button class="btn btn-secondary btn-md dropdown-toggle btn-secondary-spacing font" id="navbardrop" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        PRODUCT
+                        </button>
+            <!-- <a class="nav-link dropdown-toggle font" href="#" id="navbardrop" data-toggle="dropdown">PRODUCT</a> -->
+            <div class="dropdown-menu">
+                <a class="dropdown-item" routerLink ="place-product-order">Place an Order</a>
+                <a class="dropdown-item" routerLink ="display-product-orders">Display all Orders</a>
+                <a class="dropdown-item" routerLink ="update-product-order">Update an Order</a>
+                <a class="dropdown-item" routerLink ="update-product-stock">Update Stock</a>
+                <a class="dropdown-item" routerLink ="set-exit-date">Set Exit date</a>
+                <a class="dropdown-item" routerLink ="track-product-order">Track Product order</a>
+                <a class="dropdown-item" routerLink ="add-distributor-address">Add Distributor address</a>
+            </div>
             </div>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="#"><h6 class="font">LOGOUT</h6></a>
+                <div class="btn-group">
+                        <button class="btn btn-secondary btn-md font" id="navbardrop" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        LOGOUT
+                        </button>
+            <!-- <a class="nav-link font" href="#">LOGOUT</a> -->
+            </div>
           </li>
 
 
 
 
         </ul>
-    <!-- </div> -->
-        <!-- </div> -->
     </div>
-
-
-    
 </nav>
-    <!-- </header>
-   #header 
-</div> -->

@@ -11,9 +11,9 @@ height: 60%;
     float: right;
 }
 .font{
-font-size: 150%;
+font-size: 100%;
 font-weight: bold;
-font-family: 'Lucida console', monospace;
+font-family: cursive;
 color: #ffffcc;
 }
 .mr-auto {
@@ -26,4 +26,8 @@ color: #ffffcc;
 .header-font{
     font-family: cursive;
     color: #ffffcc;
+}
+.btn-secondary-spacing 
+{
+margin-right: 5px;
 }

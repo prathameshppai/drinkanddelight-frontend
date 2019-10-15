@@ -1,1 +1,28 @@
-<p>update-rawmaterial-order works!</p>
+<h3>Update Raw material Order</h3>
+<form action="UpdateRawMaterialDeliveryStatusServlet" method="post">
+    <div class="container wrapper" class="form-check" class="was-validated">
+    
+<hr>    
+    <div class="row">
+            <div class="col-sm-3">
+                <label for="OrderId"><b>Order ID</b></label>
+            </div>
+            <div class="col-sm-9">
+                <input type="text" placeholder="Enter Order ID" name="OrderId" class = "text-box-size form-rounded" required>
+            </div>
+        </div>
+<br>        
+    <div class="row">
+        <div class="col-sm-3">
+                <label for="DeliveryStatus"><b>Delivery Status</b></label>
+        </div>
+        <div class="col-sm-3">
+                <select class="form-control" name="DeliveryStatus" required>
+                <option *ngFor="let DeliveryStatus of DeliveryStatuses" >{{ DeliveryStatus }} </option>
+                </select>
+            </div>
+        </div>
+<br>
+    <button type="submit">Update Order</button>
+</div>
+</form>

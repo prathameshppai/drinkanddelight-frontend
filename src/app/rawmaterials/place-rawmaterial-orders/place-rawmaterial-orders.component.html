@@ -1,4 +1,6 @@
-<p>place-rawmaterial-orders works!</p>
+<br>
+<h3>Place Raw Material Order</h3>
+
 <form action="PlaceRMOrderServlet" method="post">
     <div class="container wrapper" class="form-check" class="was-validated">
 
@@ -57,7 +59,7 @@
                 </select>
             </div>
 
-            <div class="col-sm-3">
+            <div class="col-sm-2">
                 <label for="price_per_unit">
                     <b>Price per Unit</b>
                 </label>
@@ -77,7 +79,7 @@
                 <label for="expectedDateofDelivery">
                     <b>Expected Date of Delivery</b>
                 </label>
-                <input type="date" name="expectedDateofDelivery" class="text-box-size form-rounded">
+                <input type="date" name="expectedDateofDelivery" class="was-validated text-box-size form-rounded" value="2019-10-30" min="2019-10-01" max="2019-10-15">
             </div>
 
 
@@ -88,10 +90,9 @@
             <div class="col-sm-3">
             </div>
             <div class="col-sm-3">
-                <button type="submit" class="registerbtn">Place Order</button>
+                <button type="submit">Place Order</button>
             </div>
         </div>
         <br>
-
     </div>
 </form>
