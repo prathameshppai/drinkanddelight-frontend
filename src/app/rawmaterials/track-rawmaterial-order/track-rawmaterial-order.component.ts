@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TrackRawMaterialServiceService } from './track-raw-material-service.service';
 
 @Component({
   selector: 'app-track-rawmaterial-order',
@@ -9,9 +10,12 @@ export class TrackRawmaterialOrderComponent implements OnInit {
 
   orderId: number = 0;
   
-  constructor() { }
+  message: String = '';
+  constructor(private trackRMOrder: TrackRawMaterialServiceService) { }
 
   ngOnInit() {
+    this.trackRMOrder.getTrackedMessage().subscribe(data => this.message = data)
+
   }
 
  
