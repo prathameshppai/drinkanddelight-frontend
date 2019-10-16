@@ -1,7 +1,8 @@
 <br>
 <h3>Place Raw Material Order</h3>
 
-<form action="PlaceRMOrderServlet" method="post">
+<!-- <form action="PlaceRMOrderServlet" method="post"> -->
+<form>
     <div class="container wrapper" class="form-check" class="was-validated">
 
         <hr>
@@ -96,3 +97,8 @@
         <br>
     </div>
 </form>
+
+<div *ngIf = 'isPlaceRawmaterialOrderFetched'>
+    <p>{{ message }}</p> 
+ </div>
+ 
