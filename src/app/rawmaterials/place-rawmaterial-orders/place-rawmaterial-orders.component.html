@@ -55,8 +55,8 @@
                     <b>Quantity Unit</b>
                 </label>
                 <select class="form-control" name="QuantityUnit" [(ngModel)]='QuantityUnitVar' required>
-                    <option>kg</option>
-                    <option>quintals</option>
+                        <option>kg</option>
+                        <option>quintals</option>
                 </select>
             </div>
 
@@ -80,7 +80,7 @@
                 <label for="expectedDateofDelivery">
                     <b>Expected Date of Delivery</b>
                 </label>
-                <input type="date" name="expectedDateofDelivery" [(ngModel)]='expectedDateofDeliveryVar' class="was-validated text-box-size form-rounded" value="2019-10-30" min="2019-10-01" max="2019-10-15">
+                <input type="date" name="expectedDateofDelivery" [(ngModel)]='expectedDateofDeliveryVar' class="was-validated text-box-size form-rounded" value="2019-10-30" min="2019-10-16">
             </div>
 
 
@@ -98,7 +98,7 @@
     </div>
 </form>
 
-<div *ngIf = 'isPlaceRawmaterialOrderFetched'>
+<div *ngIf = 'isPlaceRawmaterialOrderFetched' id='resultMessage'>
     <p>{{ message }}</p> 
  </div>
  

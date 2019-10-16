@@ -18,8 +18,8 @@ export class PlaceRawmaterialOrdersComponent implements OnInit {
   warehouseIdVar: string;
   QuantityUnitVar: string;
   expectedDateofDeliveryVar: Date;
-
   isPlaceRawmaterialOrderFetched: boolean = false;
+  
   constructor(private placeRawmaterialOrdersService: PlaceRawmaterialOrdersService) { }
 
   ngOnInit() {
