@@ -11,24 +11,20 @@ export class TrackProductOrderComponent implements OnInit {
 
   orderId: number = 0;
   message: string = '';
-  constructor(private trackProductOrder: TrackProductOrderService) { }
+  isTrackFetched: boolean = false;
+  constructor(private trackProductOrderService: TrackProductOrderService) { }
 
   ngOnInit() {
-    // this.trackProductOrder.getTrackedMessage().subscribe(
-    //   data => {
-    //     console.log("Response : "+JSON.stringify(data));
-    //     this.message = data;
-    //   },
-    //   error => {
-    //     console.log("Error :"+JSON.stringify(error));
-    //   }
-    // );
+    }
 
-    this.trackProductOrder.getTrackedMessage()
+  getMessage() {
+
+    this.trackProductOrderService.getTrackedMessage(this.orderId)
     .subscribe(
       data => {
         console.log("Response : "+JSON.stringify(data));
         this.message = data["message"];
+        this.isTrackFetched = true;
       },
       error => {
         console.log("Error :"+JSON.stringify(error));

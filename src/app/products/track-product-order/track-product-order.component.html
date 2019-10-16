@@ -22,11 +22,11 @@
             </div>
         </div>
         <br>
-        <button type="submit" class="btn btn-primary">Track Order</button>
+        <button type="submit" class="btn btn-primary" (click) = 'getMessage()'>Track Order</button>
     </form>
 </div>
 
-<div>
+<div *ngIf = 'isTrackFetched'>
    <p> Data fetched from servlet is: {{ message }}</p> 
 </div>
 
