@@ -10,7 +10,7 @@
                 <label for="RMName">
                     <b>Raw Material Name</b>
                 </label>
-                <select class="form-control" name="RMName" required>
+                <select class="form-control" name="RMName" [(ngModel)]='RMNameVar' required>
                     <option *ngFor="let rmOrder of rmOrders">{{ rmOrder }}</option>
                 </select>
             </div>
@@ -19,7 +19,7 @@
                 <label for="SUPID">
                     <b>Supplier ID</b>
                 </label>
-                <select class="form-control" name="SUPID" required>
+                <select class="form-control" name="SUPID" [(ngModel)]='SUPIDVar' required>
                     <option *ngFor="let supplierId of supplierIds">{{ supplierId }}</option>
                 </select>
             </div>
@@ -28,7 +28,7 @@
                 <label for="warehouseId">
                     <b>Warehouse ID</b>
                 </label>
-                <select class="form-control" name="warehouseId" required>
+                <select class="form-control" name="warehouseId" [(ngModel)]='warehouseIdVar' required>
                     <option *ngFor="let warehouseId of warehouseIds">{{ warehouseId }}</option>
                 </select>
             </div>
@@ -53,7 +53,7 @@
                 <label for="QuantityUnit">
                     <b>Quantity Unit</b>
                 </label>
-                <select class="form-control" name="QuantityUnit" required>
+                <select class="form-control" name="QuantityUnit" [(ngModel)]='QuantityUnitVar' required>
                     <option>kg</option>
                     <option>quintals</option>
                 </select>
@@ -79,7 +79,7 @@
                 <label for="expectedDateofDelivery">
                     <b>Expected Date of Delivery</b>
                 </label>
-                <input type="date" name="expectedDateofDelivery" class="was-validated text-box-size form-rounded" value="2019-10-30" min="2019-10-01" max="2019-10-15">
+                <input type="date" name="expectedDateofDelivery" [(ngModel)]='expectedDateofDeliveryVar' class="was-validated text-box-size form-rounded" value="2019-10-30" min="2019-10-01" max="2019-10-15">
             </div>
 
 
@@ -90,7 +90,7 @@
             <div class="col-sm-3">
             </div>
             <div class="col-sm-3">
-                <button type="submit">Place Order</button>
+                <button type="submit" (click) = 'getMessage()'>Place Order</button>
             </div>
         </div>
         <br>
