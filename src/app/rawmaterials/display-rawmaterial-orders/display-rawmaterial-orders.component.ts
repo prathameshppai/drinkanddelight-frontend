@@ -9,12 +9,17 @@ export class DisplayRawmaterialOrdersComponent implements OnInit {
 
   public showdate = true;
   todayFormat = '';
+  date1Var = null;
+  date2Var = null;
+  SupplierIDVar = null;
+  DeliveryStatusVar=null;
+
   public changestatus() {
 
     this.showdate = !(this.showdate);
 
   }
-  public SetMaxDate() {
+   public SetMaxDate() {
     
     let today = new Date();
     let dd = (today.getDate());
@@ -40,15 +45,18 @@ export class DisplayRawmaterialOrdersComponent implements OnInit {
   }
   public DateValidation(){
 
-    console.log(document.getElementById('date1'));
+    console.log (document.getElementById('date1'));
     
 
-  
+    (<HTMLInputElement>document.getElementById('date1')).value; 
   }
+
 
   constructor() { }
 
   ngOnInit() {
+
+    }
   }
 
-}
+

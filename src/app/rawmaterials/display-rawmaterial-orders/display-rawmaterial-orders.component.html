@@ -8,7 +8,7 @@
                                 <label for="DeliveryStatus">
                                         <p><b>Choose delivery status</b> </p>
                                 </label>
-                                <select class="form-control" name="DeliveryStatus" required>
+                                <select class="form-control" name="DeliveryStatus" [(ngModel)] = "DeliveryStatusVar" required>
                                         <option value="ALL">ALL</option>
                                         <option value="Received">Received</option>
                                         <option value="Dispatched">Dispatched</option>
@@ -18,7 +18,7 @@
                                 <label for="SupplierID">
                                         <p><b>Choose Supplier</b> </p>
                                 </label>
-                                <select class="form-control" name="SupplierID" required>
+                                <select class="form-control" name="SupplierID" [(ngModel)] = "SupplierIDVar" required>
                                         <option value="ALL">ALL</option>
                                         <option value="SUP1">SUP1</option>
                                         <option value="SUP2">SUP2</option>
@@ -33,8 +33,8 @@
 
                         <div *ngIf="!(showdate); then thenBlock else elseBlock"></div>
                         <ng-template #thenBlock>
-                                <div class="col-lg-4"> Enter start date: <br> <input [max]="todayFormat" type="date" name="date1" id="date1"  ><br><br> Enter end date : <br>
-                                        <input [max]="todayFormat" type="date" name="date1" id="date2"><br><br> </div>
+                                <div class="col-lg-4"> Enter start date: <br> <input [max]="todayFormat" type="date" name="date1" id="date1" [(ngModel)] = "date1Var"  ><br><br> Enter end date : <br>
+                                        <input [max]="todayFormat" type="date" name="date1" id="date2" [(ngModel)] = "date2Var"><br><br> </div>
 
                         </ng-template>
                         <ng-template #elseBlock>
@@ -46,7 +46,7 @@
                         <div style="width:500px;" align="right">
 
                                 <input  type="submit" value="submit"><br>
-                                <p> document.getElementById("date1");</p>
+                                <p> </p>
 
                 </div>
         </div>
