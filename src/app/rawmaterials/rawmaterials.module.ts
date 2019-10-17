@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 // import { PlaceRawmaterialOrdersService} from './place-rawmaterial-orders/place-rawmaterial-orders.service'
 import { HttpClientModule} from '@angular/common/http';
 import { Routes, RouterModule } from '@angular/router';
+import { DisplaySupplierDetailsComponent } from './display-supplier-details/display-supplier-details.component';
 
 const secondaryRoutes: Routes = [
   { path: 'place-rawmaterial-order', component: PlaceRawmaterialOrdersComponent},
@@ -28,7 +29,7 @@ const secondaryRoutes: Routes = [
     TrackRawmaterialOrderComponent, 
     UpdateRawmaterialOrderComponent, 
     UpdateRawmaterialStockComponent, 
-    SetProcessDateComponent],
+    SetProcessDateComponent, DisplaySupplierDetailsComponent],
 
 
   imports: [
