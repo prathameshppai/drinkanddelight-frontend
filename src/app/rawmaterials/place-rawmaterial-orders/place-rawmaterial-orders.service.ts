@@ -1,43 +1,16 @@
 import { Injectable } from '@angular/core';
-import { HttpClientModule, HttpHeaders} from '@angular/common/http';
-import { HttpClient } from '../../../../node_modules/@types/selenium-webdriver/http';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PlaceRawmaterialOrdersService {
-  httpClient: HttpClient;
-  // url = 'http://localhost:8080';
 
-  constructor(private http: HttpClient){
-    this.httpClient = http;
+  getPlaceRawmaterialOrderMessage(RMNameVar: string, SUPIDVar: string ,quantityVar: number, QuantityUnitVar: string, expectedDateofDeliveryVar: Date , pricePerUnitVar: number, warehouseIdVar: string): Observable<String> {
+    return this.http.post<string>("http://localhost:9090/drinkanddelight/PlaceRMOrderServlet",{"name": RMNameVar, "supplierId": SUPIDVar,"quantityValue" : quantityVar,"quantityUnit": QuantityUnitVar, "dateOfDelivery" : expectedDateofDeliveryVar, "pricePerUnit" : pricePerUnitVar, "warehouseId": warehouseIdVar});
   }
 
-  doLogin() {
-    const httpOptions : any    = {
-      headers: new HttpHeaders({
-        'Content-Type':  'application/json',
-        'Access-Control-Allow-Headers': 'Content-Type',
-        'Access-Control-Allow-Methods': 'POST',
-        'Access-Control-Allow-Origin': '*'
-      })
-    };
-    
-    // this.httpClient
-    //   .post("http://localhost:9090/drinkanddelight/PlaceRMOrder.html",{"":"anish@gmail.com","pswd":"12345"})
-    //   .subscribe(
-    //     data => {
-    //       console.log("Response : "+JSON.stringify(data));
-    //     },
-    //     error => {
-    //       console.log("Error :"+JSON.stringify(error));
-    //     }
-    //   );
-    
-  }
-  
-    
+  constructor(private http: HttpClient) { }
 
-
-  
 }
