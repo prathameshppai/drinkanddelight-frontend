@@ -7,7 +7,7 @@ import { PlaceRawmaterialOrdersService } from './place-rawmaterial-orders.servic
   styleUrls: ['./place-rawmaterial-orders.component.css']
 })
 export class PlaceRawmaterialOrdersComponent implements OnInit {
-  rmOrders = ['additives', 'sugar', 'preservatives'];
+  rmOrders = ['additive', 'sugar', 'preservative'];
   supplierIds = ['SUP1', 'SUP2', 'SUP3', 'SUP4', 'SUP5', 'SUP6', 'SUP7'];
   warehouseIds = ['w01', 'w02', 'w03', 'w04', 'w05', 'w06'];
   quantityVar: number = 0.0;
@@ -43,8 +43,4 @@ export class PlaceRawmaterialOrdersComponent implements OnInit {
     );
 
   }
-  log(x) {
-    console.log(x);
-  }
-
 }

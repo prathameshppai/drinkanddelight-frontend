@@ -97,8 +97,10 @@
     </div>
 </form>
 
-
-<div *ngIf = 'isPlaceProductOrderFetched' id='resultMessage'>
-        <p>{{ message }}</p> 
-     </div>
+<div class="container">
+    <div class="alert alert-info" *ngIf = 'isPlaceProductOrderFetched'>
+        <strong>{{ message }}</strong>
+        <br>
+    </div>
+</div>
 <!-- ^(?:[1-9]\d*|0)?(?:\.\d+)?$ -->
