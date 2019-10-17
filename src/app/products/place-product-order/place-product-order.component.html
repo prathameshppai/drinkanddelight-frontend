@@ -58,7 +58,7 @@
                 </select>
             </div>
 
-            <div class="col-sm-3">
+            <div class="col-sm-2">
                 <label for="price_per_unit">
                     <b>Price per Unit</b>
                 </label>
@@ -78,7 +78,7 @@
                 <label for="expectedDateofDelivery">
                     <b>Expected Date of Delivery</b>
                 </label>
-                <input type="date" name="expectedDateofDelivery" [(ngModel)]='expectedDateofDeliveryVar' class="was-validated text-box-size form-rounded" value="2019-10-30" min="2019-10-01" max="2019-10-15">
+                <input type="date" name="expectedDateofDelivery" [(ngModel)]='expectedDateofDeliveryVar' class="was-validated text-box-size form-rounded" min="{{minDate | date:'yyyy-MM-dd'}}" max = "{{maxDate | date:'yyyy-MM-dd'}}">
             </div>
 
 

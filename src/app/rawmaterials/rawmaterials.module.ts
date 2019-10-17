@@ -7,7 +7,6 @@ import { UpdateRawmaterialOrderComponent } from './update-rawmaterial-order/upda
 import { UpdateRawmaterialStockComponent } from './update-rawmaterial-stock/update-rawmaterial-stock.component';
 import { SetProcessDateComponent } from './set-process-date/set-process-date.component';
 import { FormsModule } from '@angular/forms';
-// import { PlaceRawmaterialOrdersService} from './place-rawmaterial-orders/place-rawmaterial-orders.service'
 import { HttpClientModule} from '@angular/common/http';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -51,7 +50,6 @@ const secondaryRoutes: Routes = [
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   
   providers: [ 
-    // PlaceRawmaterialOrdersService
    ],
 
 })
