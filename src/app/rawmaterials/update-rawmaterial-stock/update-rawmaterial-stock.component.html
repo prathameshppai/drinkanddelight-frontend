@@ -32,7 +32,7 @@
           
                       <div class="col-lg-3">
                           <input required type="date"  class='form-control' id="manufacturingdate" #updateManufacturingDate='ngModel'
-                          [(ngModel)]='manufacturingDate' name='manufacturingDate' (change) = "log(updateManufacturingDateDate)">
+                          [(ngModel)]='manufacturingDate' name='manufacturingDate' (change) = "log(updateManufacturingDate)">
                                    
                               <!-- <div class = "alert alert-danger" *ngIf = 'orderIDcheck'>Enter numeric order id</div> -->
                           <div class="alert alert-danger" *ngIf="updateManufacturingDate.touched && !updateManufacturingDate.valid"> enter manufacturing date </div>
@@ -66,7 +66,7 @@
                           <label for="QAStatus">Quality Status</label>
                       </div>
                       <div class="col-lg-3">
-                          <select class="form-control" name="QAStatus" required [(ngModel)] = 'qaStatus'>
+                          <select class="form-control" name="QAStatus" #qualityStatus = 'ngModel' required [(ngModel)] = 'qaStatus' (change) = "log(qualityStatus)">
                           <option>Passed</option>
                           <option>Failed</option>
                           </select>
@@ -76,8 +76,20 @@
       </div>
   
       <br>      
-      <button type="submit" class="btn btn-primary">Update Stock</button>
+      <button type="submit" class="btn btn-primary" [disabled] = "!enableButton" (click)='setRawMaterialStock()'>Update Stock</button>
   
     </form>
   
+  </div>
+
+  <br>
+  <div class="container">
+  <div class="alert" 
+  [ngClass]="{
+      'alert-success': message === 'Data inserted',
+      'alert-danger': !(message === 'Data inserted')
+    }"
+  *ngIf = 'isDataSet'>
+      <strong>{{ message }}</strong>
+    </div>
   </div>

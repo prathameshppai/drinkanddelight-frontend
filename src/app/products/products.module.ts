@@ -7,7 +7,7 @@ import { UpdateProductOrderComponent } from './update-product-order/update-produ
 import { UpdateProductStockComponent } from './update-product-stock/update-product-stock.component';
 import { AddDistributorAddressComponent } from './add-distributor-address/add-distributor-address.component';
 import { SetExitDateComponent } from './set-exit-date/set-exit-date.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 
 const secondaryRoutes: Routes = [
@@ -27,7 +27,8 @@ const secondaryRoutes: Routes = [
   imports: [
     RouterModule.forChild(secondaryRoutes),
     CommonModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [DisplayProductOrdersComponent, PlaceProductOrderComponent, TrackProductOrderComponent, UpdateProductOrderComponent, UpdateProductStockComponent, SetExitDateComponent, AddDistributorAddressComponent]
 })

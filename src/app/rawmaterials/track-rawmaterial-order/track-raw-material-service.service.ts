@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+
 import { HttpClient } from '@angular/common/http';
 
 
@@ -8,10 +8,11 @@ import { HttpClient } from '@angular/common/http';
 })
 export class TrackRawMaterialServiceService {
 
-  getTrackedMessage(): Observable<String> {
-    return this.http.get<String>("http://localhost:9090/drinkanddelight/TrackProductOrderServlet?OrderId=6");
+  getTrackedMessage(orderId: number)/*: Observable<string> */{
+    
+    return this.http.post("http://localhost:9090/drinkanddelight/TrackRawMaterialOrderServlet",{"OrderId": orderId})
+    
   }
-
   constructor(private http: HttpClient) { }
 
 }

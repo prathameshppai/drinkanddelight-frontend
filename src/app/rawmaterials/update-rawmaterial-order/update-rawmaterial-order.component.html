@@ -1,28 +1,29 @@
 <h3>Update Raw material Order</h3>
-<form action="UpdateRawMaterialDeliveryStatusServlet" method="post">
     <div class="container wrapper" class="form-check" class="was-validated">
-    
 <hr>    
     <div class="row">
             <div class="col-sm-3">
                 <label for="OrderId"><b>Order ID</b></label>
             </div>
-            <div class="col-sm-9">
-                <input type="text" placeholder="Enter Order ID" name="OrderId" class = "text-box-size form-rounded" required>
-            </div>
+            <div class="col-sm-4">
+            <input required pattern='[0-9]+' type="text" #updateorderID='ngModel' class='form-control' [(ngModel)]='orderId' name='orderID' id="orderID" (change) = "log(trackorderID)">
+            <div class="alert alert-danger" *ngIf="updateorderID.touched && !updateorderID.valid"> Order ID is required
         </div>
 <br>        
     <div class="row">
-        <div class="col-sm-3">
+        <div class="col-sm-4">
                 <label for="DeliveryStatus"><b>Delivery Status</b></label>
         </div>
-        <div class="col-sm-3">
-                <select class="form-control" name="DeliveryStatus" required>
+        <div class="col-sm-6">
+                <select class="form-control" name="DeliveryStatus"  [(ngModel)]='DeliveryStatusVar' required>
                 <option *ngFor="let DeliveryStatus of DeliveryStatuses" >{{ DeliveryStatus }} </option>
                 </select>
             </div>
         </div>
 <br>
-    <button type="submit">Update Order</button>
+    <button type="submit"class="btn btn-primary" (click) = 'getMessage()'>Update Order</button>
 </div>
-</form>
+
+<div *ngIf = 'isUpdateRawmaterialOrderFetched' id='resultMessage'>
+   <p> Data fetched from servlet is: {{ message }}</p> 
+</div>

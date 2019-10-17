@@ -34,7 +34,8 @@ import { HomepageComponent } from './homepage/homepage.component';
 
   exports: [
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [
     // PlaceRawmaterialOrdersService

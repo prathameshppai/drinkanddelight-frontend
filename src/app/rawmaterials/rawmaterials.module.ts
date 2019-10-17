@@ -6,7 +6,8 @@ import { TrackRawmaterialOrderComponent } from './track-rawmaterial-order/track-
 import { UpdateRawmaterialOrderComponent } from './update-rawmaterial-order/update-rawmaterial-order.component';
 import { UpdateRawmaterialStockComponent } from './update-rawmaterial-stock/update-rawmaterial-stock.component';
 import { SetProcessDateComponent } from './set-process-date/set-process-date.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+// import { PlaceRawmaterialOrdersService} from './place-rawmaterial-orders/place-rawmaterial-orders.service'
 import { HttpClientModule} from '@angular/common/http';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -35,7 +36,8 @@ const secondaryRoutes: Routes = [
     RouterModule.forChild(secondaryRoutes),
     CommonModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
 
 
