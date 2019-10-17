@@ -17,7 +17,9 @@ const secondaryRoutes: Routes = [
   { path: 'track-product-order', component: TrackProductOrderComponent},
   { path: 'update-product-order', component: UpdateProductOrderComponent},
   { path: 'update-product-stock', component: UpdateProductStockComponent},
+  // { path: 'display-distributor', component: Changethis},
   { path: 'add-distributor-address', component: AddDistributorAddressComponent}
+  
 ];
 
 @NgModule({
