@@ -32,9 +32,4 @@ export class UpdateRawmaterialOrderComponent implements OnInit {
     );
 
   }
-
-  log(x) {
-    console.log(x);
-  }
-
 }

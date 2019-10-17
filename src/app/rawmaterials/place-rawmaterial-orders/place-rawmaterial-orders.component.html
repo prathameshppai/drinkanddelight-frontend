@@ -97,8 +97,11 @@
         <br>
     </div>
 </form>
-
-<div *ngIf = 'isPlaceRawmaterialOrderFetched' id='resultMessage'>
-    <p>{{ message }}</p> 
+ <br>
+ <div class="container">
+ <div class="alert alert-info" *ngIf = 'isPlaceRawmaterialOrderFetched'>
+     <strong>{{ message }}</strong>
+     <br>
+   </div>
  </div>
  
