@@ -1,20 +1,36 @@
 import { Component, OnInit } from '@angular/core';
+import {DisplayRawmaterialOrdersService} from '../display-rawmaterial-orders/display-rawmaterial-orders.service';
+import { RawMaterialOrder } from './RawMaterialOrderdto';
+
+
 
 @Component({
   selector: 'app-display-rawmaterial-orders',
   templateUrl: './display-rawmaterial-orders.component.html',
   styleUrls: ['./display-rawmaterial-orders.component.css']
 })
-export class DisplayRawmaterialOrdersComponent implements OnInit {
+  export class DisplayRawmaterialOrdersComponent implements OnInit {
+  
+    ngOnInit() {
+    }
 
-  public showdate = true;
-  todayFormat = '';
-  public changestatus() {
+    public showdate = true;
+    todayFormat = '';
+    date1Var : Date = null;
+    date2Var : Date = null;
+    SupplierIDVar :string = null;
+    DeliveryStatusVar :string  =null;
+    message=null;
+   public rmos  =[];
+    isDataFetched = false;
 
-    this.showdate = !(this.showdate);
 
-  }
-  public SetMaxDate() {
+    public changestatus() {
+
+      this.showdate = !(this.showdate);
+
+    }
+    public SetMaxDate() {
     
     let today = new Date();
     let dd = (today.getDate());
@@ -37,18 +53,25 @@ export class DisplayRawmaterialOrdersComponent implements OnInit {
     this.todayFormat = yyyy + '-' + mmFormat + '-' + ddFormat;
     
 
-  }
-  public DateValidation(){
+    }
+  constructor(private rawMaterialService: DisplayRawmaterialOrdersService) { }
 
-    console.log(document.getElementById('date1'));
+    getRawMaterial() {
+
+      this.rawMaterialService.getRawMaterialList(this.DeliveryStatusVar, this.SupplierIDVar,this.date1Var, this.date2Var)
+      .subscribe(
+        data => {
+        this.rmos = data;
+        console.log("Response : "+JSON.stringify(this.rmos));
+        this.isDataFetched = true;
+         
+       
+        },
+        error => {
+          console.log("Error :"+JSON.stringify(error));
+        }
+      )
+    }
     
-
+    }
   
-  }
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
-}

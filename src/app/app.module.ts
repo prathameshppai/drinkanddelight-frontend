@@ -1,8 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -11,6 +9,7 @@ import { AuthenticationModule } from './authentication/authentication.module';
 import { ProductsModule } from './products/products.module';
 import { RawmaterialsModule } from './rawmaterials/rawmaterials.module';
 import { HomepageComponent } from './homepage/homepage.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -34,7 +33,8 @@ import { HomepageComponent } from './homepage/homepage.component';
 
   exports: [
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [
     // PlaceRawmaterialOrdersService

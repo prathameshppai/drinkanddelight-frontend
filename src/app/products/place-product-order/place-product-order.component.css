@@ -1,0 +1,8 @@
+.text-box-size {
+	width: 320px;
+	height: 40px;
+}
+
+.form-rounded {
+border-radius: 0.35rem;
+}

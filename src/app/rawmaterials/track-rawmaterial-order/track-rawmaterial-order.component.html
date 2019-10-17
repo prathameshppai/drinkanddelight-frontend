@@ -22,11 +22,17 @@
             </div>
         </div>
         <br>
-        <button type="submit" class="btn btn-primary">Track Order</button>
+        <button type="submit" class="btn btn-primary" (click) = 'getMessage()'  [disabled] = "!enableButton">Track Order</button>
     </form>
 </div>
 
-<div>
-    <p>The data fetched from servlet is: {{ message }}</p>
-</div>
+<!-- <div *ngIf = 'isTrackFetched'>
+    <p> Data fetched from servlet is: {{ message }}</p> 
+ </div> -->
 
+ <br>
+ <div class="container">
+ <div class="alert alert-info" *ngIf = 'isTrackFetched'>
+     <strong>{{ message }}</strong>
+   </div>
+ </div>

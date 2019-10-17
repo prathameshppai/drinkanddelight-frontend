@@ -12,6 +12,7 @@ export class TrackProductOrderComponent implements OnInit {
   orderId: number = 0;
   message: string = '';
   isTrackFetched: boolean = false;
+  enableButton: boolean = false;
   constructor(private trackProductOrderService: TrackProductOrderService) { }
 
   ngOnInit() {
@@ -35,6 +36,12 @@ export class TrackProductOrderComponent implements OnInit {
 
   log(x) {
     console.log(x);
+    this.enableButton = false;
+    if(this.orderId != null) {
+      if(!isNaN(this.orderId)) {
+        this.enableButton = true;
+      }
+    }
   }
 
   
