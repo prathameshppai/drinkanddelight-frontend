@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UpdateRawmaterialStockService } from './update-rawmaterial-stock.service';
 
 @Component({
   selector: 'app-update-rawmaterial-stock',
@@ -10,16 +11,41 @@ export class UpdateRawmaterialStockComponent implements OnInit {
   orderId: number = 0;
   manufacturingDate: Date = null;
   expiryDate: Date = null;
-  qaStauts: string;
+  qaStatus: string;
+  enableButton: boolean = false;
+   isDataSet: boolean = false;
+   message: string = null;
 
-
-  constructor() { }
+  constructor(private updateRMStockService: UpdateRawmaterialStockService) { }
 
   ngOnInit() {
   }
 
+  setRawMaterialStock() {
+    this.updateRMStockService.updateRMStock(this.orderId, this.manufacturingDate, this.expiryDate, this.qaStatus)
+    .subscribe(
+      data => {
+        console.log("Response : "+JSON.stringify(data));
+        this.message = data["message"];
+        this.isDataSet = true;
+        
+        
+      },
+      error => {
+        console.log("Error :"+JSON.stringify(error));
+      }
+    );
+
+  }
+
   log(x) {
     console.log(x);
+    this.enableButton = false;
+    if(this.manufacturingDate != null && this.orderId != null && this.expiryDate != null && this.qaStatus != null) {
+      if(!isNaN(this.orderId)) {
+        this.enableButton = true;
+      }
+    }
   }
 
 }

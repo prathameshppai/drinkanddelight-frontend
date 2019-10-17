@@ -9,19 +9,42 @@ import { TrackRawMaterialServiceService } from './track-raw-material-service.ser
 export class TrackRawmaterialOrderComponent implements OnInit {
 
   orderId: number = 0;
-  
-  message: String = '';
+  message: string = '';
+  isTrackFetched: boolean = false;
+  enableButton: boolean = false;
+
   constructor(private trackRMOrder: TrackRawMaterialServiceService) { }
 
   ngOnInit() {
-    this.trackRMOrder.getTrackedMessage().subscribe(data => this.message = data)
+   }
+
+   getMessage() {
+
+    this.trackRMOrder.getTrackedMessage(this.orderId)
+    .subscribe(
+      data => {
+        console.log("Response : "+JSON.stringify(data));
+        this.message = data["message"];
+        this.isTrackFetched = true;
+      },
+      error => {
+        console.log("Error :"+JSON.stringify(error));
+      }
+    );
 
   }
-
  
 
   log(x) {
     console.log(x);
+    this.enableButton = false;
+    if(this.orderId != null) {
+      if(!isNaN(this.orderId)) {
+        this.enableButton = true;
+      }
+    }
   }
 
-}
+  }
+
+
