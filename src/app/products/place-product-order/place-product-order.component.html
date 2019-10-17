@@ -10,7 +10,7 @@
                 <label for="ProductName">
                     <b>Product Name</b>
                 </label>
-                <select class="form-control" name="ProductName" required>
+                <select class="form-control" name="ProductName" [(ngModel)]='ProductNameVar' required>
                     <option *ngFor="let productOrder of productOrders">{{ productOrder }}</option>
                 </select>
             </div>
@@ -19,7 +19,7 @@
                 <label for="DISTID">
                     <b>Distributor ID</b>
                 </label>
-                <select class="form-control" name="DISTID" required>
+                <select class="form-control" name="DISTID" [(ngModel)]='DISTIDVar' required>
                     <option *ngFor="let distributorId of distributorIds">{{ distributorId }}</option>
                 </select>
             </div>
@@ -28,7 +28,7 @@
                 <label for="warehouseId">
                     <b>Warehouse ID</b>
                 </label>
-                <select class="form-control" name="warehouseId" required>
+                <select class="form-control" name="warehouseId" [(ngModel)]='warehouseIdVar' required>
                     <option *ngFor="let warehouseId of warehouseIds">{{ warehouseId }}</option>
                 </select>
             </div>
@@ -52,13 +52,13 @@
                 <label for="QuantityUnit">
                     <b>Quantity Unit</b>
                 </label>
-                <select class="form-control" name="QuantityUnit" required>
-                    <option>kg</option>
-                    <option>quintals</option>
+                <select class="form-control" name="QuantityUnit" [(ngModel)]='QuantityUnitVar' required>
+                        <option>Litres</option>
+                        <option>Millilitres</option>
                 </select>
             </div>
 
-            <div class="col-sm-3">
+            <div class="col-sm-2">
                 <label for="price_per_unit">
                     <b>Price per Unit</b>
                 </label>
@@ -78,7 +78,7 @@
                 <label for="expectedDateofDelivery">
                     <b>Expected Date of Delivery</b>
                 </label>
-                <input type="date" name="expectedDateofDelivery" class="text-box-size form-rounded">
+                <input type="date" name="expectedDateofDelivery" [(ngModel)]='expectedDateofDeliveryVar' class="was-validated text-box-size form-rounded" min="{{minDate | date:'yyyy-MM-dd'}}" max = "{{maxDate | date:'yyyy-MM-dd'}}">
             </div>
 
 
@@ -89,7 +89,7 @@
             <div class="col-sm-3">
             </div>
             <div class="col-sm-3">
-                <button type="submit" class="registerbtn">Place Order</button>
+                <button type="submit" (click) = 'getMessage()'>Place Order</button>
             </div>
         </div>
         <br>
@@ -97,4 +97,8 @@
     </div>
 </form>
 
+
+<div *ngIf = 'isPlaceProductOrderFetched' id='resultMessage'>
+        <p>{{ message }}</p> 
+     </div>
 <!-- ^(?:[1-9]\d*|0)?(?:\.\d+)?$ -->

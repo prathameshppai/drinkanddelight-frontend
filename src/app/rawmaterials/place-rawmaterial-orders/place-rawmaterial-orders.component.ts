@@ -18,8 +18,11 @@ export class PlaceRawmaterialOrdersComponent implements OnInit {
   warehouseIdVar: string;
   QuantityUnitVar: string;
   expectedDateofDeliveryVar: Date;
-
   isPlaceRawmaterialOrderFetched: boolean = false;
+  minDate = new Date();
+  today = new Date();
+  maxDate = this.today.setMonth(this.today.getMonth()+2);
+
   constructor(private placeRawmaterialOrdersService: PlaceRawmaterialOrdersService) { }
 
   ngOnInit() {

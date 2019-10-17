@@ -6,7 +6,7 @@ import { TrackRawmaterialOrderComponent } from './track-rawmaterial-order/track-
 import { UpdateRawmaterialOrderComponent } from './update-rawmaterial-order/update-rawmaterial-order.component';
 import { UpdateRawmaterialStockComponent } from './update-rawmaterial-stock/update-rawmaterial-stock.component';
 import { SetProcessDateComponent } from './set-process-date/set-process-date.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // import { PlaceRawmaterialOrdersService} from './place-rawmaterial-orders/place-rawmaterial-orders.service'
 import { HttpClientModule} from '@angular/common/http';
 import { Routes, RouterModule } from '@angular/router';
@@ -17,7 +17,8 @@ const secondaryRoutes: Routes = [
   { path: 'set-process-date', component: SetProcessDateComponent},
   { path: 'track-rawmaterial-order', component: TrackRawmaterialOrderComponent},
   { path: 'update-rawmaterial-order', component: UpdateRawmaterialOrderComponent},
-  { path: 'update-rawmaterial-stock', component: UpdateRawmaterialStockComponent}
+  { path: 'update-rawmaterial-stock', component: UpdateRawmaterialStockComponent},
+  // { path: 'display-supplier', component: changeThis}
 ];
 
 @NgModule({
@@ -35,7 +36,8 @@ const secondaryRoutes: Routes = [
     RouterModule.forChild(secondaryRoutes),
     CommonModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
 
 
@@ -50,7 +52,6 @@ const secondaryRoutes: Routes = [
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   
   providers: [ 
-    // PlaceRawmaterialOrdersService
    ],
 
 })

@@ -33,7 +33,8 @@ import { HttpClientModule } from '@angular/common/http';
 
   exports: [
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [
     // PlaceRawmaterialOrdersService

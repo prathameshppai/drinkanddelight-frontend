@@ -7,8 +7,9 @@ import { Observable } from 'rxjs';
 })
 export class PlaceRawmaterialOrdersService {
 
-  getPlaceRawmaterialOrderMessage(RMNameVar: string, SUPIDVar: string ,quantityVar: number, QuantityUnitVar: string, expectedDateofDeliveryVar: Date , pricePerUnitVar: number, warehouseIdVar: string): Observable<string> {
-    return this.http.post<string>("http://localhost:9090/drinkanddelight/PlaceRMOrderServlet",{"rmname": RMNameVar, "supplierId": SUPIDVar,"quantityValue" : quantityVar,"quantityUnit": QuantityUnitVar, "dateOfDelivery" : expectedDateofDeliveryVar, "pricePerUnit" : pricePerUnitVar, "warehouseId": warehouseIdVar});
+
+  getPlaceRawmaterialOrderMessage(RMNameVar: string, SUPIDVar: string ,quantityVar: number, QuantityUnitVar: string, expectedDateofDeliveryVar: Date , pricePerUnitVar: number, warehouseIdVar: string): Observable<String> {
+    return this.http.post<string>("http://localhost:9090/drinkanddelight/PlaceRMOrderServlet",{"name": RMNameVar, "supplierId": SUPIDVar,"quantityValue" : quantityVar,"quantityUnit": QuantityUnitVar, "dateOfDelivery" : expectedDateofDeliveryVar, "pricePerUnit" : pricePerUnitVar, "warehouseId": warehouseIdVar});
   }
 
   constructor(private http: HttpClient) { }
