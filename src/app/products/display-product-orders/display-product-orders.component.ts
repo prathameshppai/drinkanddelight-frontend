@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./display-product-orders.component.css']
 })
 export class DisplayProductOrdersComponent implements OnInit {
+  ngOnInit() {
+  }
  
   public showdate = true;
   todayFormat = '';
@@ -35,20 +37,6 @@ export class DisplayProductOrdersComponent implements OnInit {
       mmFormat = (mm).toString();
  
     this.todayFormat = yyyy + '-' + mmFormat + '-' + ddFormat;
-    
- 
-  }
-  public DateValidation(){
- 
-    console.log (document.getElementById('date1'));
-    
- 
-    (<HTMLInputElement>document.getElementById('date1')).value; 
-  }
- 
-  constructor() { }
- 
-  ngOnInit() {
-  }
- 
+    }
+
 }
