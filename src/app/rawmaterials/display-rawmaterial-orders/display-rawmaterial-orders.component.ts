@@ -12,6 +12,9 @@ import { RawMaterialOrder } from './RawMaterialOrderdto';
   export class DisplayRawmaterialOrdersComponent implements OnInit {
   
     ngOnInit() {
+      
+
+
     }
 
     public showdate = true;
@@ -20,9 +23,10 @@ import { RawMaterialOrder } from './RawMaterialOrderdto';
     date2Var : Date = null;
     SupplierIDVar :string = null;
     DeliveryStatusVar :string  =null;
-    message=null;
+    
    public rmos  =[];
-    isDataFetched = false;
+    isDataFetched :boolean;
+    message : string 
 
 
     public changestatus() {
@@ -61,10 +65,18 @@ import { RawMaterialOrder } from './RawMaterialOrderdto';
       this.rawMaterialService.getRawMaterialList(this.DeliveryStatusVar, this.SupplierIDVar,this.date1Var, this.date2Var)
       .subscribe(
         data => {
+          if(data == null){
+           this.isDataFetched =false;
+           this.message='No Records Found';
+          }
+          else{
         this.rmos = data;
+        
         console.log("Response : "+JSON.stringify(this.rmos));
+        
         this.isDataFetched = true;
-         
+        
+          }
        
         },
         error => {

@@ -52,7 +52,14 @@
 
                                 <input type="submit" value="submit" (click)="getRawMaterial()"><br></div>
                 </div> 
+<br>
+
+
                 
+                <div  *ngIf ="!isDataFetched" class="alert alert-info">
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <strong>{{ message }}</strong>
+                      </div>
+                    
                 <div *ngIf="isDataFetched">
                         
                                 <div class="table-responsive">
