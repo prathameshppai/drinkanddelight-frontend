@@ -1,5 +1,4 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { PlaceProductOrderComponent } from './place-product-order.component';
 
 describe('PlaceProductOrderComponent', () => {

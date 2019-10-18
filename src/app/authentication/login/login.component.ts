@@ -18,7 +18,6 @@ export class LoginComponent implements OnInit {
   }
 
   getMessage() {
-
     this.loginService.getLoginMessage(this.usernameVar, this.passwordVar)
       .subscribe(
         data => {
@@ -30,6 +29,5 @@ export class LoginComponent implements OnInit {
           console.log("Error :" + JSON.stringify(error));
         }
       );
-
   }
 }
