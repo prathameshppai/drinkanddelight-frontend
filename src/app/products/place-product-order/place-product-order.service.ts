@@ -11,6 +11,10 @@ export class PlaceProductOrderService {
     return this.http.post<string>("http://localhost:9090/drinkanddelight/PlaceProductOrderServlet",{"name": ProductNameVar, "distributorId": DISTIDVar,"quantityValue" : quantityVar,"quantityUnit": QuantityUnitVar, "dateOfDelivery" : expectedDateofDeliveryVar, "pricePerUnit" : pricePerUnitVar, "warehouseId": warehouseIdVar});
   }
 
+  getProductDetailsList(): Observable<string>{
+    return this.http.get<string>("http://localhost:9090/drinkanddelight/GetProductDetailsServlet");
+  }
+  
   constructor(private http: HttpClient) { }
 
 }

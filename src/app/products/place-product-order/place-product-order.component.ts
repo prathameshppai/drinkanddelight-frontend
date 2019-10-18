@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { PlaceProductOrderService } from './place-product-order.service';
-import {formatDate} from '@angular/common';
 
 @Component({
   selector: 'app-place-product-order',
@@ -10,9 +9,7 @@ import {formatDate} from '@angular/common';
 })
 export class PlaceProductOrderComponent implements OnInit {
 
-  productOrders = [];//'juice', 'mocktail', 'energy_drink'];
-  distributorIds = ['DIST1', 'DIST2', 'DIST3', 'DIST4'];
-  warehouseIds = ['w01', 'w02', 'w03', 'w04', 'w05', 'w06'];
+  productDetails: any = [];
   quantityVar: number = 0.0;
   pricePerUnitVar: number = 0.0;
   message: string = '';
@@ -30,6 +27,8 @@ export class PlaceProductOrderComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getProductDetails();
+    
   }
   // '[0-9]+[.]{1}'
   // '/^(?=.+)(?:[1-9]\d*|0)?(?:\.\d+)?$/'
@@ -50,8 +49,19 @@ export class PlaceProductOrderComponent implements OnInit {
 
   }
 
-  log(x) {
-    console.log(x);
+  getProductDetails() {
+
+    this.placeProductOrderService.getProductDetailsList()
+      .subscribe(
+        data => {
+          console.log("Response : " + JSON.stringify(data));
+          this.productDetails = data;
+        },
+        error => {
+          console.log("Error :" + JSON.stringify(error));
+        }
+      );
+
   }
 
 }
