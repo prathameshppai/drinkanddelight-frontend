@@ -82,8 +82,6 @@
                 </label>
                 <input type="date" name="expectedDateofDelivery" [(ngModel)]='expectedDateofDeliveryVar' class="was-validated text-box-size form-rounded" min="{{minDate | date:'yyyy-MM-dd'}}" max = "{{maxDate | date:'yyyy-MM-dd'}}">
             </div>
-
-
         </div>
         <br>
 
@@ -97,8 +95,11 @@
         <br>
     </div>
 </form>
-
-<div *ngIf = 'isPlaceRawmaterialOrderFetched' id='resultMessage'>
-    <p>{{ message }}</p> 
+ <br>
+ <div class="container">
+ <div class="alert alert-info" *ngIf = 'isPlaceRawmaterialOrderFetched'>
+     <strong>{{ message }}</strong>
+     <br>
+   </div>
  </div>
  

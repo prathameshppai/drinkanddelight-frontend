@@ -10,7 +10,7 @@ import {formatDate} from '@angular/common';
 })
 export class PlaceProductOrderComponent implements OnInit {
 
-  productOrders = ['juice', 'mocktail', 'energy_drink'];
+  productOrders = [];//'juice', 'mocktail', 'energy_drink'];
   distributorIds = ['DIST1', 'DIST2', 'DIST3', 'DIST4'];
   warehouseIds = ['w01', 'w02', 'w03', 'w04', 'w05', 'w06'];
   quantityVar: number = 0.0;
@@ -27,7 +27,7 @@ export class PlaceProductOrderComponent implements OnInit {
   maxDate = this.today.setMonth(this.today.getMonth()+2);
 
   constructor(private placeProductOrderService: PlaceProductOrderService) {
-   }
+  }
 
   ngOnInit() {
   }

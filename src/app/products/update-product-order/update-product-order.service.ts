@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-import { catchError, retry } from 'rxjs/operators';
+import { HttpClient} from '@angular/common/http';
+
 @Injectable({
   providedIn: 'root'
 })
 export class UpdateProductOrderService {
   getUpdateMessage(orderId: string,DeliveryStatuses:string){
-    return this.http.post("http://localhost:14842/drinkanddelight/UpdateProductDeliveryStatusServlet",{orderId,DeliveryStatuses})
+    return this.http.post("http://localhost:9090/drinkanddelight/UpdateProductDeliveryStatusServlet",{orderId,DeliveryStatuses})
     
   }
   constructor(private http: HttpClient) { }

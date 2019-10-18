@@ -33,8 +33,4 @@ getMessage() {
 
 }
 
-log(x) {
-  console.log(x);
-}
-
 }
