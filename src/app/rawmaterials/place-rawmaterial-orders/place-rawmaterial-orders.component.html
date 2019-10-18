@@ -12,7 +12,7 @@
                     <b>Raw Material Name</b>
                 </label>
                 <select class="form-control" name="RMName" [(ngModel)]='RMNameVar' required>
-                    <option *ngFor="let rmOrder of rmOrders">{{ rmOrder }}</option>
+                    <option *ngFor="let rmOrder of rawmaterialDetails[0]">{{ rmOrder }}</option>
                 </select>
             </div>
 
@@ -21,7 +21,7 @@
                     <b>Supplier ID</b>
                 </label>
                 <select class="form-control" name="SUPID" [(ngModel)]='SUPIDVar' required>
-                    <option *ngFor="let supplierId of supplierIds">{{ supplierId }}</option>
+                    <option *ngFor="let supplierId of rawmaterialDetails[1]">{{ supplierId }}</option>
                 </select>
             </div>
 
@@ -30,7 +30,7 @@
                     <b>Warehouse ID</b>
                 </label>
                 <select class="form-control" name="warehouseId" [(ngModel)]='warehouseIdVar' required>
-                    <option *ngFor="let warehouseId of warehouseIds">{{ warehouseId }}</option>
+                    <option *ngFor="let warehouseId of rawmaterialDetails[2]">{{ warehouseId }}</option>
                 </select>
             </div>
 

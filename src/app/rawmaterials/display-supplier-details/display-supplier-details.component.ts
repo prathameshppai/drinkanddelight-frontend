@@ -8,9 +8,9 @@ import { DisplaySupplierDetailsService } from './display-supplier-details.servic
 })
 export class DisplaySupplierDetailsComponent implements OnInit {
 
-  SupplierID: String = '';
+  SupplierID: string = '';
   
-  message: String = '';
+  message: string = '';
 
   isDisplaySupplierDetailsFetched: boolean = false;
   constructor(private displaysupplierdetails: DisplaySupplierDetailsService) { }
@@ -19,9 +19,9 @@ export class DisplaySupplierDetailsComponent implements OnInit {
     
   }
 
-  getMessage{
+  getMessage(){
 
-    this.displaysupplierdetails.getDisplaySupplierDetailsMessage().subscribe(data => this.message = data)
+    this.displaysupplierdetails.getDisplaySupplierDetailsMessage(this.SupplierID)
     .subscribe(
       data => {
         console.log("Response : "+JSON.stringify(data));
@@ -31,10 +31,9 @@ export class DisplaySupplierDetailsComponent implements OnInit {
       error => {
         console.log("Error :"+JSON.stringify(error));
   }
+    )
 }
 
-  log(x) {
-    console.log(x);
-  }
+  
 
 }

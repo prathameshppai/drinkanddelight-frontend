@@ -12,6 +12,10 @@ export class PlaceRawmaterialOrdersService {
     return this.http.post<string>("http://localhost:9090/drinkanddelight/PlaceRMOrderServlet",{"name": RMNameVar, "supplierId": SUPIDVar,"quantityValue" : quantityVar,"quantityUnit": QuantityUnitVar, "dateOfDelivery" : expectedDateofDeliveryVar, "pricePerUnit" : pricePerUnitVar, "warehouseId": warehouseIdVar});
   }
 
+  getRawmaterialDetailsList(): Observable<string>{
+    return this.http.get<string>("http://localhost:9090/drinkanddelight/GetRawmaterialDetailsServlet");
+  }
+
   constructor(private http: HttpClient) { }
 
 }

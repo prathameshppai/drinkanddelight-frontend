@@ -7,8 +7,8 @@ import { HttpClient } from '@angular/common/http'
 })
 export class DisplaySupplierDetailsService {
 
-  getDisplaySupplierDetailsMessage(SupplierID: string) {
-    return this.http.post<String>("http://localhost:9003/drinkanddelight/DisplaySupplierDetails.html"),{"supplierId": SupplierID};
+  getDisplaySupplierDetailsMessage(SupplierID: string):Observable<string> {
+    return this.http.post<string>("http://localhost:9003/drinkanddelight/DisplaySupplierDetails.html",{"supplierId": SupplierID});
   }
 
   constructor(private http: HttpClient) { }
