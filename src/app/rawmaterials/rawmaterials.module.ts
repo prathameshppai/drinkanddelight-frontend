@@ -19,7 +19,7 @@ const secondaryRoutes: Routes = [
   { path: 'track-rawmaterial-order', component: TrackRawmaterialOrderComponent},
   { path: 'update-rawmaterial-order', component: UpdateRawmaterialOrderComponent},
   { path: 'update-rawmaterial-stock', component: UpdateRawmaterialStockComponent},
-  // { path: 'display-supplier', component: changeThis}
+  { path: 'display-supplier', component: DisplaySupplierDetailsComponent}
 ];
 
 @NgModule({
