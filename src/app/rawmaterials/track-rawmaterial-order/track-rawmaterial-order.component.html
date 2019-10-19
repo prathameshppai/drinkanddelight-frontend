@@ -1,3 +1,7 @@
+<!-- <head>
+    <title>Track Raw Material Order</title>
+</head> -->
+
 <div class=container>
     <div>
         <h2>Track Raw Material Order</h2>
@@ -22,7 +26,7 @@
             </div>
         </div>
         <br>
-        <button type="submit" class="btn btn-primary" (click) = 'getMessage()'  [disabled] = "!enableButton">Track Order</button>
+        <button type="submit" class="btn btn-dark" (click) = 'getMessage()'  [disabled] = "!enableButton">Track Order</button>
     </form>
 </div>
 
@@ -31,8 +35,9 @@
  </div> -->
 
  <br>
- <div class="container">
+ <div class="container" id = 'outputbox'>
  <div class="alert alert-info" *ngIf = 'isTrackFetched'>
-     <strong>{{ message }}</strong>
+     <strong name = 'outputbox'>{{ message }}</strong>
+     <!-- <p name = 'outputbox'>The order ID had been in the warehouse with warehouseID = w01 from 2019-08-14 to 2019-10-30(77 days)</p> -->
    </div>
  </div>
