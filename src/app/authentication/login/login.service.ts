@@ -9,7 +9,7 @@ export class LoginService {
   constructor(private http: HttpClient) { }
 
   getLoginMessage(usernameVar: string, passwordVar: string ): Observable<string> {
-    return this.http.post<string>("http://localhost:9080/drinkanddelight/LoginServlet",{"username": usernameVar, "password": passwordVar});
+    return this.http.post<string>("http://localhost:9090/drinkanddelight/LoginServlet",{"username": usernameVar, "password": passwordVar});
   }
 
   

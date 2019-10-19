@@ -34,7 +34,7 @@ const secondaryRoutes: Routes = [
     UpdateProductStockComponent, 
     SetExitDateComponent, 
     AddDistributorAddressComponent, 
-    AddDistributorAddressComponent],
+    DisplayDistributorDetailsComponent],
 
 
   imports: [
