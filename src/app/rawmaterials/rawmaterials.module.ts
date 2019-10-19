@@ -11,6 +11,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule} from '@angular/common/http';
 import { Routes, RouterModule } from '@angular/router';
 
+
+
+
+
+
+
+
+
 const secondaryRoutes: Routes = [
   { path: 'place-rawmaterial-order', component: PlaceRawmaterialOrdersComponent},
   { path: 'display-rawmaterial-orders', component: DisplayRawmaterialOrdersComponent},
@@ -37,7 +45,9 @@ const secondaryRoutes: Routes = [
     CommonModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    
+    
   ],
 
 

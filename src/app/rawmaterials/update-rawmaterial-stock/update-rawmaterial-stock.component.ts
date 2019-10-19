@@ -16,6 +16,15 @@ export class UpdateRawmaterialStockComponent implements OnInit {
    isDataSet: boolean = false;
    message: string = null;
 
+   today = new Date();
+    minManufacturingDate = this.today.setFullYear(this.today.getFullYear() - 1);
+    maxManufacturingDate = new Date();
+
+    minExpiryDate = new Date();
+    maxExpiryDate = this.today.setFullYear(this.today.getFullYear() + 6);
+
+
+
   constructor(private updateRMStockService: UpdateRawmaterialStockService) { }
 
   ngOnInit() {
