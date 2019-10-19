@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { RawmaterialsModule } from './rawmaterials/rawmaterials.module';
 import { ProductsModule } from './products/products.module';
-
+import { AuthenticationModule } from './authentication/authentication.module';
 
 const routes: Routes = [];
 
@@ -10,7 +10,8 @@ const routes: Routes = [];
   imports: [RouterModule.forRoot(routes), 
     // RawmaterialsModule.forChild(routes),
     RawmaterialsModule, 
-    ProductsModule],
+    ProductsModule,
+    AuthenticationModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

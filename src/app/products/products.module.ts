@@ -23,13 +23,29 @@ const secondaryRoutes: Routes = [
 ];
 
 @NgModule({
-  declarations: [DisplayProductOrdersComponent, PlaceProductOrderComponent, TrackProductOrderComponent, UpdateProductOrderComponent, UpdateProductStockComponent, SetExitDateComponent, AddDistributorAddressComponent, AddDistributorAddressComponent],
+  declarations: [
+    DisplayProductOrdersComponent, 
+    PlaceProductOrderComponent, 
+    TrackProductOrderComponent, 
+    UpdateProductOrderComponent, 
+    UpdateProductStockComponent, 
+    SetExitDateComponent, 
+    AddDistributorAddressComponent, 
+    AddDistributorAddressComponent],
+
   imports: [
     RouterModule.forChild(secondaryRoutes),
     CommonModule,
     FormsModule,
     ReactiveFormsModule
   ],
-  exports: [DisplayProductOrdersComponent, PlaceProductOrderComponent, TrackProductOrderComponent, UpdateProductOrderComponent, UpdateProductStockComponent, SetExitDateComponent, AddDistributorAddressComponent]
+
+  exports: [DisplayProductOrdersComponent, 
+    PlaceProductOrderComponent, 
+    TrackProductOrderComponent, 
+    UpdateProductOrderComponent, 
+    UpdateProductStockComponent, 
+    SetExitDateComponent, 
+    AddDistributorAddressComponent]
 })
 export class ProductsModule { }

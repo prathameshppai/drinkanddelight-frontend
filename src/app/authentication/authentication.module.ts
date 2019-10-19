@@ -1,19 +1,34 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login/login.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { FormsModule } from '@angular/forms';
 import { UsernameExistenceComponent } from './username-existence/username-existence.component';
+import { Routes, RouterModule } from '@angular/router';
 
-
+const secondaryRoutes: Routes = [
+  { path: '', component: LoginComponent},
+  { path: 'username-existence', component: UsernameExistenceComponent},
+  { path: 'change-password', component: ChangePasswordComponent}
+];
 
 @NgModule({
-  declarations: [LoginComponent, ChangePasswordComponent, UsernameExistenceComponent],
+  declarations: [
+    LoginComponent, 
+    UsernameExistenceComponent,
+    ChangePasswordComponent ],
+
   imports: [
+    RouterModule.forChild(secondaryRoutes),
     CommonModule,
     FormsModule
   ],
-  exports: [LoginComponent, ChangePasswordComponent],
+
+  exports: [
+    LoginComponent, 
+    UsernameExistenceComponent,
+    ChangePasswordComponent],
   
+    schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
 })
 export class AuthenticationModule { }
