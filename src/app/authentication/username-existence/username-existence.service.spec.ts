@@ -1,5 +1,4 @@
 import { TestBed } from '@angular/core/testing';
-
 import { UsernameExistenceService } from './username-existence.service';
 
 describe('UsernameExistenceService', () => {

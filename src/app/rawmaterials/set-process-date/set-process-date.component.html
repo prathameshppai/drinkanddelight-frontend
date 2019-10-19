@@ -31,17 +31,43 @@
             
                         <div class="col-lg-3">
                             <input required type="date"  class='form-control' id="processdate" #updateProcessDate='ngModel'
-                            [(ngModel)]='processDate' name='processDate' (change) = "log(updateProcessDate)">
+                            [(ngModel)]='processDate' name='processDate' (change) = "log(updateProcessDate)" min="{{minDate | date:'yyyy-MM-dd'}}" max = "{{maxDate | date:'yyyy-MM-dd'}}">
                                      
-                                <!-- <div class = "alert alert-danger" *ngIf = 'orderIDcheck'>Enter numeric order id</div> -->
+                                
                             <div class="alert alert-danger" *ngIf="updateProcessDate.touched && !updateProcessDate.valid"> enter process date </div>
                             
                         </div>
                     </div>
                 
             </div>
-    <br>
-            <button type="submit" class="btn btn-primary" [disabled] = "!enableButton" (click)='setProcessDate()'>Update</button>
+
+            <!-- <div class="form-group">
+                <div class="row">
+                    <div class="col-lg-2">
+                        <label for="processdatecustom">Process Date</label>
+                    </div>
+        
+                    <div class="col-lg-3">
+                            <mat-form-field  id = 'customDatePicker'>
+                                <div class="row">
+                                        <div class="col-lg-10">
+                                    <input required class='form-control' #updateProcessDatecustom='ngModel'  id = 'customDatePicker'
+                                    [(ngModel)]='processDateCustomTest' name='processDatecustom' (change) = "log(updateProcessDatecustom)" matInput [matDatepicker]="picker" placeholder="Choose or enter a date">
+                                        </div>
+                                    <div class="col-lg-2">
+                                    <mat-datepicker-toggle matSuffix [for]="picker" id = 'customDatePicker'></mat-datepicker-toggle>
+                                    <mat-datepicker #picker id = 'customDatePicker'></mat-datepicker>
+                                    </div>
+                                </div>
+                                  </mat-form-field>
+                        <div class="alert alert-danger" *ngIf="updateProcessDatecustom.touched && !updateProcessDatecustom.valid"> enter process date </div>
+                    </div>
+                    </div>
+                    </div> -->
+                    
+    
+          <br>
+            <button type="submit" class="btn btn-dark" [disabled] = "!enableButton" (click)='setProcessDate()'>Update</button>
     
     
     
@@ -58,6 +84,6 @@
     'alert-danger': !(message === 'Data inserted')
   }"
 *ngIf = 'isDataSet'>
-    <strong>{{ message }}</strong>
+    <strong  name = 'outputbox'>{{ message }}</strong>
   </div>
 </div>

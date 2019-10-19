@@ -19,6 +19,11 @@ export class SetExitDateComponent implements OnInit {
   //formBuilder: FormBuilder;
   //dateType = typeof(this.exitDate);
   enableButton: boolean = false;
+  today = new Date();
+   minDate = this.today.setFullYear(this.today.getFullYear() - 5);
+ 
+ maxDate = this.today.setFullYear(this.today.getFullYear() + 20);
+
   constructor(private exitDateService: SetExitDateService) {
   }
 
