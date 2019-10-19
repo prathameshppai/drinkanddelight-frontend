@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { SetProcessDateService } from './set-process-date.service';
+import { FocusMonitor } from '@angular/cdk/a11y';
 
 @Component({
   selector: 'app-set-process-date',
@@ -7,12 +8,19 @@ import { SetProcessDateService } from './set-process-date.service';
   styleUrls: ['./set-process-date.component.css']
 })
 export class SetProcessDateComponent implements OnInit {
+  
 
   orderId: number = 0;
    processDate: Date = null;
    enableButton: boolean = false;
    isDataSet: boolean = false;
    message: string = null;
+   
+   today = new Date();
+   minDate = this.today.setFullYear(this.today.getFullYear() - 5);
+ 
+ maxDate = this.today.setFullYear(this.today.getFullYear() + 20);
+ 
   
   
   constructor(private processDateService: SetProcessDateService) { }

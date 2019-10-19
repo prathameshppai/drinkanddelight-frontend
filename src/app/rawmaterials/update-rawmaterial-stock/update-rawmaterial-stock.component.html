@@ -32,7 +32,7 @@
           
                       <div class="col-lg-3">
                           <input required type="date"  class='form-control' id="manufacturingdate" #updateManufacturingDate='ngModel'
-                          [(ngModel)]='manufacturingDate' name='manufacturingDate' (change) = "log(updateManufacturingDate)">
+                          [(ngModel)]='manufacturingDate' name='manufacturingDate' (change) = "log(updateManufacturingDate)" min="{{minManufacturingDate | date:'yyyy-MM-dd'}}" max = "{{maxManufacturingDate | date:'yyyy-MM-dd'}}">
                                    
                               <!-- <div class = "alert alert-danger" *ngIf = 'orderIDcheck'>Enter numeric order id</div> -->
                           <div class="alert alert-danger" *ngIf="updateManufacturingDate.touched && !updateManufacturingDate.valid"> enter manufacturing date </div>
@@ -50,7 +50,7 @@
           
                       <div class="col-lg-3">
                           <input required type="date"  class='form-control' id="expirydate" #updateExpiryDate='ngModel'
-                          [(ngModel)]='expiryDate' name='expiryDate' (change) = "log(updateExpiryDate)">
+                          [(ngModel)]='expiryDate' name='expiryDate' (change) = "log(updateExpiryDate)" min="{{minExpiryDate | date:'yyyy-MM-dd'}}" max = "{{maxExpiryDate | date:'yyyy-MM-dd'}}">
                                    
                               <!-- <div class = "alert alert-danger" *ngIf = 'orderIDcheck'>Enter numeric order id</div> -->
                           <div class="alert alert-danger" *ngIf="updateExpiryDate.touched && !updateExpiryDate.valid"> enter expiry date </div>
@@ -76,7 +76,7 @@
       </div>
   
       <br>      
-      <button type="submit" class="btn btn-primary" [disabled] = "!enableButton" (click)='setRawMaterialStock()'>Update Stock</button>
+      <button type="submit" class="btn btn-dark" [disabled] = "!enableButton" (click)='setRawMaterialStock()'>Update Stock</button>
   
     </form>
   
@@ -90,6 +90,6 @@
       'alert-danger': !(message === 'Data inserted')
     }"
   *ngIf = 'isDataSet'>
-      <strong>{{ message }}</strong>
+      <strong name = 'outputbox'>{{ message }}</strong>
     </div>
   </div>

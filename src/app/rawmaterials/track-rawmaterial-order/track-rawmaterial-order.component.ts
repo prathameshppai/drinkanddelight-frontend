@@ -19,7 +19,7 @@ export class TrackRawmaterialOrderComponent implements OnInit {
    }
 
    getMessage() {
-
+    this.log("clicked");
     this.trackRMOrder.getTrackedMessage(this.orderId)
     .subscribe(
       data => {

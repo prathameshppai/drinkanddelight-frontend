@@ -13,6 +13,14 @@ import { Routes, RouterModule } from '@angular/router';
 import { DisplaySupplierDetailsComponent } from './display-supplier-details/display-supplier-details.component';
 import { DisplayDistributorDetailsComponent } from './display-distributor-details/display-distributor-details.component';
 
+
+
+
+
+
+
+
+
 const secondaryRoutes: Routes = [
   { path: 'place-rawmaterial-order', component: PlaceRawmaterialOrdersComponent},
   { path: 'display-rawmaterial-orders', component: DisplayRawmaterialOrdersComponent},
@@ -20,9 +28,8 @@ const secondaryRoutes: Routes = [
   { path: 'track-rawmaterial-order', component: TrackRawmaterialOrderComponent},
   { path: 'update-rawmaterial-order', component: UpdateRawmaterialOrderComponent},
   { path: 'update-rawmaterial-stock', component: UpdateRawmaterialStockComponent},
-  { path: 'display-supplier', component: DisplaySupplierDetailsComponent},
-  
-  // { path: 'display-supplier', component: changeThis}
+  { path: 'display-supplier', component: DisplaySupplierDetailsComponent}
+
 ];
 
 @NgModule({
@@ -41,9 +48,10 @@ const secondaryRoutes: Routes = [
     CommonModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    
+    
   ],
-
 
   exports: [
     DisplayRawmaterialOrdersComponent, 

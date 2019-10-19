@@ -22,7 +22,7 @@
             </div>
         </div>
         <br>
-        <button type="submit" class="btn btn-primary" (click) = 'getMessage()' [disabled] = "!enableButton">Track Order</button>
+        <button type="submit" class="btn btn-dark" (click) = 'getMessage()' [disabled] = "!enableButton">Track Order</button>
     </form>
 </div>
 
@@ -33,7 +33,7 @@
 <br>
 <div class="container">
 <div class="alert alert-info" *ngIf = 'isTrackFetched'>
-    <strong>{{ message }}</strong>
+    <strong name = 'outputbox'>{{ message }}</strong>
   </div>
 </div>
 

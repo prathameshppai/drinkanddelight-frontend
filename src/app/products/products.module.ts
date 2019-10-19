@@ -18,20 +18,38 @@ const secondaryRoutes: Routes = [
   { path: 'track-product-order', component: TrackProductOrderComponent},
   { path: 'update-product-order', component: UpdateProductOrderComponent},
   { path: 'update-product-stock', component: UpdateProductStockComponent},
- 
   { path: 'add-distributor-address', component: AddDistributorAddressComponent},
   { path: 'display-distributor', component: DisplayDistributorDetailsComponent}
+
   
 ];
 
 @NgModule({
-  declarations: [DisplayProductOrdersComponent, PlaceProductOrderComponent, TrackProductOrderComponent, UpdateProductOrderComponent, UpdateProductStockComponent, SetExitDateComponent, AddDistributorAddressComponent, AddDistributorAddressComponent, DisplayDistributorDetailsComponent],
+
+  declarations: [
+    DisplayProductOrdersComponent, 
+    PlaceProductOrderComponent, 
+    TrackProductOrderComponent, 
+    UpdateProductOrderComponent, 
+    UpdateProductStockComponent, 
+    SetExitDateComponent, 
+    AddDistributorAddressComponent, 
+    AddDistributorAddressComponent],
+
+
   imports: [
     RouterModule.forChild(secondaryRoutes),
     CommonModule,
     FormsModule,
     ReactiveFormsModule
   ],
-  exports: [DisplayProductOrdersComponent, PlaceProductOrderComponent, TrackProductOrderComponent, UpdateProductOrderComponent, UpdateProductStockComponent, SetExitDateComponent, AddDistributorAddressComponent]
+
+  exports: [DisplayProductOrdersComponent, 
+    PlaceProductOrderComponent, 
+    TrackProductOrderComponent, 
+    UpdateProductOrderComponent, 
+    UpdateProductStockComponent, 
+    SetExitDateComponent, 
+    AddDistributorAddressComponent]
 })
 export class ProductsModule { }
