@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {DisplayProductOrdersService} from '../display-product-orders/display-product-orders.service';
 
 import { ProductOrder } from '../display-product-orders/ProdcutOrderDTO';
+import { strictEqual } from 'assert';
+import { stringify } from '@angular/compiler/src/util';
 
 
 @Component({
@@ -22,7 +24,7 @@ export class DisplayProductOrdersComponent implements OnInit {
   DeliveryStatusVar :string  =null;
   message=null;
   public pos  =[];
-    isDataFetched = false;
+  isDataFetched : boolean = false;
 
   public changestatus() {
  
@@ -37,6 +39,7 @@ export class DisplayProductOrdersComponent implements OnInit {
     let yyyy = today.getFullYear();
     let ddFormat: string;
     let mmFormat: string;
+    
  
     if (dd < 10) {
       ddFormat = ('0' + dd).toString();
@@ -59,18 +62,25 @@ constructor(private productService : DisplayProductOrdersService) { }
       this.productService.getProductList(this.DeliveryStatusVar, this.DistributorIDVar,this.date1Var, this.date2Var)
       .subscribe(
         data => {
-          this.pos = data;
-          console.log("Response : "+JSON.stringify(this.pos));
-          this.isDataFetched = true;
-          
-           
-         
-          },
-          error => {
-            console.log("Error :"+JSON.stringify(error));
+          if(data == null){
+           this.isDataFetched =false;
+           this.message='No Records Found';
           }
+          else{
+        this.pos = data;
+        
+        console.log("Response : "+JSON.stringify(this.pos));
+        
+        this.isDataFetched = true;
+        
+          }
+       
+        },
+        error => {
+          console.log("Error :"+JSON.stringify(error));
+        }
         )
       }
       
-      }
+}
     

@@ -10,7 +10,7 @@ export class DisplaySupplierDetailsComponent implements OnInit {
 
   SupplierID: string = '';
   
-  message: string = '';
+ 
 
   isDisplaySupplierDetailsFetched: boolean = false;
   constructor(private displaysupplierdetails: DisplaySupplierDetailsService) { }
@@ -19,18 +19,34 @@ export class DisplaySupplierDetailsComponent implements OnInit {
     
   }
 
+  public dsups :any =[];
+    isDataFetched :boolean = false;
+    message : string 
+
+
+
   getMessage(){
 
     this.displaysupplierdetails.getDisplaySupplierDetailsMessage(this.SupplierID)
     .subscribe(
       data => {
-        console.log("Response : "+JSON.stringify(data));
-        this.message = data["message"];
-        this.isDisplaySupplierDetailsFetched = true;
+        if(data == null){
+         this.isDataFetched =false;
+         this.message='No Records Found';
+        }
+        else{
+      this.dsups = data;
+      
+      console.log("Response : "+JSON.stringify(this.dsups));
+      
+      this.isDataFetched = true;
+      
+        }
+     
       },
       error => {
         console.log("Error :"+JSON.stringify(error));
-  }
+      }
     )
 }
 

@@ -1,0 +1,96 @@
+<div class="container wrapper" class="form-check" class="was-validated">
+    <hr>
+    <div class="row">
+        <div class="col-sm-4">
+            <label for="DistributorID">
+                <p>
+                    <b>Choose Distributor</b>
+                </p>
+            </label> <select class="form-control" name="DistributorID" [(ngModel)]="DistributorID" required>
+
+                <option value="1">1</option>
+                <option value="d002">d002</option>
+                <option value="d003">d003</option>
+                <option value="d004">d004</option>
+                <option value="d005">d005</option>
+            </select>
+        </div>
+
+    </div>
+  
+    <div class="row">
+        <div class="col-sm-4">
+            <label for="AddressId">
+                <p>
+                    <b>Choose AddressId</b>
+                </p>
+            </label> <select class="form-control" name="addressId" [(ngModel)]="addressId" required>
+
+                <option value="3000">3000</option>
+                <option value="3001">3001</option>
+                <option value="3002">3002</option>
+                <option value="3003">3003</option>
+                <option value="3004">3004</option>
+            </select>
+        </div>
+
+    </div>
+
+    <div class="container">
+        <br>
+        <br>
+        <br>
+        <br>
+        <div style="width: 500px;" align="left">
+            <input type="submit" value="submit" (click)="getMessage()"><br>
+        </div>
+        <br>
+
+
+<!-- <div *ngIf ="!isDataFetched"> -->
+    <div class="alert alert-info" *ngIf ="!isDataFetched">
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <strong>{{ message }}</strong>
+      </div>
+    
+<div *ngIf="isDataFetched">
+        
+                <div class="table-responsive">
+
+                                <table class="table table-striped table-bordered table-fixed table-hover table-condensed" style="border:0px; " id="myTable3">
+                                  <thead>
+                                    <tr>
+                                <th><div class="col-lg-0.5">Distributor<br>Id</div></th>
+                                <th><div class="col-lg-1">Distributor<br>Name</div></th>
+                                <th><div class="col-lg-0.25">Address<br>Id</div></th>
+                                <th><div class="col-lg-0.5">Email</div></th>
+                                <th><div class="col-lg-0.5">Phone<br>Number</div></th>
+                                                                
+                        </tr>
+                </thead>
+                </table>
+                <div  class="table-responsive" class ="table-responsive{-sm|-md|-lg|-xl}">
+                                <table class="table table-striped table-bordered table-fixed table-hover table-condensed" style="border:0px; " id="myTable3">
+                                                <tbody>
+                                                  <tr>
+                                        <td><div class="col-lg-1">{{ddiss.distributorId}}</div></td>
+                                        <td><div class="col-lg-0.5">{{ddiss.name}}</div></td>
+                                        <td><div class="col-lg-1">PlotNo-{{ddiss.address.plotNo}},{{ddiss.address.buildingName}},{{ddiss.address.streetName}},{{ddiss.address.landmark}},{{ddiss.address.city}},{{ddiss.address.state}},{{ddiss.address.pincode}}</div></td>
+                                        <td><div class="col-lg-0.5">{{ddiss.emailId}}</div></td>
+                                        <td><div class="col-lg-1">{{ddiss.phoneNo}}</div></td>
+                                                
+                                </tr>
+
+                        </tbody>
+                </table>
+                </div>
+
+
+
+
+        </div>
+
+</div>
+
+
+    </div>
+</div>

@@ -9,6 +9,7 @@ import { AddDistributorAddressComponent } from './add-distributor-address/add-di
 import { SetExitDateComponent } from './set-exit-date/set-exit-date.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
+import { DisplayDistributorDetailsComponent } from './display-distributor-details/display-distributor-details.component';
 
 const secondaryRoutes: Routes = [
   { path: 'place-product-order', component: PlaceProductOrderComponent},
@@ -17,13 +18,14 @@ const secondaryRoutes: Routes = [
   { path: 'track-product-order', component: TrackProductOrderComponent},
   { path: 'update-product-order', component: UpdateProductOrderComponent},
   { path: 'update-product-stock', component: UpdateProductStockComponent},
-  // { path: 'display-distributor', component: Changethis},
-  { path: 'add-distributor-address', component: AddDistributorAddressComponent}
+ 
+  { path: 'add-distributor-address', component: AddDistributorAddressComponent},
+  { path: 'display-distributor', component: DisplayDistributorDetailsComponent}
   
 ];
 
 @NgModule({
-  declarations: [DisplayProductOrdersComponent, PlaceProductOrderComponent, TrackProductOrderComponent, UpdateProductOrderComponent, UpdateProductStockComponent, SetExitDateComponent, AddDistributorAddressComponent, AddDistributorAddressComponent],
+  declarations: [DisplayProductOrdersComponent, PlaceProductOrderComponent, TrackProductOrderComponent, UpdateProductOrderComponent, UpdateProductStockComponent, SetExitDateComponent, AddDistributorAddressComponent, AddDistributorAddressComponent, DisplayDistributorDetailsComponent],
   imports: [
     RouterModule.forChild(secondaryRoutes),
     CommonModule,

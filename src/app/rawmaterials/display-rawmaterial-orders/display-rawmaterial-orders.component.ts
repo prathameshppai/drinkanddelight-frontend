@@ -25,7 +25,7 @@ import { RawMaterialOrder } from './RawMaterialOrderdto';
     DeliveryStatusVar :string  =null;
     
    public rmos  =[];
-    isDataFetched :boolean;
+    isDataFetched :boolean = false;
     message : string 
 
 
