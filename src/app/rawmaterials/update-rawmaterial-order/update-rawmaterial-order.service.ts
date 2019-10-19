@@ -8,7 +8,7 @@ import { catchError, retry } from 'rxjs/operators';
 export class UpdateRawmaterialOrderService {
   getUpdateMessage(orderId: string,DeliveryStatuses:string){
   
-    return this.http.post("http://localhost:14842/drinkanddelight/UpdateRawMaterialDeliveryStatusServlet",{orderId,DeliveryStatuses})
+    return this.http.post("http://localhost:9090/drinkanddelight/UpdateRawMaterialDeliveryStatusServlet",{orderId,DeliveryStatuses})
     
   }
   constructor(private http: HttpClient) { }
