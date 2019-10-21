@@ -1,7 +1,3 @@
-
-
-
-
 export interface ProductOrder {
     distributorId: string,
     name: string,
@@ -10,4 +6,3 @@ export interface ProductOrder {
     phoneNo: string,
     address: string,
 }
-

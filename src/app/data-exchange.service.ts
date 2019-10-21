@@ -8,11 +8,19 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class DataExchangeService {
   private dataSource=new BehaviorSubject<string>("");
-  currentData = this.dataSource.asObservable();
+  private logInStatusSource=new BehaviorSubject<string>("");
 
+  currentData = this.dataSource.asObservable();
+  currentLogInStatus = this.logInStatusSource.asObservable();
+  
   constructor() { }
 
   changeData(username:string){
     this.dataSource.next(username);
   }
+
+  changeLogInStatus(loggedIn:boolean){
+    this.logInStatusSource.next(String(loggedIn));
+  }
+
 }

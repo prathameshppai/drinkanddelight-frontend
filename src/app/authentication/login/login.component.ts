@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from './login.service';
 import { Router } from '@angular/router';
+import { DataExchangeService } from '../../data-exchange.service';
 
 @Component({
   selector: 'app-login',
@@ -12,22 +13,27 @@ export class LoginComponent implements OnInit {
   usernameVar: string;
   passwordVar: string;
   message: string = '';
-  loggedIn: boolean = false;
-  constructor(private loginService: LoginService, private route: Router) { }
+  // loggedIn: boolean = false;
+  loggedIn: boolean;
+  constructor(private data: DataExchangeService, private loginService: LoginService, private route: Router) { }
 
   ngOnInit() {
+    this.data.currentLogInStatus.subscribe(loggedIn => this.loggedIn = (loggedIn == 'true'));
   }
 
   getMessage() {
+    // this.data.changeData(this.usernameVar);
     this.loginService.getLoginMessage(this.usernameVar, this.passwordVar)
       .subscribe(
         data => {
           console.log("Response : " + JSON.stringify(data));
           this.loggedIn = true;
+          this.data.changeLogInStatus(this.loggedIn);
           this.route.navigate(["home-page"]);
         },
         error => {
           console.log("Error :" + JSON.stringify(error));
+          this.data.changeLogInStatus(this.loggedIn);
         }
       );
   }
