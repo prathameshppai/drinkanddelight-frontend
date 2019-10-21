@@ -26,9 +26,14 @@ export class LoginComponent implements OnInit {
     this.loginService.getLoginMessage(this.usernameVar, this.passwordVar)
       .subscribe(
         data => {
-          console.log("Response : " + JSON.stringify(data));
+
+          // console.log("Response : " + JSON.stringify(data));
           this.loggedIn = true;
+          localStorage.setItem('loggedIn', String(this.loggedIn));
+          localStorage.setItem('username',JSON.stringify(data["message"]));
           this.data.changeLogInStatus(this.loggedIn);
+          console.log(localStorage.getItem('loggedIn'));
+          console.log(localStorage.getItem('username'));
           this.route.navigate(["home-page"]);
         },
         error => {

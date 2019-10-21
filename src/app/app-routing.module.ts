@@ -4,6 +4,7 @@ import { RawmaterialsModule } from './rawmaterials/rawmaterials.module';
 import { ProductsModule } from './products/products.module';
 import { HomepageComponent } from './homepage/homepage.component';
 import { AuthenticationModule } from './authentication/authentication.module';
+import { AuthenticationService } from './authentication.service'
 
 const routes: Routes = [
   { path: 'home-page', component: HomepageComponent},
@@ -11,10 +12,10 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes), 
-    // RawmaterialsModule.forChild(routes),
     RawmaterialsModule, 
     ProductsModule,
     AuthenticationModule],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [AuthenticationService]
 })
 export class AppRoutingModule { }
