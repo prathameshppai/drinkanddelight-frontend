@@ -23,15 +23,21 @@ export class UpdateProductStockComponent implements OnInit {
     minExpiryDate = new Date();
     maxExpiryDate = this.today.setFullYear(this.today.getFullYear() + 6);
 
+    isProcessing: boolean = false;
+  hasErrorOccured: boolean = false;
+  errorMessage: string = '';
+
   constructor(private updateProductStockService: UpdateProductStockService) { }
 
   ngOnInit() {
   }
 
   setProductStock() {
+    this.isProcessing = true;
     this.updateProductStockService.updateProductStock(this.orderId, this.manufacturingDate, this.expiryDate, this.qaStatus)
     .subscribe(
       data => {
+        this.isProcessing = false;
         console.log("Response : "+JSON.stringify(data));
         this.message = data["message"];
         this.isDataSet = true;
@@ -39,6 +45,9 @@ export class UpdateProductStockComponent implements OnInit {
         
       },
       error => {
+        this.isProcessing = false;
+        this.errorMessage = "Server failed to respond";
+        this.hasErrorOccured = true;
         console.log("Error :"+JSON.stringify(error));
       }
     );

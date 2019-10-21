@@ -22,7 +22,9 @@ export class UpdateRawmaterialStockComponent implements OnInit {
 
     minExpiryDate = new Date();
     maxExpiryDate = this.today.setFullYear(this.today.getFullYear() + 6);
-
+    isProcessing: boolean = false;
+  hasErrorOccured: boolean = false;
+  errorMessage: string = '';
 
 
   constructor(private updateRMStockService: UpdateRawmaterialStockService) { }
@@ -31,9 +33,11 @@ export class UpdateRawmaterialStockComponent implements OnInit {
   }
 
   setRawMaterialStock() {
+    this.isProcessing = true;
     this.updateRMStockService.updateRMStock(this.orderId, this.manufacturingDate, this.expiryDate, this.qaStatus)
     .subscribe(
       data => {
+        this.isProcessing = false;
         console.log("Response : "+JSON.stringify(data));
         this.message = data["message"];
         this.isDataSet = true;
@@ -41,6 +45,9 @@ export class UpdateRawmaterialStockComponent implements OnInit {
         
       },
       error => {
+        this.isProcessing = false;
+        this.errorMessage = "Server failed to respond";
+        this.hasErrorOccured = true;
         console.log("Error :"+JSON.stringify(error));
       }
     );

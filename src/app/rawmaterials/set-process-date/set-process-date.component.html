@@ -1,47 +1,49 @@
 <div class="container">
     <div>
-            <h2>Update Process Date of raw material</h2>
-            <p>Enter the process date for order ID</p>
-        </div>
-        <hr>
-        <br>
-        <form>
-            <div class="form-group">
-                    <div class="row">
-                        <div class="col-lg-2">
-                            <label for="orderID">Enter Order ID</label>
-                        </div>
-            
-                        <div class="col-lg-3">
-                            <input required pattern='[0-9]+' type="text" #orderID='ngModel' class='form-control' id="orderID"
-                                    [(ngModel)]='orderId' name='orderID' (change) = "log(orderID)">
-                            <!-- <div class = "alert alert-danger" *ngIf = 'orderIDcheck'>Enter numeric order id</div> -->
-                            <div class="alert alert-danger" *ngIf="orderID.touched && !orderID.valid"> Order ID is required
-                            <div *ngIf="orderID.errors.pattern"> Enter numeric order ID</div>
-                            </div>
-                        </div>
+        <h2>Update Process Date of raw material</h2>
+        <p>Enter the process date for order ID</p>
+    </div>
+    <hr>
+    <br>
+    <form>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-lg-2">
+                    <label for="orderID">Enter Order ID</label>
+                </div>
+
+                <div class="col-lg-3">
+                    <input required pattern='[0-9]+' type="text" #orderID='ngModel' class='form-control' id="orderID"
+                        [(ngModel)]='orderId' name='orderID' (change)="log(orderID)">
+                    <!-- <div class = "alert alert-danger" *ngIf = 'orderIDcheck'>Enter numeric order id</div> -->
+                    <div class="alert alert-danger" *ngIf="orderID.touched && !orderID.valid"> Order ID is required
+                        <div *ngIf="orderID.errors.pattern"> Enter numeric order ID</div>
                     </div>
+                </div>
             </div>
-    
-            <div class="form-group">
-                    <div class="row">
-                        <div class="col-lg-2">
-                            <label for="processdate">Process Date</label>
-                        </div>
-            
-                        <div class="col-lg-3">
-                            <input required type="date"  class='form-control' id="processdate" #updateProcessDate='ngModel'
-                            [(ngModel)]='processDate' name='processDate' (change) = "log(updateProcessDate)" min="{{minDate | date:'yyyy-MM-dd'}}" max = "{{maxDate | date:'yyyy-MM-dd'}}">
-                                     
-                                
-                            <div class="alert alert-danger" *ngIf="updateProcessDate.touched && !updateProcessDate.valid"> enter process date </div>
-                            
-                        </div>
-                    </div>
-                
+        </div>
+
+        <div class="form-group">
+            <div class="row">
+                <div class="col-lg-2">
+                    <label for="processdate">Process Date</label>
+                </div>
+
+                <div class="col-lg-3">
+                    <input required type="date" class='form-control' id="processdate" #updateProcessDate='ngModel'
+                        [(ngModel)]='processDate' name='processDate' (change)="log(updateProcessDate)"
+                        min="{{minDate | date:'yyyy-MM-dd'}}" max="{{maxDate | date:'yyyy-MM-dd'}}">
+
+
+                    <div class="alert alert-danger" *ngIf="updateProcessDate.touched && !updateProcessDate.valid"> enter
+                        process date </div>
+
+                </div>
             </div>
 
-            <!-- <div class="form-group">
+        </div>
+
+        <!-- <div class="form-group">
                 <div class="row">
                     <div class="col-lg-2">
                         <label for="processdatecustom">Process Date</label>
@@ -64,26 +66,37 @@
                     </div>
                     </div>
                     </div> -->
-                    
-    
-          <br>
-            <button type="submit" class="btn btn-dark" [disabled] = "!enableButton" (click)='setProcessDate()'>Update</button>
-    
-    
-    
-    
-    </form>
-    
-    </div>
 
-    <br>
+
+        <br>
+        <button type="submit" class="btn btn-dark" [disabled]="!enableButton" (click)='setProcessDate()'>Update</button>
+
+
+
+
+    </form>
+
+</div>
+
+<div *ngIf="isProcessing" class="spinner-container d-flex align-items-center justify-content-center flex-column">
+    <div class="spinner-border text-info" role="status">
+
+    </div>
+    <h6 class="mt-2">Please wait ...</h6>
+</div>
+
+<br>
 <div class="container">
-<div class="alert" 
-[ngClass]="{
+    <div class="alert" [ngClass]="{
     'alert-success': message === 'Data inserted',
     'alert-danger': !(message === 'Data inserted')
-  }"
-*ngIf = 'isDataSet'>
-    <strong  name = 'outputbox'>{{ message }}</strong>
-  </div>
+  }" *ngIf='isDataSet'>
+        <strong name='outputbox'>{{ message }}</strong>
+    </div>
+</div>
+
+<div class="container">
+    <div class="alert alert-danger" *ngIf='hasErrorOccured'>
+        <strong name='errorbox'>{{ errorMessage }}</strong>
+    </div>
 </div>

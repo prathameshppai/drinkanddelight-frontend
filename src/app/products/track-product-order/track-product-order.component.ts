@@ -13,21 +13,29 @@ export class TrackProductOrderComponent implements OnInit {
   message: string = '';
   isTrackFetched: boolean = false;
   enableButton: boolean = false;
+  isProcessing: boolean = false;
+  hasErrorOccured: boolean = false;
+  errorMessage: string = '';
+  
   constructor(private trackProductOrderService: TrackProductOrderService) { }
 
   ngOnInit() {
     }
 
   getMessage() {
-
+    this.isProcessing = true;
     this.trackProductOrderService.getTrackedMessage(this.orderId)
     .subscribe(
       data => {
+        this.isProcessing = false;
         console.log("Response : "+JSON.stringify(data));
         this.message = data["message"];
         this.isTrackFetched = true;
       },
       error => {
+        this.isProcessing = false;
+        this.errorMessage = "Server failed to respond";
+        this.hasErrorOccured = true;
         console.log("Error :"+JSON.stringify(error));
       }
     );

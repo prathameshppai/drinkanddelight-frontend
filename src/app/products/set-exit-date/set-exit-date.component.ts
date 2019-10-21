@@ -23,6 +23,9 @@ export class SetExitDateComponent implements OnInit {
    minDate = this.today.setFullYear(this.today.getFullYear() - 5);
  
  maxDate = this.today.setFullYear(this.today.getFullYear() + 20);
+ isProcessing: boolean = false;
+ hasErrorOccured: boolean = false;
+ errorMessage: string = '';
 
   constructor(private exitDateService: SetExitDateService) {
   }
@@ -39,11 +42,11 @@ export class SetExitDateComponent implements OnInit {
   
 
   setExitDate() {
-
-
+    this.isProcessing = true;
     this.exitDateService.setExitDateinStock(this.orderId, this.exitDate)
     .subscribe(
       data => {
+        this.isProcessing = false;
         console.log("Response : "+JSON.stringify(data));
         this.message = data["message"];
         this.isDataSet = true;
@@ -51,6 +54,9 @@ export class SetExitDateComponent implements OnInit {
         
       },
       error => {
+        this.isProcessing = false;
+        this.errorMessage = "Server failed to respond";
+        this.hasErrorOccured = true;
         console.log("Error :"+JSON.stringify(error));
       }
     );
