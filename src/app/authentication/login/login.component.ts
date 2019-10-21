@@ -37,6 +37,8 @@ export class LoginComponent implements OnInit {
 
           if(this.message === "Login Successful"){
             this.loggedIn = true;
+            localStorage.setItem('loggedIn', String(this.loggedIn));
+            localStorage.setItem('username',JSON.stringify(data["message"]));
             this.data.changeLogInStatus(this.loggedIn);
             this.route.navigate(["home-page"]);
           }
@@ -44,11 +46,11 @@ export class LoginComponent implements OnInit {
             this.toastr.error(this.message);
           }
           
-        },
         error => {
           console.log("Error :" + JSON.stringify(error));
           this.data.changeLogInStatus(this.loggedIn);
         }
+      }
       );
   }
 }

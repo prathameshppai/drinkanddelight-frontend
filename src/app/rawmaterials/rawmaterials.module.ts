@@ -12,7 +12,7 @@ import { HttpClientModule} from '@angular/common/http';
 import { Routes, RouterModule } from '@angular/router';
 import { DisplaySupplierDetailsComponent } from './display-supplier-details/display-supplier-details.component';
 import { DisplayDistributorDetailsComponent } from './display-distributor-details/display-distributor-details.component';
-
+import { AuthenticationService } from '../authentication.service';
 
 
 
@@ -22,13 +22,13 @@ import { DisplayDistributorDetailsComponent } from './display-distributor-detail
 
 
 const secondaryRoutes: Routes = [
-  { path: 'place-rawmaterial-order', component: PlaceRawmaterialOrdersComponent},
-  { path: 'display-rawmaterial-orders', component: DisplayRawmaterialOrdersComponent},
-  { path: 'set-process-date', component: SetProcessDateComponent},
-  { path: 'track-rawmaterial-order', component: TrackRawmaterialOrderComponent},
-  { path: 'update-rawmaterial-order', component: UpdateRawmaterialOrderComponent},
-  { path: 'update-rawmaterial-stock', component: UpdateRawmaterialStockComponent},
-  { path: 'display-supplier', component: DisplaySupplierDetailsComponent}
+  { path: 'place-rawmaterial-order', component: PlaceRawmaterialOrdersComponent, canActivate: [AuthenticationService]},
+  { path: 'display-rawmaterial-orders', component: DisplayRawmaterialOrdersComponent, canActivate: [AuthenticationService]},
+  { path: 'set-process-date', component: SetProcessDateComponent, canActivate: [AuthenticationService]},
+  { path: 'track-rawmaterial-order', component: TrackRawmaterialOrderComponent, canActivate: [AuthenticationService]},
+  { path: 'update-rawmaterial-order', component: UpdateRawmaterialOrderComponent, canActivate: [AuthenticationService]},
+  { path: 'update-rawmaterial-stock', component: UpdateRawmaterialStockComponent, canActivate: [AuthenticationService]},
+  { path: 'display-supplier', component: DisplaySupplierDetailsComponent, canActivate: [AuthenticationService]}
 
 ];
 

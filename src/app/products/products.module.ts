@@ -10,16 +10,17 @@ import { SetExitDateComponent } from './set-exit-date/set-exit-date.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 import { DisplayDistributorDetailsComponent } from './display-distributor-details/display-distributor-details.component';
+import { AuthenticationService } from '../authentication.service';
 
 const secondaryRoutes: Routes = [
-  { path: 'place-product-order', component: PlaceProductOrderComponent},
-  { path: 'display-product-orders', component: DisplayProductOrdersComponent},
-  { path: 'set-exit-date', component: SetExitDateComponent},
-  { path: 'track-product-order', component: TrackProductOrderComponent},
-  { path: 'update-product-order', component: UpdateProductOrderComponent},
-  { path: 'update-product-stock', component: UpdateProductStockComponent},
-  { path: 'add-distributor-address', component: AddDistributorAddressComponent},
-  { path: 'display-distributor', component: DisplayDistributorDetailsComponent}
+  { path: 'place-product-order', component: PlaceProductOrderComponent, canActivate: [AuthenticationService]},
+  { path: 'display-product-orders', component: DisplayProductOrdersComponent, canActivate: [AuthenticationService]},
+  { path: 'set-exit-date', component: SetExitDateComponent, canActivate: [AuthenticationService]},
+  { path: 'track-product-order', component: TrackProductOrderComponent, canActivate: [AuthenticationService]},
+  { path: 'update-product-order', component: UpdateProductOrderComponent, canActivate: [AuthenticationService]},
+  { path: 'update-product-stock', component: UpdateProductStockComponent, canActivate: [AuthenticationService]},
+  { path: 'add-distributor-address', component: AddDistributorAddressComponent, canActivate: [AuthenticationService]},
+  { path: 'display-distributor', component: DisplayDistributorDetailsComponent, canActivate: [AuthenticationService]}
 
   
 ];
