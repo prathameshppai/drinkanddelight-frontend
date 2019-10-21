@@ -82,6 +82,13 @@
   
   </div>
 
+  <div *ngIf="isProcessing" class="spinner-container d-flex align-items-center justify-content-center flex-column">
+    <div class="spinner-border text-info" role="status">
+        
+    </div>
+    <h6 class="mt-2">Please wait ...</h6>
+</div>
+
   <br>
   <div class="container">
   <div class="alert" 
@@ -93,3 +100,9 @@
       <strong name = 'outputbox'>{{ message }}</strong>
     </div>
   </div>
+
+  <div class="container">
+    <div class="alert alert-danger" *ngIf = 'hasErrorOccured'>
+        <strong name = 'errorbox'>{{ errorMessage }}</strong>
+      </div>
+    </div>

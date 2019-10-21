@@ -12,6 +12,9 @@ export class TrackRawmaterialOrderComponent implements OnInit {
   message: string = '';
   isTrackFetched: boolean = false;
   enableButton: boolean = false;
+  isProcessing: boolean = false;
+  hasErrorOccured: boolean = false;
+  errorMessage: string = '';
 
   constructor(private trackRMOrder: TrackRawMaterialServiceService) { }
 
@@ -19,15 +22,20 @@ export class TrackRawmaterialOrderComponent implements OnInit {
    }
 
    getMessage() {
+    this.isProcessing = true;
     this.log("clicked");
     this.trackRMOrder.getTrackedMessage(this.orderId)
     .subscribe(
       data => {
+        this.isProcessing = false;
         console.log("Response : "+JSON.stringify(data));
         this.message = data["message"];
         this.isTrackFetched = true;
       },
       error => {
+        this.isProcessing = false;
+        this.errorMessage = "Server failed to respond";
+        this.hasErrorOccured = true;
         console.log("Error :"+JSON.stringify(error));
       }
     );
