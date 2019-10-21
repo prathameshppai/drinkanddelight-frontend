@@ -5,6 +5,8 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
 import { FormsModule } from '@angular/forms';
 import { UsernameExistenceComponent } from './username-existence/username-existence.component';
 import { Routes, RouterModule } from '@angular/router';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const secondaryRoutes: Routes = [
   { path: '', component: LoginComponent},
@@ -20,6 +22,8 @@ const secondaryRoutes: Routes = [
 
   imports: [
     RouterModule.forChild(secondaryRoutes),
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule,
     CommonModule,
     FormsModule
   ],

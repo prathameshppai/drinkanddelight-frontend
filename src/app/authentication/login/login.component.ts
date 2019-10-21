@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from './login.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { DataExchangeService } from '../../data-exchange.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,12 @@ export class LoginComponent implements OnInit {
   message: string = '';
   // loggedIn: boolean = false;
   loggedIn: boolean;
-  constructor(private data: DataExchangeService, private loginService: LoginService, private route: Router) { }
+  pwc: string;
+  constructor(private data: DataExchangeService, 
+    private loginService: LoginService, 
+    private route: Router,
+    private ac_route: ActivatedRoute,
+    private toastr: ToastrService) { }
 
   ngOnInit() {
     this.data.currentLogInStatus.subscribe(loggedIn => this.loggedIn = (loggedIn == 'true'));
@@ -26,20 +32,25 @@ export class LoginComponent implements OnInit {
     this.loginService.getLoginMessage(this.usernameVar, this.passwordVar)
       .subscribe(
         data => {
+          console.log("Response : " + JSON.stringify(data));
+          this.message = data["message"];
 
-          // console.log("Response : " + JSON.stringify(data));
-          this.loggedIn = true;
-          localStorage.setItem('loggedIn', String(this.loggedIn));
-          localStorage.setItem('username',JSON.stringify(data["message"]));
-          this.data.changeLogInStatus(this.loggedIn);
-          console.log(localStorage.getItem('loggedIn'));
-          console.log(localStorage.getItem('username'));
-          this.route.navigate(["home-page"]);
-        },
+          if(this.message === "Login Successful"){
+            this.loggedIn = true;
+            localStorage.setItem('loggedIn', String(this.loggedIn));
+            localStorage.setItem('username',JSON.stringify(data["message"]));
+            this.data.changeLogInStatus(this.loggedIn);
+            this.route.navigate(["home-page"]);
+          }
+          else {
+            this.toastr.error(this.message);
+          }
+          
         error => {
           console.log("Error :" + JSON.stringify(error));
           this.data.changeLogInStatus(this.loggedIn);
         }
+      }
       );
   }
 }
