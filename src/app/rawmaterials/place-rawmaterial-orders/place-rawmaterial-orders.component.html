@@ -1,105 +1,98 @@
-<br>
-<h3>Place Raw Material Order</h3>
-
-<!-- <form action="PlaceRMOrderServlet" method="post"> -->
-<form>
-    <div class="container wrapper" class="form-check" class="was-validated">
-
-        <hr>
-        <div class="row">
-            <div class="col-sm-3">
-                <label for="RMName">
-                    <b>Raw Material Name</b>
-                </label>
-                <select class="form-control" name="RMName" [(ngModel)]='RMNameVar' required>
-                    <option *ngFor="let rmOrder of rawmaterialDetails[0]">{{ rmOrder }}</option>
-                </select>
-            </div>
-
-            <div class="col-sm-2">
-                <label for="SUPID">
-                    <b>Supplier ID</b>
-                </label>
-                <select class="form-control" name="SUPID" [(ngModel)]='SUPIDVar' required>
-                    <option *ngFor="let supplierId of rawmaterialDetails[1]">{{ supplierId }}</option>
-                </select>
-            </div>
-
-            <div class="col-sm-2">
-                <label for="warehouseId">
-                    <b>Warehouse ID</b>
-                </label>
-                <select class="form-control" name="warehouseId" [(ngModel)]='warehouseIdVar' required>
-                    <option *ngFor="let warehouseId of rawmaterialDetails[2]">{{ warehouseId }}</option>
-                </select>
-            </div>
-
-        </div>
-        <br>
-        <div class="row">
-            <div class="col-sm-3">
-                <label for="Quantity">
-                    <b>Quantity</b>
-                </label>
-                <br>
-                <input required pattern='[0-9]+' type="text" #quantity='ngModel' class='form-control' id="quantity" 
-                [(ngModel)]='quantityVar' name='quantity' (change)="log(quantity)">
-                <div class="alert alert-danger" *ngIf="quantity.touched && !quantity.valid"> This field is required
-                    <div *ngIf="quantity.errors.pattern"> Enter value in decimal only </div>
+<div class=container>
+    <div>
+        <h2>Place Raw Material Order</h2>
+    </div>
+    <hr>
+    <br>
+    <form>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-lg-3">
+                    <label for="RMName">
+                        <b>Raw Material Name</b>
+                    </label>
+                    <select class="form-control" name="RMName" [(ngModel)]='RMNameVar' required>
+                        <option *ngFor="let rmOrder of rawmaterialDetails[0]">{{ rmOrder }}</option>
+                    </select>
                 </div>
-                <!-- <input type="text" placeholder="Enter quantity" name="Quantity" class="text-box-size form-rounded" required> -->
+
+                <div class="col-lg-2">
+                    <label for="SUPID">
+                        <b>Supplier ID</b>
+                    </label>
+                    <select class="form-control" name="SUPID" [(ngModel)]='SUPIDVar' required>
+                        <option *ngFor="let supplierId of rawmaterialDetails[1]">{{ supplierId }}</option>
+                    </select>
+                </div>
+
+                <div class="col-lg-2">
+                    <label for="warehouseId">
+                        <b>Warehouse ID</b>
+                    </label>
+                    <select class="form-control" name="warehouseId" [(ngModel)]='warehouseIdVar' required>
+                        <option *ngFor="let warehouseId of rawmaterialDetails[2]">{{ warehouseId }}</option>
+                    </select>
+                </div>
             </div>
 
-            <div class="col-sm-2">
-                <label for="QuantityUnit">
-                    <b>Quantity Unit</b>
-                </label>
-                <select class="form-control" name="QuantityUnit" [(ngModel)]='QuantityUnitVar' required>
+            <br>
+            <div class="row">
+                <div class="col-lg-3">
+                    <label for="Quantity">
+                        <b>Quantity</b>
+                    </label>
+                    <br>
+                    <input required pattern='[0-9]+' type="text" #quantity='ngModel' class='form-control' id="quantity" [(ngModel)]='quantityVar'
+                        name='quantity' (change)="log1(quantity)">
+                    <div class="alert alert-danger" *ngIf="quantity.touched && !quantity.valid"> This field is required
+                        <div *ngIf="quantity.errors.pattern"> Enter value in decimal only </div>
+                    </div>
+                    <!-- <input type="text" placeholder="Enter quantity" name="Quantity" class="text-box-size form-rounded" required> -->
+                </div>
+
+                <div class="col-lg-2">
+                    <label for="QuantityUnit">
+                        <b>Quantity Unit</b>
+                    </label>
+                    <select class="form-control" name="QuantityUnit" [(ngModel)]='QuantityUnitVar' required>
                         <option>kg</option>
                         <option>quintals</option>
-                </select>
-            </div>
-
-            <div class="col-sm-2">
-                <label for="price_per_unit">
-                    <b>Price per Unit</b>
-                </label>
-                <br>
-                <input required pattern='[0-9]+' type="text" #pricePerUnit='ngModel' class='form-control' id="pricePerUnit" 
-                [(ngModel)]='pricePerUnitVar' name='pricePerUnit' (change)="log(pricePerUnit)">
-                <div class="alert alert-danger" *ngIf="pricePerUnit.touched && !pricePerUnit.valid"> This field is required
-                    <div *ngIf="pricePerUnit.errors.pattern"> Enter value in decimal only </div>
+                    </select>
                 </div>
-                <!-- <input type="text" placeholder="Enter amount in Rs" name="price_per_unit" class="text-box-size form-rounded" required> -->
-            </div>
-        </div>
-        <br>
 
-        <div class="row">
-            <div class="col-sm-3">
-                <label for="expectedDateofDelivery">
-                    <b>Expected Date of Delivery</b>
-                </label>
-                <input type="date" name="expectedDateofDelivery" [(ngModel)]='expectedDateofDeliveryVar' class="was-validated text-box-size form-rounded" min="{{minDate | date:'yyyy-MM-dd'}}" max = "{{maxDate | date:'yyyy-MM-dd'}}">
+                <div class="col-lg-2">
+                    <label for="price_per_unit">
+                        <b>Price per Unit</b>
+                    </label>
+                    <br>
+                    <input required pattern='[0-9]+' type="text" #pricePerUnit='ngModel' class='form-control' id="pricePerUnit" [(ngModel)]='pricePerUnitVar'
+                        name='pricePerUnit' (change)="log2(pricePerUnit)">
+                    <div class="alert alert-danger" *ngIf="pricePerUnit.touched && !pricePerUnit.valid"> This field is required
+                        <div *ngIf="pricePerUnit.errors.pattern"> Enter value in decimal only </div>
+                    </div>
+                    <!-- <input type="text" placeholder="Enter amount in Rs" name="price_per_unit" class="text-box-size form-rounded" required> -->
+                </div>
             </div>
-        </div>
-        <br>
 
-        <div class="row">
-            <div class="col-sm-3">
+            <div class="row">
+                <div class="col-lg-3">
+                    <label for="expectedDateofDelivery">
+                        <b>Expected Date of Delivery</b>
+                    </label>
+                    <input type="date" name="expectedDateofDelivery" [(ngModel)]='expectedDateofDeliveryVar' class=" text-box-size form-rounded"
+                        min="{{minDate | date:'yyyy-MM-dd'}}" max="{{maxDate | date:'yyyy-MM-dd'}}">
+                </div>
             </div>
-            <div class="col-sm-3">
-                <button type="submit" (click) = 'getMessage()'>Place Order</button>
-            </div>
+
         </div>
         <br>
+        <button type="submit" class="btn btn-dark" (click)='getMessage()' [disabled]="!enableButton">Place Order</button>
+    </form>
+</div>
+
+<div *ngIf="isProcessing" class="spinner-container d-flex align-items-center justify-content-center flex-column">
+    <div class="spinner-border text-info" role="status">
+
     </div>
-</form>
- <br>
- <div class="container">
- <div class="alert alert-info" *ngIf = 'isPlaceRawmaterialOrderFetched'>
-     <strong>{{ message }}</strong>
-     <br>
-   </div>
- </div>
- 
+    <h6 class="mt-2">Please wait ...</h6>
+</div>

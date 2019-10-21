@@ -5,6 +5,7 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
 import { FormsModule } from '@angular/forms';
 import { UsernameExistenceComponent } from './username-existence/username-existence.component';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthenticationService } from '../authentication.service';
 
 const secondaryRoutes: Routes = [
   { path: '', component: LoginComponent},
