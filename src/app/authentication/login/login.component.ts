@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
   message: string = 'sfs';
   // loggedIn: boolean = false;
   loggedIn: boolean;
-  pwc: string;
+  pwc: boolean = false;
   constructor(private data: DataExchangeService, 
     private loginService: LoginService, 
     private route: Router,
@@ -25,6 +25,17 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.data.currentLogInStatus.subscribe(loggedIn => this.loggedIn = (loggedIn == 'true'));
+
+    this.ac_route.queryParams
+      .subscribe(params => {
+        this.pwc = params.pwc;
+      });
+
+      if (this.pwc) {
+        this.toastr.success("Password changed successfully !");
+        this.pwc = false;
+        this.route.navigate([""])
+      }
   }
 
   getMessage() {
@@ -32,17 +43,12 @@ export class LoginComponent implements OnInit {
     this.loginService.getLoginMessage(this.usernameVar, this.passwordVar)
       .subscribe(
         data => {
-          console.log("hello");
-          console.log(data);
           this.message = data["message"];
-          console.log( "res "+data["message"]+" "+data["username"]);
           if(this.message === "Login Successful"){
             this.loggedIn = true;
             localStorage.setItem('loggedIn', String(this.loggedIn));
             localStorage.setItem('username',data["username"]);
             this.data.changeLogInStatus(this.loggedIn);
-            console.log("Error :" + data["message"]);
-            console.log("Error :" + data["username"]);
             this.route.navigate(["home-page"]);
           }
           else {
@@ -50,7 +56,7 @@ export class LoginComponent implements OnInit {
           }
           
         error => {
-          console.log("Error :" + JSON.stringify(error));
+          this.toastr.error("Error :" + JSON.stringify(error));
           this.data.changeLogInStatus(this.loggedIn);
         }
       }
