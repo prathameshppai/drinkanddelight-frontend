@@ -40,7 +40,7 @@ export class ChangePasswordComponent implements OnInit {
       data => {
         this.message = data["message"];
         if(this.message === "Password changed successfully."){
-          this.route.navigate([""]);
+          this.route.navigate([""], { queryParams: { pwc: true } });
         }
         else {
           this.toastr.error(this.message);
