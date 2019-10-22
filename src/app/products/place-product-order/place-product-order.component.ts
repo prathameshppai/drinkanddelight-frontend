@@ -22,6 +22,7 @@ export class PlaceProductOrderComponent implements OnInit {
   minDate = new Date();
   today = new Date();
   maxDate = this.today.setMonth(this.today.getMonth()+2);
+  isProcessing: boolean = false;
 
   constructor(private placeProductOrderService: PlaceProductOrderService) {
   }
@@ -30,19 +31,19 @@ export class PlaceProductOrderComponent implements OnInit {
     this.getProductDetails();
     
   }
-  // '[0-9]+[.]{1}'
-  // '/^(?=.+)(?:[1-9]\d*|0)?(?:\.\d+)?$/'
 
   getMessage() {
-
+    this.isProcessing = true;
     this.placeProductOrderService.getPlaceProductOrderMessage(this.ProductNameVar, this.DISTIDVar, this.quantityVar, this.QuantityUnitVar, this.expectedDateofDeliveryVar, this.pricePerUnitVar, this.warehouseIdVar)
       .subscribe(
         data => {
+          this.isProcessing = false;
           console.log("Response : " + JSON.stringify(data));
           this.message = data["message"];
           this.isPlaceProductOrderFetched = true;
         },
         error => {
+          this.isProcessing = false;
           console.log("Error :" + JSON.stringify(error));
         }
       );

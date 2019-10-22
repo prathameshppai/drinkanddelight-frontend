@@ -10,9 +10,7 @@ export class DisplaySupplierDetailsComponent implements OnInit {
 
   SupplierID: string = '';
   
- 
 
-  isDisplaySupplierDetailsFetched: boolean = false;
   constructor(private displaysupplierdetails: DisplaySupplierDetailsService) { }
 
   ngOnInit() {
