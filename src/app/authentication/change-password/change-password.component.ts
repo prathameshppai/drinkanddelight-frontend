@@ -25,7 +25,6 @@ export class ChangePasswordComponent implements OnInit {
         data => {
           if(data["message"] == null)
             this.route.navigate([""]);
-
           this.questionVar = (data["message"]);
           console.log("Response : " + this.questionVar);
         },
@@ -43,6 +42,7 @@ export class ChangePasswordComponent implements OnInit {
         this.message = data["message"];
         if(this.message === "Password changed successfully."){
           // this.questionVar = null;
+          // localStorage.clear();
           this.route.navigate([""], { queryParams: { pwc: true } });
         }
         else {

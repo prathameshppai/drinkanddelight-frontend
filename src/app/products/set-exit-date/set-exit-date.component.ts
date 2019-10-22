@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SetExitDateService } from './set-exit-date.service';
+import { DataExchangeService } from '../../data-exchange.service';
+import { Router } from '@angular/router';
 
 // import $ from "jquery";
 //import * as $ from 'jquery';
@@ -19,6 +21,7 @@ export class SetExitDateComponent implements OnInit {
   //formBuilder: FormBuilder;
   //dateType = typeof(this.exitDate);
   enableButton: boolean = false;
+  loggedIn: boolean;
   today = new Date();
    minDate = this.today.setFullYear(this.today.getFullYear() - 5);
  
@@ -27,7 +30,7 @@ export class SetExitDateComponent implements OnInit {
  hasErrorOccured: boolean = false;
  errorMessage: string = '';
 
-  constructor(private exitDateService: SetExitDateService) {
+  constructor(private data: DataExchangeService, private route: Router, private exitDateService: SetExitDateService) {
   }
 
  
@@ -35,7 +38,9 @@ export class SetExitDateComponent implements OnInit {
 
   
   ngOnInit() {
-    
+    this.data.currentLogInStatus.subscribe(loggedIn => this.loggedIn = (loggedIn == 'true'));
+    if(!this.loggedIn)
+      this.route.navigate([""]);
     
   }
 

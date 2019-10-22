@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UpdateProductStockService } from './update-product-stock.service';
+import { DataExchangeService } from '../../data-exchange.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-update-product-stock',
@@ -15,6 +17,7 @@ export class UpdateProductStockComponent implements OnInit {
   enableButton: boolean = false;
    isDataSet: boolean = false;
    message: string = null;
+   loggedIn: boolean;
 
    today = new Date();
     minManufacturingDate = this.today.setFullYear(this.today.getFullYear() - 1);
@@ -27,9 +30,12 @@ export class UpdateProductStockComponent implements OnInit {
   hasErrorOccured: boolean = false;
   errorMessage: string = '';
 
-  constructor(private updateProductStockService: UpdateProductStockService) { }
+  constructor(private data: DataExchangeService, private route: Router, private updateProductStockService: UpdateProductStockService) { }
 
   ngOnInit() {
+    this.data.currentLogInStatus.subscribe(loggedIn => this.loggedIn = (loggedIn == 'true'));
+    if(!this.loggedIn)
+      this.route.navigate([""]);
   }
 
   setProductStock() {

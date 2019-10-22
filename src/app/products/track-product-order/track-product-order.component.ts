@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TrackProductOrderService } from './track-product-order.service';
+import { DataExchangeService } from '../../data-exchange.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-track-product-order',
@@ -16,10 +18,14 @@ export class TrackProductOrderComponent implements OnInit {
   isProcessing: boolean = false;
   hasErrorOccured: boolean = false;
   errorMessage: string = '';
-  
-  constructor(private trackProductOrderService: TrackProductOrderService) { }
+  loggedIn: boolean;
+
+  constructor(private data: DataExchangeService, private route: Router, private trackProductOrderService: TrackProductOrderService) { }
 
   ngOnInit() {
+    this.data.currentLogInStatus.subscribe(loggedIn => this.loggedIn = (loggedIn == 'true'));
+    if(!this.loggedIn)
+      this.route.navigate([""]);
     }
 
   getMessage() {
