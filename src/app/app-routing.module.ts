@@ -7,7 +7,7 @@ import { AuthenticationModule } from './authentication/authentication.module';
 import { AuthenticationService } from './authentication.service'
 
 const routes: Routes = [
-  { path: 'home-page', component: HomepageComponent},
+  { path: 'home-page', component: HomepageComponent, canActivate: [AuthenticationService]},
 ];
 
 @NgModule({

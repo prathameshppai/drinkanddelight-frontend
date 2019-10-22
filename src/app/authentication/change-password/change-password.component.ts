@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ChangePasswordService } from './change-password.service';
 import { Router } from '@angular/router';
 import { DataExchangeService } from 'src/app/data-exchange.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-change-password',
@@ -16,7 +17,7 @@ export class ChangePasswordComponent implements OnInit {
   newPasswordVar: string;
   confirmPasswordVar: string;
   message: string = '';
-  constructor(private data: DataExchangeService, private changePasswordService: ChangePasswordService, private route: Router) { }
+  constructor(private data: DataExchangeService, private changePasswordService: ChangePasswordService, private route: Router, private toastr: ToastrService) { }
 
   ngOnInit() {
       this.data.currentData.subscribe(usernameVar => this.usernameVar = usernameVar)
@@ -37,10 +38,12 @@ export class ChangePasswordComponent implements OnInit {
   goToLoginPage() {
     this.changePasswordService.getChangePasswordMessage(this.usernameVar, this.answerVar, this.newPasswordVar, this.confirmPasswordVar).subscribe(
       data => {
-        console.log("Response : " + JSON.stringify(data));
         this.message = data["message"];
         if(this.message === "Password changed successfully."){
           this.route.navigate([""]);
+        }
+        else {
+          this.toastr.error(this.message);
         }
       },
       

@@ -1,4 +1,4 @@
-export interface ProductOrder {
+export interface Distributor {
     distributorId: string,
     name: string,
     addressId: string,

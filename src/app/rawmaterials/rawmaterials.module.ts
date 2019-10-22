@@ -11,7 +11,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule} from '@angular/common/http';
 import { Routes, RouterModule } from '@angular/router';
 import { DisplaySupplierDetailsComponent } from './display-supplier-details/display-supplier-details.component';
-import { DisplayDistributorDetailsComponent } from './display-distributor-details/display-distributor-details.component';
 import { AuthenticationService } from '../authentication.service';
 
 
@@ -40,7 +39,7 @@ const secondaryRoutes: Routes = [
     TrackRawmaterialOrderComponent, 
     UpdateRawmaterialOrderComponent, 
     UpdateRawmaterialStockComponent, 
-    SetProcessDateComponent, DisplaySupplierDetailsComponent, DisplayDistributorDetailsComponent],
+    SetProcessDateComponent, DisplaySupplierDetailsComponent],
 
 
   imports: [
