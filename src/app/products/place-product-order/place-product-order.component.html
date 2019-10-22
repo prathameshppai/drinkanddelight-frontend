@@ -89,7 +89,7 @@
             <div class="col-sm-3">
             </div>
             <div class="col-sm-3">
-                <button type="submit" (click) = 'getMessage()'>Place Order</button>
+                <button class="btn btn-primary" type="submit" (click) = 'getMessage()'>Place Order</button>
             </div>
         </div>
         <br>
@@ -97,10 +97,17 @@
     </div>
 </form>
 
+
+<div *ngIf="isProcessing" class="spinner-container d-flex align-items-center justify-content-center flex-column">
+    <div class="spinner-border text-info" role="status">
+
+    </div>
+    <h6 class="mt-2">Please wait ...</h6>
+</div>
+
 <div class="container">
     <div class="alert alert-info" *ngIf = 'isPlaceProductOrderFetched'>
         <strong>{{ message }}</strong>
         <br>
     </div>
 </div>
-<!-- ^(?:[1-9]\d*|0)?(?:\.\d+)?$ -->

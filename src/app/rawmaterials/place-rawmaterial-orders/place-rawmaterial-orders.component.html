@@ -86,7 +86,7 @@
 
         </div>
         <br>
-        <button type="submit" class="btn btn-dark" (click)='getMessage()' [disabled]="!enableButton">Place Order</button>
+        <button type="submit" class="btn btn-primary" (click)='getMessage()' [disabled]="!enableButton">Place Order</button>
     </form>
 </div>
 
@@ -95,4 +95,12 @@
 
     </div>
     <h6 class="mt-2">Please wait ...</h6>
+</div>
+
+<br>
+<div class="container">
+    <div class="alert alert-info" *ngIf = 'isPlaceRawmaterialOrderFetched'>
+        <strong>{{ message }}</strong>
+        <br>
+    </div>
 </div>

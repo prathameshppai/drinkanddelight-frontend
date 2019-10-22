@@ -11,7 +11,11 @@ export class UpdateProductOrderComponent implements OnInit {
  orderId: string = '1';
  message: string = '';
  isUpdateProductOrderFetched: boolean = false;
- DeliveryStatusVar = 'Dispatched';
+    DeliveryStatusVar = 'Dispatched';
+    enableButton: boolean = false;
+    isProcessing: boolean = false;
+    hasErrorOccured: boolean = false;
+    errorMessage: string = '';
 
  constructor(private updateProductOrderService: UpdateProductOrderService) {
 }
@@ -26,11 +30,16 @@ getMessage() {
       this.message = data["message"];
       this.isUpdateProductOrderFetched = true;
     },
-    error => {
-      console.log("Error :"+JSON.stringify(error));
+      error => {
+          
+              this.isProcessing = false;
+              this.errorMessage = "Server failed to respond";
+              this.hasErrorOccured = true;
+              console.log("Error :" + JSON.stringify(error));
+ 
     }
   );
 
-}
-
+    }
+   
 }
