@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
 
   usernameVar: string;
   passwordVar: string;
-  message: string = '';
+  message: string = 'sfs';
   // loggedIn: boolean = false;
   loggedIn: boolean;
   pwc: string;
@@ -32,14 +32,17 @@ export class LoginComponent implements OnInit {
     this.loginService.getLoginMessage(this.usernameVar, this.passwordVar)
       .subscribe(
         data => {
-          console.log("Response : " + JSON.stringify(data));
+          console.log("hello");
+          console.log(data);
           this.message = data["message"];
-
+          console.log( "res "+data["message"]+" "+data["username"]);
           if(this.message === "Login Successful"){
             this.loggedIn = true;
             localStorage.setItem('loggedIn', String(this.loggedIn));
-            localStorage.setItem('username',JSON.stringify(data["message"]));
+            localStorage.setItem('username',data["username"]);
             this.data.changeLogInStatus(this.loggedIn);
+            console.log("Error :" + data["message"]);
+            console.log("Error :" + data["username"]);
             this.route.navigate(["home-page"]);
           }
           else {
