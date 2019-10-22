@@ -21,9 +21,11 @@ export class ChangePasswordComponent implements OnInit {
 
   ngOnInit() {
       this.data.currentData.subscribe(usernameVar => this.usernameVar = usernameVar)
-      //this.usernameVar=UsernameExistenceComponent.usernameVar;
       this.changePasswordService.getQuestion(this.usernameVar).subscribe(
         data => {
+          if(data["message"] == null)
+            this.route.navigate([""]);
+
           this.questionVar = (data["message"]);
           console.log("Response : " + this.questionVar);
         },
@@ -40,6 +42,7 @@ export class ChangePasswordComponent implements OnInit {
       data => {
         this.message = data["message"];
         if(this.message === "Password changed successfully."){
+          // this.questionVar = null;
           this.route.navigate([""], { queryParams: { pwc: true } });
         }
         else {

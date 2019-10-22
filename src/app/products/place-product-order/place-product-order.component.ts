@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PlaceProductOrderService } from './place-product-order.service';
+import { DataExchangeService } from '../../data-exchange.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-place-product-order',
@@ -23,11 +25,15 @@ export class PlaceProductOrderComponent implements OnInit {
   today = new Date();
   maxDate = this.today.setMonth(this.today.getMonth()+2);
   isProcessing: boolean = false;
+  loggedIn: boolean;
 
-  constructor(private placeProductOrderService: PlaceProductOrderService) {
+  constructor(private data: DataExchangeService, private placeProductOrderService: PlaceProductOrderService, private route: Router) {
   }
 
   ngOnInit() {
+    this.data.currentLogInStatus.subscribe(loggedIn => this.loggedIn = (loggedIn == 'true'));
+    if(!this.loggedIn)
+      this.route.navigate([""]);
     this.getProductDetails();
     
   }
@@ -47,7 +53,6 @@ export class PlaceProductOrderComponent implements OnInit {
           console.log("Error :" + JSON.stringify(error));
         }
       );
-
   }
 
   getProductDetails() {

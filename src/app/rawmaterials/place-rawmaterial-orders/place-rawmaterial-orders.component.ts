@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PlaceRawmaterialOrdersService } from './place-rawmaterial-orders.service';
+import { DataExchangeService } from '../../data-exchange.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-place-rawmaterial-orders',
@@ -25,10 +27,14 @@ export class PlaceRawmaterialOrdersComponent implements OnInit {
   today = new Date();
   maxDate = this.today.setMonth(this.today.getMonth()+2);
   isProcessing: boolean = false;
+  loggedIn: boolean;
 
-  constructor(private placeRawmaterialOrdersService: PlaceRawmaterialOrdersService) { }
+  constructor(private data: DataExchangeService, private placeRawmaterialOrdersService: PlaceRawmaterialOrdersService, private route: Router) { }
 
   ngOnInit() {
+    this.data.currentLogInStatus.subscribe(loggedIn => this.loggedIn = (loggedIn == 'true'));
+    if(!this.loggedIn)
+      this.route.navigate([""]);
     this.getRawmaterialDetails();
   }
 

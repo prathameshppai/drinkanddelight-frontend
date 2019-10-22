@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
       if (this.pwc) {
         this.toastr.success("Password changed successfully !");
         this.pwc = false;
-        this.route.navigate([""])
+        this.route.navigate([""]);
       }
   }
 
