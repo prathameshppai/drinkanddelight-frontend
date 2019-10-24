@@ -17,9 +17,9 @@ export class PlaceRawmaterialOrdersComponent implements OnInit {
   quantityVar: number = 0.0;
   pricePerUnitVar: number = 0.0;
   message: string = '';
-  RMNameVar: string;
-  SUPIDVar: string;
-  warehouseIdVar: string;
+  RMNameVar: string = "SUGAR";
+  SUPIDVar: string = "SUP1";
+  warehouseIdVar: string = "w01";
   QuantityUnitVar: string;
   expectedDateofDeliveryVar: Date;
   isPlaceRawmaterialOrderFetched: boolean = false;
