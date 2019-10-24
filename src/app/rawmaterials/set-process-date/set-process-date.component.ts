@@ -45,6 +45,7 @@ export class SetProcessDateComponent implements OnInit {
         console.log("Response : "+JSON.stringify(data));
         this.message = data["message"];
         this.isDataSet = true;
+        this.hasErrorOccured = false;
         
         
       },
@@ -53,6 +54,7 @@ export class SetProcessDateComponent implements OnInit {
         this.errorMessage = "Server failed to respond";
         this.hasErrorOccured = true;
         console.log("Error :"+JSON.stringify(error));
+        this.isDataSet = false;
       }
     );
 

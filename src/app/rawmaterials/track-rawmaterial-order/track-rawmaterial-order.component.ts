@@ -37,12 +37,14 @@ export class TrackRawmaterialOrderComponent implements OnInit {
         console.log("Response : "+JSON.stringify(data));
         this.message = data["message"];
         this.isTrackFetched = true;
+        this.hasErrorOccured = false;
       },
       error => {
         this.isProcessing = false;
         this.errorMessage = "Server failed to respond";
         this.hasErrorOccured = true;
         console.log("Error :"+JSON.stringify(error));
+        this.isTrackFetched = false;
       }
     );
 
