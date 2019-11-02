@@ -15,9 +15,9 @@ export class PlaceProductOrderComponent implements OnInit {
   quantityVar: number = 0.0;
   pricePerUnitVar: number = 0.0;
   message: string = '';
-  ProductNameVar: string;
-  DISTIDVar: string;
-  warehouseIdVar: string;
+  ProductNameVar: string = "JUICE";
+  DISTIDVar: string = "d001";
+  warehouseIdVar: string = "w01";
   QuantityUnitVar: string;
   expectedDateofDeliveryVar: Date;
   isPlaceProductOrderFetched: boolean = false;

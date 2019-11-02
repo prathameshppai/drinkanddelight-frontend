@@ -17,10 +17,10 @@
                 </div>
 
                 <div class="col-lg-2">
-                    <label for="SUPID">
-                        <b>Supplier ID</b>
+                    <label for="DISTID">
+                        <b>Distributor ID</b>
                     </label>
-                    <select class="form-control" name="SUPID" [(ngModel)]='SUPIDVar' required>
+                    <select class="form-control" name="DISTID" [(ngModel)]='DISTIDVar' required>
                         <option *ngFor="let distributorId of productDetails[1]">{{ distributorId }}</option>
                     </select>
                 </div>

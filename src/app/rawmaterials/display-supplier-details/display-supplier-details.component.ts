@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DisplaySupplierDetailsService } from './display-supplier-details.service';
+import { DataExchangeService } from '../../data-exchange.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-display-supplier-details',
@@ -9,12 +11,15 @@ import { DisplaySupplierDetailsService } from './display-supplier-details.servic
 export class DisplaySupplierDetailsComponent implements OnInit {
 
   SupplierID: string = '';
-  
+  loggedIn: boolean;
 
-  constructor(private displaysupplierdetails: DisplaySupplierDetailsService) { }
+  constructor(private data: DataExchangeService, private route: Router, private displaysupplierdetails: DisplaySupplierDetailsService) { }
 
   ngOnInit() {
-    
+    this.data.currentLogInStatus.subscribe(loggedIn => this.loggedIn = (loggedIn == 'true'));
+    if(!this.loggedIn)
+      this.route.navigate([""]);
+  
   }
 
   public dsups :any =[];

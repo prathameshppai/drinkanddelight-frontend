@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {DisplayProductOrdersService} from '../display-product-orders/display-product-orders.service';
-
-import { ProductOrder } from '../display-product-orders/ProdcutOrderDTO';
-import { strictEqual } from 'assert';
-import { stringify } from '@angular/compiler/src/util';
-
+import { DataExchangeService } from '../../data-exchange.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-display-product-orders',
@@ -14,6 +11,10 @@ import { stringify } from '@angular/compiler/src/util';
 export class DisplayProductOrdersComponent implements OnInit {
   
   ngOnInit() {
+    this.data.currentLogInStatus.subscribe(loggedIn => this.loggedIn = (loggedIn == 'true'));
+    if(!this.loggedIn)
+      this.route.navigate([""]);
+  
   }
  
   public showdate = true;
@@ -25,6 +26,7 @@ export class DisplayProductOrdersComponent implements OnInit {
   message=null;
   public pos  =[];
   isDataFetched : boolean = false;
+  loggedIn: boolean;
 
   public changestatus() {
  
@@ -55,7 +57,7 @@ export class DisplayProductOrdersComponent implements OnInit {
     this.todayFormat = yyyy + '-' + mmFormat + '-' + ddFormat;
     }
 
-constructor(private productService : DisplayProductOrdersService) { }
+constructor(private data: DataExchangeService, private route: Router, private productService : DisplayProductOrdersService) { }
 
     getProduct() {
 

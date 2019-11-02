@@ -1,6 +1,7 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { SetProcessDateService } from './set-process-date.service';
-import { FocusMonitor } from '@angular/cdk/a11y';
+import { DataExchangeService } from '../../data-exchange.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-set-process-date',
@@ -15,7 +16,7 @@ export class SetProcessDateComponent implements OnInit {
    enableButton: boolean = false;
    isDataSet: boolean = false;
    message: string = null;
-   
+   loggedIn: boolean;
    today = new Date();
    minDate = this.today.setFullYear(this.today.getFullYear() - 5);
  
@@ -25,9 +26,13 @@ export class SetProcessDateComponent implements OnInit {
   errorMessage: string = '';
   
   
-  constructor(private processDateService: SetProcessDateService) { }
+  constructor(private data: DataExchangeService, private route: Router, private processDateService: SetProcessDateService) { }
 
   ngOnInit() {
+    this.data.currentLogInStatus.subscribe(loggedIn => this.loggedIn = (loggedIn == 'true'));
+    if(!this.loggedIn)
+      this.route.navigate([""]);
+    
   }
 
   setProcessDate() {
@@ -40,6 +45,7 @@ export class SetProcessDateComponent implements OnInit {
         console.log("Response : "+JSON.stringify(data));
         this.message = data["message"];
         this.isDataSet = true;
+        this.hasErrorOccured = false;
         
         
       },
@@ -48,6 +54,7 @@ export class SetProcessDateComponent implements OnInit {
         this.errorMessage = "Server failed to respond";
         this.hasErrorOccured = true;
         console.log("Error :"+JSON.stringify(error));
+        this.isDataSet = false;
       }
     );
 
