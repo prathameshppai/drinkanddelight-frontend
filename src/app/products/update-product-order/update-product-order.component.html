@@ -7,7 +7,7 @@
                 <label for="OrderId"><b>Order ID</b></label>
             </div>
             <div class="col-sm-3">
-            <input required pattern='[1-9]+' type="text" #updateorderID='ngModel' class='form-control' [(ngModel)]='orderId' name='orderID' id="orderID">
+            <input required pattern='[0-9]+' type="text" #updateorderID='ngModel' class='form-control' [(ngModel)]='orderId' name='orderID' id="orderID" (change) = "log(trackorderID)">
             <div class="alert alert-danger" *ngIf="updateorderID.touched && !updateorderID.valid"> Order ID is required
                 <div *ngIf="updateorderID.errors.pattern"> Enter numeric order ID</div>
             </div>
@@ -25,10 +25,19 @@
             </div>
         </div>
 <br>
-    <button type="submit"class="btn btn-primary" (click) = 'getMessage()'>Update Order</button>
+    <button type="submit"class="btn btn-dark" (click) = 'getMessage()'>Update Order</button>
 </div>
 <br>
-    
+    <!-- <div class="container">
+      <div class="alert"
+           [ngClass]="{
+    'alert-info': !(message === 'Product Order ID does not exist'),
+    'alert-danger': (message === 'Product Order ID does not exist')
+  }"
+           *ngIf='isUpdateProductOrderFetched'>
+        <strong name='outputbox'>{{ message }}</strong>
+      </div>
+    </div> -->
 
 <div class="container">
     <div class="alert alert-info" *ngIf = 'isUpdateProductOrderFetched' id="resultMessage">

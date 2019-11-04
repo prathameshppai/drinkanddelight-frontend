@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UpdateProductOrderService } from './update-product-order.service';
+import { DataExchangeService } from '../../data-exchange.service';
+import { Router } from '@angular/router';
  
 @Component({
  selector: 'app-update-product-order',
@@ -16,10 +18,14 @@ export class UpdateProductOrderComponent implements OnInit {
     isProcessing: boolean = false;
     hasErrorOccured: boolean = false;
     errorMessage: string = '';
+    loggedIn: boolean;
 
- constructor(private updateProductOrderService: UpdateProductOrderService) {
+ constructor(private data: DataExchangeService, private route: Router, private updateProductOrderService: UpdateProductOrderService) {
 }
 ngOnInit() {
+  this.data.currentLogInStatus.subscribe(loggedIn => this.loggedIn = (loggedIn == 'true'));
+    if(!this.loggedIn)
+      this.route.navigate([""]);
 }
 getMessage() {
 

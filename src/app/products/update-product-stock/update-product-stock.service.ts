@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class UpdateProductStockService {
   updateProductStock(orderId: number, manufacturingDate: Date, expiryDate: Date, qaStatus: string) {
-    return this.http.post("http://localhost:9090/drinkanddelight/UpdateProductStockServlet",{"OrderId": orderId, "ManufacturingDate": manufacturingDate, "ExpiryDate": expiryDate, "QAStatus": qaStatus })
+    return this.http.put("http://localhost:9090/drinkanddelight/ProductStock/UpdateProductStockDetails/"+orderId, {"ManufacturingDate": manufacturingDate, "ExpiryDate": expiryDate, "QAStatus": qaStatus })
   }
 
   constructor(private http: HttpClient) { }

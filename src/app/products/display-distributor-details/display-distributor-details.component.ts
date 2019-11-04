@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DisplayDistributorDetailsService } from './display-distributor-details.service';
+import { DataExchangeService } from '../../data-exchange.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-display-distributor-details',
@@ -9,12 +11,15 @@ import { DisplayDistributorDetailsService } from './display-distributor-details.
 export class DisplayDistributorDetailsComponent implements OnInit {
  
   DistributorID: string = '';
-
+  loggedIn: boolean;
   isDisplayDistributorDetailsFetched: boolean = false;
-  constructor(private displaydistributordetails: DisplayDistributorDetailsService) { }
+  constructor(private data: DataExchangeService, private route: Router, private displaydistributordetails: DisplayDistributorDetailsService) { }
 
 
   ngOnInit() {
+    this.data.currentLogInStatus.subscribe(loggedIn => this.loggedIn = (loggedIn == 'true'));
+    if(!this.loggedIn)
+      this.route.navigate([""]);
   }
   
   public ddiss :any =[];

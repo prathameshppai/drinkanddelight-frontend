@@ -1,9 +1,10 @@
 <h2>Display Raw Material Order</h2>
-<form action="DisplayAllRawMaterialOrdersServlet" method="post">
-        <div class="container wrapper" class="form-check" class="was-validated">
+
+ <form action="./DisplayAllRawMaterialOrders" method ="post">
+        <div class="container " class="form-check" class="was-validated">
 
                 <hr>
-                <div class="row">
+                <div class="row ">
                         <div class="col-sm-4">
                                 <label for="DeliveryStatus">
                                         <p><b>Choose delivery status</b> </p>
@@ -31,7 +32,7 @@
                         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                         <div class="col-lg-2"><br><br><br><input type="checkbox" (click)="changestatus(); SetMaxDate()">
                                 Show
-                                Calendar<br><br><input type="submit" value="submit" (click)="getRawMaterial()"><br></div></div>
+                                Calendar<br><br><input  class="btn btn-dark" type="submit" value="submit" (click)="getRawMaterial()"><br></div></div>
 
                         <div *ngIf="!(showdate); then thenBlock else elseBlock"></div>
                         <ng-template #thenBlock>
@@ -49,10 +50,7 @@
 
 
 <br>
-
-
-                <!-- <div *ngIf ="!isDataFetched"> -->
-                <div class="alert alert-info container wrapper" *ngIf ="!isDataFetched">
+                <div *ngIf ="!isDataFetched">
                         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <strong>{{ message }}</strong>
                       </div>
                     
@@ -63,9 +61,9 @@
                                                 <table class="table table-striped table-bordered table-fixed table-hover table-condensed" style="border:0px; " id="myTable3">
                                                   <thead>
                                                     <tr>
-                                                <th><div class="col-lg-0.5">OrderId</div></th>
+                                                
                                                 <th><div class="col-lg-1">Name</div></th>
-                                                <th><div class="col-lg-0.25">RawMaterial<br>Id</div></th>
+                                                <!-- <th><div class="col-lg-0.25">RawMaterial<br>Id</div></th> -->
                                                 <th><div class="col-lg-0.5">SupplierId</div></th>
                                                 <th><div class="col-lg-0.5">Quantity</div></th>
                                                 <th><div class="col-lg-0.5">QuantityUnit</div></th>
@@ -82,9 +80,9 @@
                                                 <table class="table table-striped table-bordered table-fixed table-hover table-condensed" style="border:0px; " id="myTable3">
                                                                 <tbody>
                                                                   <tr>
-                                                        <td><div class="col-lg-1">{{rmo.orderId}}</div></td>
-                                                        <td align="left"><div class="col-lg-0.5">{{rmo.name}}</div></td>
-                                                        <td><div class="col-lg-1">{{rmo.rmId}}</div></td>
+                                                        
+                                                        <td ><div class="col-lg-0.5">{{rmo.name}}</div></td>
+                                                        <!-- <td><div class="col-lg-1">{{rmo.rmId}}</div></td> -->
                                                         <td><div class="col-lg-0.5">{{rmo.supplierId}}</div></td>
                                                         <td><div class="col-lg-1">{{rmo.quantityValue}}</div></td>
                                                         <td align="left"><div class="col-lg-1">{{rmo.quantityUnit}}</div></td>

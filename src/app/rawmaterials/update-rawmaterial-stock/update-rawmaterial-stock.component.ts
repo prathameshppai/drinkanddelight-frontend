@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UpdateRawmaterialStockService } from './update-rawmaterial-stock.service';
+import { DataExchangeService } from '../../data-exchange.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-update-rawmaterial-stock',
@@ -13,8 +15,9 @@ export class UpdateRawmaterialStockComponent implements OnInit {
   expiryDate: Date = null;
   qaStatus: string;
   enableButton: boolean = false;
-   isDataSet: boolean = false;
-   message: string = null;
+  isDataSet: boolean = false;
+  message: string = null;
+  loggedIn: boolean;
 
    today = new Date();
     minManufacturingDate = this.today.setFullYear(this.today.getFullYear() - 1);
@@ -27,9 +30,12 @@ export class UpdateRawmaterialStockComponent implements OnInit {
   errorMessage: string = '';
 
 
-  constructor(private updateRMStockService: UpdateRawmaterialStockService) { }
+  constructor(private data: DataExchangeService, private route: Router, private updateRMStockService: UpdateRawmaterialStockService) { }
 
   ngOnInit() {
+    this.data.currentLogInStatus.subscribe(loggedIn => this.loggedIn = (loggedIn == 'true'));
+    if(!this.loggedIn)
+      this.route.navigate([""]);
   }
 
   setRawMaterialStock() {
@@ -41,6 +47,7 @@ export class UpdateRawmaterialStockComponent implements OnInit {
         console.log("Response : "+JSON.stringify(data));
         this.message = data["message"];
         this.isDataSet = true;
+        this.hasErrorOccured = false;
         
         
       },
@@ -49,6 +56,7 @@ export class UpdateRawmaterialStockComponent implements OnInit {
         this.errorMessage = "Server failed to respond";
         this.hasErrorOccured = true;
         console.log("Error :"+JSON.stringify(error));
+        this.isDataSet = false;
       }
     );
 

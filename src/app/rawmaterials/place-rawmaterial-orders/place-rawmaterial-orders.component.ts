@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PlaceRawmaterialOrdersService } from './place-rawmaterial-orders.service';
+import { DataExchangeService } from '../../data-exchange.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-place-rawmaterial-orders',
@@ -15,23 +17,24 @@ export class PlaceRawmaterialOrdersComponent implements OnInit {
   quantityVar: number = 0.0;
   pricePerUnitVar: number = 0.0;
   message: string = '';
-  RMNameVar: string;
-  SUPIDVar: string;
-  warehouseIdVar: string;
+  RMNameVar: string = "SUGAR";
+  SUPIDVar: string = "SUP1";
+  warehouseIdVar: string = "w01";
   QuantityUnitVar: string;
   expectedDateofDeliveryVar: Date;
   isPlaceRawmaterialOrderFetched: boolean = false;
   minDate = new Date();
   today = new Date();
   maxDate = this.today.setMonth(this.today.getMonth()+2);
-  enableButton1: boolean = false;
-  enableButton2: boolean = false;
   isProcessing: boolean = false;
-  enableButton: boolean = true;
-  // enableButton: boolean = this.enableButton1 && this.enableButton2;
-  constructor(private placeRawmaterialOrdersService: PlaceRawmaterialOrdersService) { }
+  loggedIn: boolean;
+
+  constructor(private data: DataExchangeService, private placeRawmaterialOrdersService: PlaceRawmaterialOrdersService, private route: Router) { }
 
   ngOnInit() {
+    this.data.currentLogInStatus.subscribe(loggedIn => this.loggedIn = (loggedIn == 'true'));
+    if(!this.loggedIn)
+      this.route.navigate([""]);
     this.getRawmaterialDetails();
   }
 
@@ -68,19 +71,4 @@ export class PlaceRawmaterialOrdersComponent implements OnInit {
 
   }
 
-  log1(x) {
-    console.log(x);
-    this.enableButton1 = false;
-    if(this.quantityVar != null)
-      if(!isNaN(this.quantityVar))
-            this.enableButton1 = true;
-    }
-
-  log2(x) {
-    console.log(x);
-    this.enableButton2 = false;
-    if(this.pricePerUnitVar != null)
-      if(!isNaN(this.pricePerUnitVar))
-            this.enableButton2 = true;
-  }
 }

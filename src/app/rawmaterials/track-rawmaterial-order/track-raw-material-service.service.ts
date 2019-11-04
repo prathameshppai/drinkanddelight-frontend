@@ -8,9 +8,9 @@ import { HttpClient } from '@angular/common/http';
 })
 export class TrackRawMaterialServiceService {
 
-  getTrackedMessage(orderId: number)/*: Observable<string> */{
+  getTrackedMessage(orderId: number){
     
-    return this.http.post("http://localhost:9090/drinkanddelight/TrackRawMaterialOrderServlet",{"OrderId": orderId})
+    return this.http.get("http://localhost:9090/drinkanddelight/RawMaterialStock/TrackRawMaterial/"+orderId);
     
   }
   constructor(private http: HttpClient) { }

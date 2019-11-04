@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {DisplayRawmaterialOrdersService} from '../display-rawmaterial-orders/display-rawmaterial-orders.service';
-import { RawMaterialOrder } from './RawMaterialOrderdto';
-
-
+import { DataExchangeService } from '../../data-exchange.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-display-rawmaterial-orders',
@@ -12,7 +11,9 @@ import { RawMaterialOrder } from './RawMaterialOrderdto';
   export class DisplayRawmaterialOrdersComponent implements OnInit {
   
     ngOnInit() {
-      
+      this.data.currentLogInStatus.subscribe(loggedIn => this.loggedIn = (loggedIn == 'true'));
+    if(!this.loggedIn)
+      this.route.navigate([""]);
 
 
     }
@@ -23,6 +24,7 @@ import { RawMaterialOrder } from './RawMaterialOrderdto';
     date2Var : Date = null;
     SupplierIDVar :string = null;
     DeliveryStatusVar :string  =null;
+    loggedIn: boolean;
     
    public rmos  =[];
     isDataFetched :boolean = false;
@@ -58,7 +60,7 @@ import { RawMaterialOrder } from './RawMaterialOrderdto';
     
 
     }
-  constructor(private rawMaterialService: DisplayRawmaterialOrdersService) { }
+  constructor(private data: DataExchangeService, private rawMaterialService: DisplayRawmaterialOrdersService, private route: Router) { }
 
     getRawMaterial() {
 
