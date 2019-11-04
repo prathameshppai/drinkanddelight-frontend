@@ -8,7 +8,7 @@ export class SetExitDateService {
   
   
   setExitDateinStock(orderId: number, exitDate: Date) {
-    return this.http.post("http://localhost:9090/drinkanddelight/UpdateExitDateServlet",{"OrderId": orderId, "ExitDate": exitDate})
+    return this.http.put("http://localhost:9090/drinkanddelight/ProductStock/UpdateExitDate/"+orderId, {"ExitDate": exitDate})
   }
 
   constructor(private http: HttpClient) { }
