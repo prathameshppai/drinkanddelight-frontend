@@ -10,16 +10,19 @@ export class ChangePasswordService {
   constructor(private http: HttpClient) { }
 
   getQuestion(usernameVar: string): Observable<string> {
-    return this.http.post<string>("http://localhost:9090/drinkanddelight/SecurityQuestionServlet",{"username": usernameVar});
+    return this.http.post<string>("http://localhost:9090/drinkanddelight/display-question",{
+      "username": usernameVar
+    });
   }
 
   getChangePasswordMessage(usernameVar: string, answerVar: string, newPasswordVar: string, confirmPasswordVar: string): Observable<string> {
     console.log(usernameVar);
-    return this.http.post<string>("http://localhost:9090/drinkanddelight/ChangePasswordServlet",{
+    return this.http.post<string>("http://localhost:9090/drinkanddelight/change-password",{
       "username": usernameVar, 
       "answer": answerVar,
       "newPassword": newPasswordVar, 
-      "confirmPassword": confirmPasswordVar});
+      "confirmPassword": confirmPasswordVar
+    });
   }
 
 }

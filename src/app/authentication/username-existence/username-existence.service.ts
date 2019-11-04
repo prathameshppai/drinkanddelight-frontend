@@ -9,6 +9,8 @@ export class UsernameExistenceService {
   constructor(private http: HttpClient) { }
 
   getUsernameExistenceMessage(usernameVar: string): Observable<string> {
-    return this.http.post<string>("http://localhost:9090/drinkanddelight/ForgotPasswordServlet",{"username": usernameVar});
+    return this.http.post<string>("http://localhost:9090/drinkanddelight/username-existence",{
+      "username": usernameVar
+    });
   }
 }
