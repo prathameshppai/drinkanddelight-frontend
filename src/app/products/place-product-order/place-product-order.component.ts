@@ -35,7 +35,6 @@ export class PlaceProductOrderComponent implements OnInit {
     if(!this.loggedIn)
       this.route.navigate([""]);
     this.getProductDetails();
-    
   }
 
   getMessage() {
@@ -67,7 +66,5 @@ export class PlaceProductOrderComponent implements OnInit {
           console.log("Error :" + JSON.stringify(error));
         }
       );
-
   }
-
 }

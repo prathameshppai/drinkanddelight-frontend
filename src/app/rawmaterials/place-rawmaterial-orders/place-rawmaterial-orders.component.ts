@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PlaceRawmaterialOrdersService } from './place-rawmaterial-orders.service';
 import { DataExchangeService } from '../../data-exchange.service';
 import { Router } from '@angular/router';
+import { RawMaterialOrder } from './RawMaterialOrderDTO';
 
 @Component({
   selector: 'app-place-rawmaterial-orders',
@@ -28,6 +29,7 @@ export class PlaceRawmaterialOrdersComponent implements OnInit {
   maxDate = this.today.setMonth(this.today.getMonth()+2);
   isProcessing: boolean = false;
   loggedIn: boolean;
+  // rawMaterialOrder: RawMaterialOrder;
 
   constructor(private data: DataExchangeService, private placeRawmaterialOrdersService: PlaceRawmaterialOrdersService, private route: Router) { }
 
@@ -40,6 +42,7 @@ export class PlaceRawmaterialOrdersComponent implements OnInit {
 
   getMessage() {
     this.isProcessing = true;
+    // var rawMaterialOrder = new RawMaterialOrder(this.RMNameVar, this.SUPIDVar,this.quantityVar, this.QuantityUnitVar, this.expectedDateofDeliveryVar, this.pricePerUnitVar, this.warehouseIdVar);
     this.placeRawmaterialOrdersService.getPlaceRawmaterialOrderMessage(this.RMNameVar, this.SUPIDVar,this.quantityVar, this.QuantityUnitVar, this.expectedDateofDeliveryVar, this.pricePerUnitVar, this.warehouseIdVar)
     .subscribe(
       data => {
@@ -71,4 +74,7 @@ export class PlaceRawmaterialOrdersComponent implements OnInit {
 
   }
 
+  log(x){
+    console.log(x);
+  }
 }
