@@ -13,4 +13,10 @@ export class DisplayDistributorDetailsService {
  
     
 }
+getDistributorId(distributorID: string):Observable<string> {
+  console.log(distributorID);
+  return this.http.post<string>("http://localhost:9090/drinkanddelight/getDistributorId",{"distributorId": distributorID});
+
+  
+}
 }

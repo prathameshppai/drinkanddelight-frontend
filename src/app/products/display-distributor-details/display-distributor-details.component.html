@@ -7,7 +7,7 @@
                 <p>
                     <b>Choose Distributor</b>
                 </p>
-            </label> <select class="form-control" name="DistributorID" [(ngModel)]="DistributorID" required>
+            </label> <select class="form-control" name="DistributorID" (change)="getdetails()" [(ngModel)]="distributorID" required>
                 <option value="d001">d001</option>
                 <option value="d002">d002</option>
                 <option value="d003">d003</option>
@@ -25,12 +25,7 @@
                     <b>Choose AddressId</b>
                 </p>
             </label> <select class="form-control" name="addressId" [(ngModel)]="addressId" required>
-
-                <option value="3000">3000</option>
-                <option value="3001">3001</option>
-                <option value="3002">3002</option>
-                <option value="3003">3003</option>
-                <option value="3004">3004</option>
+                <option *ngFor="let addId of addressId">{{ addId }}</option>
             </select>
         </div>
 
@@ -41,7 +36,7 @@
         <br>
         <br>
         <br>
-        <div style="width: 500px;" align="left">
+        <div style="width: 500px;" >
             <input type="submit" class="btn btn-dark" value="submit" (click)="getMessage()"><br>
         </div>
         <br>

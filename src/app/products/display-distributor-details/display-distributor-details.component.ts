@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class DisplayDistributorDetailsComponent implements OnInit {
  
-  DistributorID: string = '';
+  distributorID: string = '';
   loggedIn: boolean;
   isDisplayDistributorDetailsFetched: boolean = false;
   constructor(private data: DataExchangeService, private route: Router, private displaydistributordetails: DisplayDistributorDetailsService) { }
@@ -23,15 +23,16 @@ export class DisplayDistributorDetailsComponent implements OnInit {
   }
   
   public ddiss :any =[];
+  public addressId : any = [];
     isDataFetched :boolean = false;
     message : string 
-    addressId : string
+    
 
 
 
   getMessage(){
 
-    this.displaydistributordetails.getDisplaySupplierDetailsMessage(this.DistributorID,this.addressId)
+    this.displaydistributordetails.getDisplaySupplierDetailsMessage(this.distributorID,this.addressId)
     .subscribe(
       data => {
         if(data == null){
@@ -50,6 +51,22 @@ export class DisplayDistributorDetailsComponent implements OnInit {
         console.log("Error :"+JSON.stringify(error));
       }
     )
+}
+getdetails(){
+  this.displaydistributordetails.getDistributorId(this.distributorID)
+  .subscribe(
+    data => {
+      
+    this.addressId = data;
+    console.log("Response : "+JSON.stringify(this.addressId));
+      }
+   ,
+    error => {
+      console.log("Error :"+JSON.stringify(error));
+    }
+  )
+
+
 }
 
   
