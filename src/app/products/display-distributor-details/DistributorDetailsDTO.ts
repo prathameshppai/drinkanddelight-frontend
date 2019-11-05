@@ -1,8 +1,7 @@
-export interface Distributor {
+export interface Products {
     distributorId: string,
     name: string,
-    addressId: string,
-    emailId: string,
-    phoneNo: string,
     address: string,
+    emailId: string,
+    phoneNo: string
 }

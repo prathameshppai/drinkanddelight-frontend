@@ -7,25 +7,12 @@
                 <p>
                     <b>Choose Distributor</b>
                 </p>
-            </label> <select class="form-control" name="DistributorID" (change)="getdetails()" [(ngModel)]="distributorID" required>
+            </label> <select class="form-control" name="DistributorID" [(ngModel)]="distributorID" required>
                 <option value="d001">d001</option>
                 <option value="d002">d002</option>
                 <option value="d003">d003</option>
                 <option value="d004">d004</option>
                 <option value="d005">d005</option>
-            </select>
-        </div>
-
-    </div>
-  
-    <div class="row">
-        <div class="col-sm-4">
-            <label for="AddressId">
-                <p>
-                    <b>Choose AddressId</b>
-                </p>
-            </label> <select class="form-control" name="addressId" [(ngModel)]="addressId" required>
-                <option *ngFor="let addId of addressId">{{ addId }}</option>
             </select>
         </div>
 
@@ -56,23 +43,24 @@
                                     <tr>
                                 <th><div class="col-lg-0.5">Distributor<br>Id</div></th>
                                 <th><div class="col-lg-1">Distributor<br>Name</div></th>
-                                <th><div class="col-lg-0.25">Address<br>Id</div></th>
+                                <th><div class="col-lg-0.25">Address</div></th>
                                 <th><div class="col-lg-0.5">Email</div></th>
                                 <th><div class="col-lg-0.5">Phone<br>Number</div></th>
                                                                 
                         </tr>
                 </thead>
                 </table>
-                <div  class="table-responsive" class ="table-responsive{-sm|-md|-lg|-xl}">
+                <div  *ngFor="let d of ddiss"class="table-responsive" class ="table-responsive{-sm|-md|-lg|-xl}">
                                 <table class="table table-striped table-bordered table-fixed table-hover table-condensed" style="border:0px; " id="myTable3">
                                                 <tbody>
                                                   <tr>
-                                        <td><div class="col-lg-1">{{ddiss.distributorId}}</div></td>
-                                        <td><div class="col-lg-0.5">{{ddiss.name}}</div></td>
-                                        <td><div class="col-lg-1">PlotNo-{{ddiss.address.plotNo}},{{ddiss.address.buildingName}},{{ddiss.address.streetName}},{{ddiss.address.landmark}},{{ddiss.address.city}},{{ddiss.address.state}},{{ddiss.address.pincode}}</div></td>
-                                        <td><div class="col-lg-0.5">{{ddiss.emailId}}</div></td>
-                                        <td><div class="col-lg-1">{{ddiss.phoneNo}}</div></td>
-                                                
+                                        <td><div class="col-lg-1">{{d.distributorId}}</div></td>
+                                        <td><div class="col-lg-0.5">{{d.name}}</div></td>
+                                        <td><div class="col-lg-1">{{d.address}}</div></td>
+                                        <td><div class="col-lg-0.5">{{d.emailId}}</div></td>
+                                        <td><div class="col-lg-1">{{d.phoneNo}}</div></td>
+                            
+                                       
                                 </tr>
 
                         </tbody>

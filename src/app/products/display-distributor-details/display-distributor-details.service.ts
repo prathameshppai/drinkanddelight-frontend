@@ -8,15 +8,12 @@ import { HttpClient } from '@angular/common/http'
 })
 export class DisplayDistributorDetailsService {
   constructor(private http: HttpClient) { }
-  getDisplaySupplierDetailsMessage(DistributorID: string,addressId :string):Observable<string> {
-    return this.http.post<string>("http://localhost:9090/drinkanddelight/DisplayDistributorDetailsServlet",{"distributorId": DistributorID,"addressId":addressId});
+  getDisplayDistributorDetailsMessage(DistributorID: string):Observable<string> {
+    return this.http.post<string>("http://localhost:9090/drinkanddelight/DisplayDistributor",{"distributorId": DistributorID});
  
     
 }
-getDistributorId(distributorID: string):Observable<string> {
-  console.log(distributorID);
-  return this.http.post<string>("http://localhost:9090/drinkanddelight/getDistributorId",{"distributorId": distributorID});
+}
 
-  
-}
-}
+
+

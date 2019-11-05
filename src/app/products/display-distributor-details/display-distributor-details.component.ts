@@ -22,8 +22,8 @@ export class DisplayDistributorDetailsComponent implements OnInit {
       this.route.navigate([""]);
   }
   
-  public ddiss :any =[];
-  public addressId : any = [];
+  public ddiss :any = [];
+
     isDataFetched :boolean = false;
     message : string 
     
@@ -32,7 +32,7 @@ export class DisplayDistributorDetailsComponent implements OnInit {
 
   getMessage(){
 
-    this.displaydistributordetails.getDisplaySupplierDetailsMessage(this.distributorID,this.addressId)
+    this.displaydistributordetails.getDisplayDistributorDetailsMessage(this.distributorID)
     .subscribe(
       data => {
         if(data == null){
@@ -41,7 +41,8 @@ export class DisplayDistributorDetailsComponent implements OnInit {
         }
         else{
       this.ddiss = data;
-      console.log("Response : "+JSON.stringify(this.ddiss));
+      console.log("Response : "+JSON.stringify(this.ddiss))
+      console.log("Response : "+JSON.stringify(this.ddiss.distributorID))
       this.isDataFetched = true;
       
         }
@@ -52,23 +53,5 @@ export class DisplayDistributorDetailsComponent implements OnInit {
       }
     )
 }
-getdetails(){
-  this.displaydistributordetails.getDistributorId(this.distributorID)
-  .subscribe(
-    data => {
-      
-    this.addressId = data;
-    console.log("Response : "+JSON.stringify(this.addressId));
-      }
-   ,
-    error => {
-      console.log("Error :"+JSON.stringify(error));
-    }
-  )
-
-
 }
 
-  
-
-}
