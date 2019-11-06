@@ -28,17 +28,6 @@
     <button type="submit"class="btn btn-dark" (click) = 'getMessage()'>Update Order</button>
 </div>
 <br>
-    <!-- <div class="container">
-      <div class="alert"
-           [ngClass]="{
-    'alert-info': !(message === 'Product Order ID does not exist'),
-    'alert-danger': (message === 'Product Order ID does not exist')
-  }"
-           *ngIf='isUpdateProductOrderFetched'>
-        <strong name='outputbox'>{{ message }}</strong>
-      </div>
-    </div> -->
-
 <div class="container">
     <div class="alert alert-info" *ngIf = 'isUpdateProductOrderFetched' id="resultMessage">
         <strong>{{ message }}</strong>
