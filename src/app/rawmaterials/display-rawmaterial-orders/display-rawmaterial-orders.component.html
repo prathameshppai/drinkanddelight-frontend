@@ -1,4 +1,5 @@
-<h2>Display Raw Material Order</h2>
+<!-- 
+2>Display Raw Material Order</h2>
 
  <form action="./DisplayAllRawMaterialOrders" method ="post">
         <div class="container " class="form-check" class="was-validated">
@@ -63,7 +64,7 @@
                                                     <tr>
                                                 
                                                 <th><div class="col-lg-1">Name</div></th>
-                                                <!-- <th><div class="col-lg-0.25">RawMaterial<br>Id</div></th> -->
+                                                <th><div class="col-lg-0.25">RawMaterial<br>Id</div></th> 
                                                 <th><div class="col-lg-0.5">SupplierId</div></th>
                                                 <th><div class="col-lg-0.5">Quantity</div></th>
                                                 <th><div class="col-lg-0.5">QuantityUnit</div></th>
@@ -82,7 +83,7 @@
                                                                   <tr>
                                                         
                                                         <td ><div class="col-lg-0.5">{{rmo.name}}</div></td>
-                                                        <!-- <td><div class="col-lg-1">{{rmo.rmId}}</div></td> -->
+                                                      
                                                         <td><div class="col-lg-0.5">{{rmo.supplierId}}</div></td>
                                                         <td><div class="col-lg-1">{{rmo.quantityValue}}</div></td>
                                                         <td align="left"><div class="col-lg-1">{{rmo.quantityUnit}}</div></td>
@@ -106,3 +107,147 @@
                 </div>
                 </div>
 </form>
+-->
+
+<h2>Display Raw Material Order</h2>
+
+<div class="container">
+
+        <div class="row">
+                <div class="col col-sm-4">
+                    
+                        <label for="DeliveryStatus">
+                                <p><b>Choose delivery status</b> </p>
+                        </label>
+                        <select class="form-control" name="DeliveryStatus" [(ngModel)]="DeliveryStatusVar" required>
+                                <option value="ALL">ALL</option>
+                                <option value="Received">Received</option>
+                                <option value="Dispatched">Dispatched</option>
+                                <option value="Cancelled">Cancelled</option>
+                                <option value="Pending">Pending</option>
+                        </select> <br>
+                        <label for="SupplierID">
+                                <p><b>Choose Supplier</b> </p>
+                        </label>
+                        <select class="form-control" name="SupplierID" [(ngModel)]="SupplierIDVar" required>
+                                <option value="ALL">ALL</option>
+                                <option value="SUP1">SUP1</option>
+                                <option value="SUP2">SUP2</option>
+                                <option value="SUP3">SUP3</option>
+                                <option value="SUP4">SUP4</option>
+                                <option value="SUP5">SUP5</option>
+                        </select>
+                        
+                </div>
+        
+                <div class="col col-sm-2" style="align-content: center;"><br><br><br><input type="checkbox"
+                                (click)="changestatus(); SetMaxDate()">
+                        Show
+                        Calendar<br><br><input class="btn btn-dark" type="submit" value="submit"
+                                (click)="getRawMaterial()">
+                </div>
+        </div>
+
+        <div *ngIf="!(showdate); then thenBlock else elseBlock"></div>
+        <ng-template #thenBlock>
+                <div class="row">
+                        <div class="col-lg-4"> Enter start date: <br> <input [max]="todayFormat" type="date"
+                                        name="date1" id="date1" [(ngModel)]="date1Var"><br><br> Enter end date :
+                                <br>
+                                <input [max]="todayFormat" type="date" name="date1" id="date2"
+                                        [(ngModel)]="date2Var"><br><br>
+                        </div>
+                </div>
+
+        </ng-template>
+        <ng-template #elseBlock>
+        </ng-template>
+
+
+        <div *ngIf="!isDataFetched">
+                <strong>{{ message }}</strong>
+        </div>
+
+        <div *ngIf="isDataFetched">
+
+                <div class="table-responsive{-xsm-sm|-md|-lg|-xl}">
+
+                        <table class="table table-striped table-bordered table-fixed table-hover table-condensed"
+                                style="border:0px; " id="myTable3">
+                                <thead>
+                                        <tr>
+
+                                                <th>
+                                                        <div class="col-lg-1">Name</div>
+                                                </th>
+                                                <th>
+                                                        <div class="col-lg-0.5">SupplierId</div>
+                                                </th>
+                                                <th>
+                                                        <div class="col-lg-0.5">Quantity</div>
+                                                </th>
+                                                <th>
+                                                        <div class="col-lg-0.5">QuantityUnit</div>
+                                                </th>
+                                                <th>
+                                                        <div class="col-lg-1">Order<br>Date</div>
+                                                </th>
+                                                <th>
+                                                        <div class="col-lg-0.5">Delivery<br>Date</div>
+                                                </th>
+                                                <th>
+                                                        <div class="col-lg-0.5">Unit<br>Price</div>
+                                                </th>
+                                                <th>
+                                                        <div class="col-lg-0.5">TotalPrice</div>
+                                                </th>
+                                                <th>
+                                                        <div class="col-lg-0.25">DeliveryStatus</div>
+                                                </th>
+
+                                        </tr>
+                                </thead>
+                                <tbody>
+                                        <tr *ngFor="let rmo of rmos">
+
+                                                <td>
+                                                        <div class="col-lg-0.5">{{rmo.name}}</div>
+                                                </td>
+                                                <td>
+                                                        <div class="col-lg-0.5">{{rmo.supplierId}}</div>
+                                                </td>
+                                                <td>
+                                                        <div class="col-lg-1">{{rmo.quantityValue}}
+                                                        </div>
+                                                </td>
+                                                <td align="left">
+                                                        <div class="col-lg-1">{{rmo.quantityUnit}}</div>
+                                                </td>
+                                                <td align="left">
+                                                        <div class="col-lg-0.5">
+                                                                {{rmo.dateOfOrder | date :'yyyy-MM-dd' }}
+                                                        </div>
+                                                </td>
+                                                <td>
+                                                        <div class="col-lg-0.5">
+                                                                {{rmo.dateOfDelivery | date :'yyyy-MM-dd'}}
+                                                        </div>
+                                                </td>
+                                                <td>
+                                                        <div class="col-lg-1">{{rmo.pricePerUnit}}</div>
+                                                </td>
+                                                <td>
+                                                        <div class="col-lg-1">{{rmo.totalPrice}}</div>
+                                                </td>
+                                                <td>
+                                                        <div class="col-lg-1.25">{{rmo.deliveryStatus}}
+                                                        </div>
+                                                </td>
+
+                                        </tr>
+                                </tbody>
+                        </table>
+                </div>
+
+        </div>
+</div>
