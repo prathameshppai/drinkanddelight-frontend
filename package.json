@@ -28,6 +28,7 @@
     "classlist.js": "^1.1.20150312",
     "font-awesome": "^4.7.0",
     "jquery": "^3.4.1",
+    "ng2-search-filter": "^0.5.1",
     "ngx-toastr": "^11.1.2",
     "popper.js": "^1.15.0",
     "rxjs": "~6.4.0",

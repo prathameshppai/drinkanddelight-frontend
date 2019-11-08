@@ -25,7 +25,7 @@ import { Router } from '@angular/router';
     SupplierIDVar :string = null;
     DeliveryStatusVar :string  =null;
     loggedIn: boolean;
-    
+    search :string;    
    public rmos  =[];
     isDataFetched :boolean = false;
     message : string 

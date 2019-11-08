@@ -31,12 +31,9 @@ import { FormsModule } from '@angular/forms';
     RawmaterialsModule,
     AuthenticationModule,
     HttpClientModule,
-    BrowserModule
-    
-    
-    
-    
-    
+    BrowserModule,
+   
+ 
   ],
 
   exports: [

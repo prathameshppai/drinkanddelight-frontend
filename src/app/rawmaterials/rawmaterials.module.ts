@@ -12,6 +12,7 @@ import { HttpClientModule} from '@angular/common/http';
 import { Routes, RouterModule } from '@angular/router';
 import { DisplaySupplierDetailsComponent } from './display-supplier-details/display-supplier-details.component';
 import { AuthenticationService } from '../authentication.service';
+import { Ng2SearchPipeModule } from 'ng2-search-filter'; 
 
 
 
@@ -48,6 +49,7 @@ const secondaryRoutes: Routes = [
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    Ng2SearchPipeModule
     
     
   ],
@@ -58,7 +60,8 @@ const secondaryRoutes: Routes = [
     TrackRawmaterialOrderComponent, 
     UpdateRawmaterialOrderComponent, 
     UpdateRawmaterialStockComponent, 
-    SetProcessDateComponent],
+    SetProcessDateComponent,
+    Ng2SearchPipeModule],
 
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   
