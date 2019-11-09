@@ -13,7 +13,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { DisplaySupplierDetailsComponent } from './display-supplier-details/display-supplier-details.component';
 import { AuthenticationService } from '../authentication.service';
 import { Ng2SearchPipeModule } from 'ng2-search-filter'; 
-
+import {NgxPaginationModule} from 'ngx-pagination';
 
 
 
@@ -49,8 +49,8 @@ const secondaryRoutes: Routes = [
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    Ng2SearchPipeModule
-    
+    Ng2SearchPipeModule,
+    NgxPaginationModule
     
   ],
 

@@ -29,6 +29,7 @@ import { Router } from '@angular/router';
    public rmos  =[];
     isDataFetched :boolean = false;
     message : string 
+    p:number =1;
 
 
     public changestatus() {
