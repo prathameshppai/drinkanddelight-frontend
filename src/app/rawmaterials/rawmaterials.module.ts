@@ -14,13 +14,7 @@ import { DisplaySupplierDetailsComponent } from './display-supplier-details/disp
 import { AuthenticationService } from '../authentication.service';
 import { Ng2SearchPipeModule } from 'ng2-search-filter'; 
 import {NgxPaginationModule} from 'ngx-pagination';
-
-
-
-
-
-
-
+import { Ng2OrderModule } from 'ng2-order-pipe';
 const secondaryRoutes: Routes = [
   { path: 'place-rawmaterial-order', component: PlaceRawmaterialOrdersComponent, canActivate: [AuthenticationService]},
   { path: 'display-rawmaterial-orders', component: DisplayRawmaterialOrdersComponent, canActivate: [AuthenticationService]},
@@ -50,7 +44,8 @@ const secondaryRoutes: Routes = [
     HttpClientModule,
     ReactiveFormsModule,
     Ng2SearchPipeModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    Ng2OrderModule
     
   ],
 

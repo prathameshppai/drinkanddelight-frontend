@@ -60,12 +60,27 @@
 <br>
         <div *ngIf="isDataFetched">
                 
-                <div>
-                                <label for="DeliveryStatus">
-                                                <p><b>Search</b> </p>
-                                        </label>
-                        <input class="form-control" type="text" name="search" [(ngModel)]="search">      
+                <div class="row">
+
+                 <div class="col col-sm-4">
+                        <p><b>Search</b> </p>
+                
+                        <input class="form-control" type="text" name="search" [(ngModel)]="search">
+
+                 </div>
+                 <div class="col col-sm-4">
+                        
+                                        <p><b>Sortby</b> </p>
+                                
+                                <select class="form-control" name="Sortby"  (change)= "sort()" [(ngModel)]="keyInput" required>
+                                        <option value="name"  >name</option>
+                                        <option value="supplierId"  >supplierId</option>
+                                        <option value="totalPrice" >totalPrice </option>
+                                        <option value="dateOfDelivery" >dateOfDelivery</option>
+                                        <option value="dateOfOrder" >dateOfOrder</option>
+                                </select>      
                 </div>
+        </div>
                 <br>
                 <div class="table-responsive{-xsm-sm|-md|-lg|-xl}">
 
@@ -74,41 +89,178 @@
                                 <thead>
                                         <tr>
 
-                                                <th>
-                                                        <div class="col-lg-1">Name</div>
+                                                <th >
+                                                  
+                                                        <div>
+                                                                        <ul class="nav navbar-nav mr-auto">
+                                                                                        <li class="nav-item">
+                                                                                              <div class="btn-group" >
+                                                                                                      <button class="btn btn-secondary btn-md dropdown-toggle btn-secondary-spacing font" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                                                                                                                Name
+                                                                                                      </button>
+                                                                                                      <div class="dropdown-menu"  >
+                                                                                                        
+                                                                                                                <option (click)="sort('name')" class="dropdown-item" value="Sort A to Z"  >Sort A to Z</option>
+                                                                                                                <option (click)="sort1('name')"class="dropdown-item"  value="Sort Z to A"  >Sort Z to A</option>
+                                                                                                       
+                                                                                                               
+                                                                    
+                                                                                                      </div>
+                                
+                                                                                          </div>
+                                                                                        </li>
+                                                                        </ul>
+                                                                        </div>
                                                 </th>
                                                 <th>
-                                                        <div class="col-lg-0.5">SupplierId</div>
+                                                        
+                                                        <div>
+                                                                        <ul class="nav navbar-nav mr-auto">
+                                                                                        <li class="nav-item">
+                                                                                              <div class="btn-group" >
+                                                                                                      <button class="btn btn-secondary btn-md dropdown-toggle btn-secondary-spacing font" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                                                                                                                SupplierId
+                                                                                                      </button>
+                                                                                                      <div class="dropdown-menu"  >
+                                                                                                        
+                                                                                                                <option (click)="sort('supplierId')" class="dropdown-item" value="Sort A to Z"  >Sort A to Z</option>
+                                                                                                                <option (click)="sort1('supplierId')"class="dropdown-item"  value="Sort Z to A"  >Sort Z to A</option>
+                                                                                                       
+                                                                                                               
+                                                                    
+                                                                                                      </div>
+                                
+                                                                                          </div>
+                                                                                        </li>
+                                                                        </ul>
+                                                                        </div>
                                                 </th>
                                                 <th>
-                                                        <div class="col-lg-0.5">Quantity</div>
+                                                        
+                                                       
+                                                                      
+                                                                                              <div class="btn-group" >
+                                                                                                      <button class="btn btn-secondary  btn-secondary-spacing font" type="button"  >
+                                                                                                                Quantity
+                                                                                                      </button>
+                                                                                                     
+                                
+                                                                                          </div>
+                                                                                        
+                                                                      
+                                                                        
                                                 </th>
                                                 <th>
-                                                        <div class="col-lg-0.5">QuantityUnit</div>
+                                                        
+                                                        
+                                                        <div class="btn-group" >
+                                                                        <button class="btn btn-secondary  btn-secondary-spacing font" type="button"  >
+                                                                                        QuantityUnit
+                                                                        </button>
+                                                                       
+  
+                                                            </div>
                                                 </th>
                                                 <th>
-                                                        <div class="col-lg-1">Order<br>Date</div>
+                                                       
+                                                        <div>
+                                                                        <ul class="nav navbar-nav mr-auto">
+                                                                                        <li class="nav-item">
+                                                                                              <div class="btn-group" >
+                                                                                                      <button class="btn btn-secondary btn-md dropdown-toggle btn-secondary-spacing font" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                                                                                                                dateOfOrder
+                                                                                                      </button>
+                                                                                                      <div class="dropdown-menu"  >
+                                                                                                        
+                                                                                                                <option (click)="sort('dateOfOrder')" class="dropdown-item" value="Sort Oldest to Newest"  >Sort Oldest to Newest</option>
+                                                                                                                <option (click)="sort1('dateOfOrder')"class="dropdown-item"  value="Sort Newest to Oldest"  >Sort Newest to Oldest</option>
+                                                                                                       
+                                                                                                               
+                                                                    
+                                                                                                      </div>
+                                
+                                                                                          </div>
+                                                                                        </li>
+                                                                        </ul>
+                                                                        </div>
+                                                
+                                                
                                                 </th>
                                                 <th>
-                                                        <div class="col-lg-0.5">Delivery<br>Date</div>
+                                                       
+                                                        <div>
+                                                                        <ul class="nav navbar-nav mr-auto">
+                                                                                        <li class="nav-item">
+                                                                                              <div class="btn-group" >
+                                                                                                      <button class="btn btn-secondary btn-md dropdown-toggle btn-secondary-spacing font" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                                                                                                                Delivery<br>Date
+                                                                                                      </button>
+                                                                                                      <div class="dropdown-menu"  >
+                                                                                                        
+                                                                                                                <option (click)="sort('dateOfDelivery')" class="dropdown-item" value="Sort Oldest to Newest"  >Sort Oldest to Newest</option>
+                                                                                                                <option (click)="sort1('dateOfDelivery')"class="dropdown-item"  value="Sort Newest to Oldest"  >Sort Newest to Oldest</option>
+                                                                                                       
+                                                                                                               
+                                                                    
+                                                                                                      </div>
+                                
+                                                                                          </div>
+                                                                                        </li>
+                                                                        </ul>
+                                                                        </div>
                                                 </th>
                                                 <th>
-                                                        <div class="col-lg-0.5">Unit<br>Price</div>
+                                                        
+                                                        <div class="btn-group" >
+                                                                        <button class="btn btn-secondary  btn-secondary-spacing font" type="button"  >
+                                                                                        Unit<br>Price
+                                                                        </button>
+                                                                       
+  
+                                                            </div>
                                                 </th>
                                                 <th>
-                                                        <div class="col-lg-0.5">TotalPrice</div>
+                                                        <div>
+                                                                        <ul class="nav navbar-nav mr-auto">
+                                                                                        <li class="nav-item">
+                                                                                              <div class="btn-group" >
+                                                                                                      <button class="btn btn-secondary btn-md dropdown-toggle btn-secondary-spacing font" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                                                                                                                TotalPrice
+                                                                                                      </button>
+                                                                                                      <div class="dropdown-menu"  >
+                                                                                                        
+                                                                                                                <option (click)="sort('totalPrice')" class="dropdown-item" value="Sort Smallest to Largest"  >Sort Smallest to Largest</option>
+                                                                                                                <option (click)="sort1('totalPrice')"class="dropdown-item"  value="Sort Largest to Smallest"  >Sort Largest to Smallest</option>
+                                                                                                       
+                                                                                                               
+                                                                    
+                                                                                                      </div>
+                                
+                                                                                          </div>
+                                                                                        </li>
+                                                                        </ul>
+                                                                        </div>
+                                                
+                                                
                                                 </th>
                                                 <th>
-                                                        <div class="col-lg-0.25">DeliveryStatus</div>
+                                                        
+                                                        <div class="btn-group" >
+                                                                        <button class="btn btn-secondary  btn-secondary-spacing font" type="button"  >
+                                                                                        DeliveryStatus
+                                                                        </button>
+                                                                       
+  
+                                                            </div>
                                                 </th>
 
                                         </tr>
                                 </thead>
                                 <tbody>
-                                        <tr *ngFor="let rmo of rmos | filter:search | paginate: { itemsPerPage: 10, currentPage: p };">
+                                        <tr *ngFor="let rmo of rmos | filter:search | orderBy: key :reverse  | paginate: { itemsPerPage: 10, currentPage: p };">
 
                                                 <td>
-                                                        <div class="col-lg-0.5">{{rmo.name}}</div>
+                                                        <div class="col-lg-0.5">{{rmo.name | titlecase }}</div>
                                                 </td>
                                                 <td>
                                                         <div class="col-lg-0.5">{{rmo.supplierId}}</div>
@@ -134,7 +286,7 @@
                                                         <div class="col-lg-1">{{rmo.pricePerUnit}}</div>
                                                 </td>
                                                 <td>
-                                                        <div class="col-lg-1">{{rmo.totalPrice}}</div>
+                                                        <div class="col-lg-1">{{rmo.totalPrice }}</div>
                                                 </td>
                                                 <td>
                                                         <div class="col-lg-1.25">{{rmo.deliveryStatus}}
