@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class UpdateRawmaterialStockService {
   updateRMStock(orderId: number, manufacturingDate: Date, expiryDate: Date, qaStatus: string) {
-    return this.http.put("http://localhost:9090/drinkanddelight/RawMaterialStock/UpdateRawMaterialStockDetails/"+orderId, {"ManufacturingDate": manufacturingDate, "ExpiryDate": expiryDate, "QAStatus": qaStatus })
+    return this.http.put("http://localhost:9090/RawMaterialStock/UpdateRawMaterialStockDetails/"+orderId, {"ManufacturingDate": manufacturingDate, "ExpiryDate": expiryDate, "QAStatus": qaStatus })
   }
 
   constructor(private http: HttpClient) { }

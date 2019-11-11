@@ -16,7 +16,7 @@ export class TrackProductOrderService {
   getTrackedMessage(orderId: number)/*: Observable<string> */{
     
     //this.http.post<String>("http://localhost:9090/drinkanddelight/TrackProductOrderServlet", {"OrderId": orderId});
-    return this.http.get("http://localhost:9090/drinkanddelight/ProductStock/TrackProduct/"+orderId);
+    return this.http.get("http://localhost:9090/ProductStock/TrackProduct/"+orderId);
     
   }
   constructor(private http: HttpClient) { }

@@ -13,7 +13,7 @@ export class SetProcessDateService {
     //     let headers = new Headers({ 'Content-Type': 'application/json' });
     //     let options = new RequestOptions({ headers: headers });
     // this.ProcessDate.
-    return this.http.put("http://localhost:9090/drinkanddelight/RawMaterialStock/UpdateProcessDate/"+orderId,{"ProcessDate": processDate})
+    return this.http.put("http://localhost:9090/RawMaterialStock/UpdateProcessDate/"+orderId,{"ProcessDate": processDate})
   }
 
   constructor(private http: HttpClient) { }
