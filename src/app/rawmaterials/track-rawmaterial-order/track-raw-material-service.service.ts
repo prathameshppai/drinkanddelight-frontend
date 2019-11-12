@@ -10,7 +10,7 @@ export class TrackRawMaterialServiceService {
 
   getTrackedMessage(orderId: number){
     
-    return this.http.get("http://localhost:9090/drinkanddelight/RawMaterialStock/TrackRawMaterial/"+orderId);
+    return this.http.get("http://localhost:9090/RawMaterialStock/TrackRawMaterial/"+orderId);
     
   }
   constructor(private http: HttpClient) { }
