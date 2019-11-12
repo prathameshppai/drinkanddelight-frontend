@@ -25,10 +25,14 @@ import { Router } from '@angular/router';
     SupplierIDVar :string = null;
     DeliveryStatusVar :string  =null;
     loggedIn: boolean;
-    
+    search :string;    
    public rmos  =[];
     isDataFetched :boolean = false;
     message : string 
+    p:number =1;
+    key:string; 
+    reverse: boolean = false;
+   
 
 
     public changestatus() {
@@ -86,6 +90,19 @@ import { Router } from '@angular/router';
         }
       )
     }
-    
-    }
-  
+   
+  sort(key:string){
+    console.log(1111111)
+  this.key =key;
+   this.reverse = false;//false for ascending
+   console.log(this.reverse)
+ 
+}
+sort1(key:string){
+  console.log(2222222) 
+this.key =key ;
+ this.reverse = true;//true for desscending
+ console.log(this.reverse)
+
+}
+}

@@ -12,14 +12,9 @@ import { HttpClientModule} from '@angular/common/http';
 import { Routes, RouterModule } from '@angular/router';
 import { DisplaySupplierDetailsComponent } from './display-supplier-details/display-supplier-details.component';
 import { AuthenticationService } from '../authentication.service';
-
-
-
-
-
-
-
-
+import { Ng2SearchPipeModule } from 'ng2-search-filter'; 
+import {NgxPaginationModule} from 'ngx-pagination';
+import { Ng2OrderModule } from 'ng2-order-pipe';
 const secondaryRoutes: Routes = [
   { path: 'place-rawmaterial-order', component: PlaceRawmaterialOrdersComponent, canActivate: [AuthenticationService]},
   { path: 'display-rawmaterial-orders', component: DisplayRawmaterialOrdersComponent, canActivate: [AuthenticationService]},
@@ -48,7 +43,9 @@ const secondaryRoutes: Routes = [
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    
+    Ng2SearchPipeModule,
+    NgxPaginationModule,
+    Ng2OrderModule
     
   ],
 
@@ -58,7 +55,8 @@ const secondaryRoutes: Routes = [
     TrackRawmaterialOrderComponent, 
     UpdateRawmaterialOrderComponent, 
     UpdateRawmaterialStockComponent, 
-    SetProcessDateComponent],
+    SetProcessDateComponent,
+    Ng2SearchPipeModule],
 
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   

@@ -11,7 +11,7 @@ export class DisplayRawmaterialOrdersService {
 
   getRawMaterialList(DeliveryStatusVar : string, SupplierIDVar : string, date1Var : Date, date2Var : Date): Observable<RawMaterialOrder[]>{
     console.log("in service method");
-    return this.http.post<RawMaterialOrder[]>("http://localhost:9090/drinkanddelight/RawmaterialOrder",
+    return this.http.post<RawMaterialOrder[]>("http://localhost:9090/RawmaterialOrder",
     {"deliveryStatus":DeliveryStatusVar,"supplierid":SupplierIDVar ,"startdate":date1Var, "endDate":date2Var});
     
   }
