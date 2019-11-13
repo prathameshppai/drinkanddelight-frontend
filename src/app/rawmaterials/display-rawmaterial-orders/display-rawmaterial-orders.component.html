@@ -32,18 +32,20 @@
                 <div class="col col-sm-2" style="align-content: center;"><br><br><br><input type="checkbox"
                                 (click)="changestatus(); SetMaxDate()">
                         Show
-                        Calendar<br><br><input class="btn btn-dark" type="submit" value="submit"
-                                (click)="getRawMaterial()">
+                        Calendar<br><br>
                 </div>
+                
         </div>
+
+        
 
         <div *ngIf="!(showdate); then thenBlock else elseBlock"></div>
         <ng-template #thenBlock>
                 <div class="row">
-                        <div class="col-lg-4"> Enter start date: <br> <input [max]="todayFormat" type="date"
+                        <div class="col-lg-4"> Enter start date: <br> <input  min ="2019-01-01" [max]="todayFormat" type="date"
                                         name="date1" id="date1" [(ngModel)]="date1Var"><br><br> Enter end date :
                                 <br>
-                                <input [max]="todayFormat" type="date" name="date1" id="date2"
+                                <input min ="2019-01-01" [max]="todayFormat" type="date" name="date1" id="date2"
                                         [(ngModel)]="date2Var"><br><br>
                         </div>
                 </div>
@@ -51,10 +53,12 @@
         </ng-template>
         <ng-template #elseBlock>
         </ng-template>
-
-
+<br>
+        <div>
+                <button type="submit" class="btn btn-dark" name="submitbtn" type="submit" value="submit"
+                (click)="getRawMaterial()">submit</button>
         <div *ngIf="!isDataFetched">
-                <strong>{{ message }}</strong>
+                <strong name = 'displaybox'>{{ message }}</strong>
         </div>
         <br>
         <div *ngIf="isDataFetched">

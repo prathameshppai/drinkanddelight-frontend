@@ -67,7 +67,7 @@ import { Router } from '@angular/router';
   constructor(private data: DataExchangeService, private rawMaterialService: DisplayRawmaterialOrdersService, private route: Router) { }
 
     getRawMaterial() {
-
+      console.log("clicked");
       this.rawMaterialService.getRawMaterialList(this.DeliveryStatusVar, this.SupplierIDVar,this.date1Var, this.date2Var)
       .subscribe(
         data => {

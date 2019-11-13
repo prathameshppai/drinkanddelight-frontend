@@ -1,4 +1,4 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DisplayProductOrdersComponent } from './display-product-orders/display-product-orders.component';
 import { PlaceProductOrderComponent } from './place-product-order/place-product-order.component';
@@ -11,33 +11,33 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 import { DisplayDistributorDetailsComponent } from './display-distributor-details/display-distributor-details.component';
 import { AuthenticationService } from '../authentication.service';
-import { Ng2SearchPipeModule } from 'ng2-search-filter'; 
-import {NgxPaginationModule} from 'ngx-pagination';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { NgxPaginationModule } from 'ngx-pagination';
 import { Ng2OrderModule } from 'ng2-order-pipe';
 
 const secondaryRoutes: Routes = [
-  { path: 'place-product-order', component: PlaceProductOrderComponent, canActivate: [AuthenticationService]},
-  { path: 'display-product-orders', component: DisplayProductOrdersComponent, canActivate: [AuthenticationService]},
-  { path: 'set-exit-date', component: SetExitDateComponent, canActivate: [AuthenticationService]},
-  { path: 'track-product-order', component: TrackProductOrderComponent, canActivate: [AuthenticationService]},
-  { path: 'update-product-order', component: UpdateProductOrderComponent, canActivate: [AuthenticationService]},
-  { path: 'update-product-stock', component: UpdateProductStockComponent, canActivate: [AuthenticationService]},
-  { path: 'add-distributor-address', component: AddDistributorAddressComponent, canActivate: [AuthenticationService]},
-  { path: 'display-distributor', component: DisplayDistributorDetailsComponent, canActivate: [AuthenticationService]}
+  { path: 'place-product-order', component: PlaceProductOrderComponent, canActivate: [AuthenticationService] },
+  { path: 'display-product-orders', component: DisplayProductOrdersComponent, canActivate: [AuthenticationService] },
+  { path: 'set-exit-date', component: SetExitDateComponent, canActivate: [AuthenticationService] },
+  { path: 'track-product-order', component: TrackProductOrderComponent, canActivate: [AuthenticationService] },
+  { path: 'update-product-order', component: UpdateProductOrderComponent, canActivate: [AuthenticationService] },
+  { path: 'update-product-stock', component: UpdateProductStockComponent, canActivate: [AuthenticationService] },
+  { path: 'add-distributor-address', component: AddDistributorAddressComponent, canActivate: [AuthenticationService] },
+  { path: 'display-distributor', component: DisplayDistributorDetailsComponent, canActivate: [AuthenticationService] }
 
-  
+
 ];
 
 @NgModule({
 
   declarations: [
-    DisplayProductOrdersComponent, 
-    PlaceProductOrderComponent, 
-    TrackProductOrderComponent, 
-    UpdateProductOrderComponent, 
-    UpdateProductStockComponent, 
-    SetExitDateComponent, 
-    AddDistributorAddressComponent, 
+    DisplayProductOrdersComponent,
+    PlaceProductOrderComponent,
+    TrackProductOrderComponent,
+    UpdateProductOrderComponent,
+    UpdateProductStockComponent,
+    SetExitDateComponent,
+    AddDistributorAddressComponent,
     DisplayDistributorDetailsComponent],
 
 
@@ -51,17 +51,17 @@ const secondaryRoutes: Routes = [
     Ng2OrderModule
   ],
 
-  exports: [DisplayProductOrdersComponent, 
-    PlaceProductOrderComponent, 
-    TrackProductOrderComponent, 
-    UpdateProductOrderComponent, 
-    UpdateProductStockComponent, 
-    SetExitDateComponent, 
+  exports: [DisplayProductOrdersComponent,
+    PlaceProductOrderComponent,
+    TrackProductOrderComponent,
+    UpdateProductOrderComponent,
+    UpdateProductStockComponent,
+    SetExitDateComponent,
     AddDistributorAddressComponent
   ],
-    schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
-  
-    providers: [ 
-    ]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+
+  providers: [
+  ]
 })
 export class ProductsModule { }
