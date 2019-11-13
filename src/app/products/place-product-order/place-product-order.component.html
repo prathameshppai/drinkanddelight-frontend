@@ -79,7 +79,7 @@
                     <label for="expectedDateofDelivery">
                         <b>Expected Date of Delivery</b>
                     </label>
-                    <input type="date" name="expectedDateofDelivery" [(ngModel)]='expectedDateofDeliveryVar' class=" text-box-size form-rounded"
+                    <input type="date" name="expectedDateofDelivery" id="expecteddateofdelivery" [(ngModel)]='expectedDateofDeliveryVar' class=" text-box-size form-rounded"
                         min="{{minDate | date:'yyyy-MM-dd'}}" max="{{maxDate | date:'yyyy-MM-dd'}}">
                 </div>
             </div>
@@ -100,7 +100,7 @@
 <br>
 <div class="container">
     <div class="alert alert-info" *ngIf = 'isPlaceProductOrderFetched'>
-        <strong>{{ message }}</strong>
+        <strong name = 'outputbox'>{{ message }}</strong>
         <br>
     </div>
 </div>
