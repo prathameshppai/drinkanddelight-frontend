@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DisplayProductOrdersComponent } from './display-product-orders/display-product-orders.component';
 import { PlaceProductOrderComponent } from './place-product-order/place-product-order.component';
@@ -11,6 +11,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 import { DisplayDistributorDetailsComponent } from './display-distributor-details/display-distributor-details.component';
 import { AuthenticationService } from '../authentication.service';
+import { Ng2SearchPipeModule } from 'ng2-search-filter'; 
+import {NgxPaginationModule} from 'ngx-pagination';
+import { Ng2OrderModule } from 'ng2-order-pipe';
 
 const secondaryRoutes: Routes = [
   { path: 'place-product-order', component: PlaceProductOrderComponent, canActivate: [AuthenticationService]},
@@ -42,7 +45,10 @@ const secondaryRoutes: Routes = [
     RouterModule.forChild(secondaryRoutes),
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    Ng2SearchPipeModule,
+    NgxPaginationModule,
+    Ng2OrderModule
   ],
 
   exports: [DisplayProductOrdersComponent, 
@@ -51,6 +57,11 @@ const secondaryRoutes: Routes = [
     UpdateProductOrderComponent, 
     UpdateProductStockComponent, 
     SetExitDateComponent, 
-    AddDistributorAddressComponent]
+    AddDistributorAddressComponent
+  ],
+    schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
+  
+    providers: [ 
+    ]
 })
 export class ProductsModule { }
