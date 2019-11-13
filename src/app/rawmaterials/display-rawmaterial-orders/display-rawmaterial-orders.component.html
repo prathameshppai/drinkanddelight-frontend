@@ -1,3 +1,4 @@
+
 <h2>Display Raw Material Order</h2>
 
 <div class="container">
@@ -55,8 +56,11 @@
         </ng-template>
 <br>
         <div>
-                <button type="submit" class="btn btn-dark" name="submitbtn" type="submit" value="submit"
+                <button  class="btn btn-dark" name="submitbtn" 
                 (click)="getRawMaterial()">submit</button>
+                
+        </div>
+
         <div *ngIf="!isDataFetched">
                 <strong name = 'displaybox'>{{ message }}</strong>
         </div>
